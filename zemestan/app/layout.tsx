@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { CartProvider } from "@/components/cart/CartProvider";
 
 export const metadata: Metadata = {
   title: "زمستان | فروش عمده پوشاک مردانه زمستانه",
@@ -16,7 +17,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body>{children}</body>
+      <body>
+        <CartProvider>{children}</CartProvider>
+      </body>
     </html>
   );
 }
