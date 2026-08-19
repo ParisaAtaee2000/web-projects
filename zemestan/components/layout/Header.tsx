@@ -20,32 +20,27 @@ export function Header() {
       <div className={`topbar ${styles.animatedTopbar}`}>
         <div className="container topbar-inner">
           <div className={styles.topbarTrack}>
-            <span>فروش مستقیم از تولیدکننده</span>
+            <span>تولید مستقیم از اِچ عطایی</span>
             <span>حداقل سفارش هر محصول: ۸ عدد</span>
             <span>ارسال با پست به سراسر کشور</span>
-            <span>قیمت عمده برای خرید حرفه‌ای</span>
-            <span aria-hidden>فروش مستقیم از تولیدکننده</span>
+            <span>خرید عمده حرفه‌ای پوشاک مردانه</span>
+            <span aria-hidden>تولید مستقیم از اِچ عطایی</span>
             <span aria-hidden>حداقل سفارش هر محصول: ۸ عدد</span>
             <span aria-hidden>ارسال با پست به سراسر کشور</span>
-            <span aria-hidden>قیمت عمده برای خرید حرفه‌ای</span>
+            <span aria-hidden>خرید عمده حرفه‌ای پوشاک مردانه</span>
           </div>
         </div>
       </div>
 
       <header className="site-header">
         <div className="container nav">
-          <button
-            className="mobile-menu-button"
-            aria-expanded={open}
-            aria-label={open ? "بستن منو" : "باز کردن منو"}
-            onClick={() => setOpen((value) => !value)}
-          >
+          <button className="mobile-menu-button" aria-expanded={open} aria-label={open ? "بستن منو" : "باز کردن منو"} onClick={() => setOpen((value) => !value)}>
             <span /><span /><span />
           </button>
 
           <Link href="/" className="brand">
-            زمستان
-            <span className="brand-sub">ZEMESTAN / WHOLESALE</span>
+            اِچ عطایی
+            <span className="brand-sub">H ATAYI / WHOLESALE</span>
           </Link>
 
           <nav className="navlinks">
@@ -70,36 +65,22 @@ export function Header() {
         <div className="mobile-menu-overlay" onClick={() => setOpen(false)}>
           <aside className="mobile-menu-panel" onClick={(event) => event.stopPropagation()}>
             <div className="mobile-menu-head">
-              <div>
-                <div className="section-kicker">ZEMESTAN / MENU</div>
-                <strong>منوی سایت</strong>
-              </div>
+              <div><div className="section-kicker">H ATAYI / MENU</div><strong>منوی سایت</strong></div>
               <button className="icon-btn" onClick={() => setOpen(false)} aria-label="بستن">×</button>
             </div>
-
             <div className="mobile-account-card">
               <span className="menu-icon">◯</span>
-              <div>
-                <strong>{user ? user.name : "خریدار عمده"}</strong>
-                <span>{user ? user.storeName : "برای ثبت سفارش از نوار پایین استفاده کنید"}</span>
-              </div>
+              <div><strong>{user ? user.name : "خریدار عمده"}</strong><span>{user ? user.storeName : "برای ثبت سفارش از نوار پایین استفاده کنید"}</span></div>
             </div>
-
-            <button
-              className="mobile-menu-search"
-              type="button"
-              onClick={() => { setOpen(false); setSearchOpen(true); }}
-            >
+            <button className="mobile-menu-search" type="button" onClick={() => { setOpen(false); setSearchOpen(true); }}>
               ⌕ جستجوی نام یا کد محصول
             </button>
-
             <nav className="mobile-menu-links">
               <Link href="/" onClick={() => setOpen(false)}>خانه</Link>
               <Link href="/shop" onClick={() => setOpen(false)}>همه محصولات</Link>
               <Link href="/#collections" onClick={() => setOpen(false)}>کالکشن‌ها</Link>
               <Link href="/#wholesale" onClick={() => setOpen(false)}>خرید عمده</Link>
             </nav>
-
             <div className="mobile-menu-categories">
               <div className="section-kicker">CATEGORIES</div>
               <div className="mobile-category-grid">
@@ -109,8 +90,7 @@ export function Header() {
                 <Link href="/shop?category=bomber" onClick={() => setOpen(false)}>بمبر</Link>
               </div>
             </div>
-
-            <div className="mobile-menu-note">تولید مستقیم · حداقل سفارش ۸ عدد · ارسال سراسر کشور</div>
+            <div className="mobile-menu-note">تولید مستقیم اِچ عطایی · حداقل سفارش ۸ عدد · ارسال سراسر کشور</div>
           </aside>
         </div>
       )}
@@ -118,14 +98,8 @@ export function Header() {
       <nav className={styles.bottomNav} aria-label="ناوبری موبایل">
         <Link href="/" className={styles.bottomNavItem}><span>⌂</span><small>خانه</small></Link>
         <Link href="/shop" className={styles.bottomNavItem}><span>⌕</span><small>فروشگاه</small></Link>
-        <Link href="/wishlist" className={styles.bottomNavItem}>
-          <span className={styles.bottomNavIconWrap}>♡{ids.length > 0 && <b>{ids.length}</b>}</span>
-          <small>علاقه‌مندی</small>
-        </Link>
-        <Link href="/cart" className={styles.bottomNavItem}>
-          <span className={styles.bottomNavIconWrap}>🛒{itemCount > 0 && <b>{itemCount}</b>}</span>
-          <small>سبد خرید</small>
-        </Link>
+        <Link href="/wishlist" className={styles.bottomNavItem}><span className={styles.bottomNavIconWrap}>♡{ids.length > 0 && <b>{ids.length}</b>}</span><small>علاقه‌مندی</small></Link>
+        <Link href="/cart" className={styles.bottomNavItem}><span className={styles.bottomNavIconWrap}>🛒{itemCount > 0 && <b>{itemCount}</b>}</span><small>سبد خرید</small></Link>
         <Link href={user ? "/account" : "/login"} className={styles.bottomNavItem}><span>◯</span><small>حساب</small></Link>
       </nav>
 
