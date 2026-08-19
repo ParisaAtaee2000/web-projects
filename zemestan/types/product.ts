@@ -9,6 +9,8 @@ export type InventoryVariant = {
   stock: number;
 };
 
+export type WholesaleUnit = "jean";
+
 export type Product = {
   id: string;
   slug: string;
@@ -16,8 +18,12 @@ export type Product = {
   code: string;
   category: ProductCategory;
   wholesalePrice: number;
-  minWholesaleQuantity: number;
-  quantityStep: number;
+  wholesaleUnit: WholesaleUnit;
+  wholesalePackSize: 8;
+  minWholesalePacks: 1;
+  wholesalePackLabel: string;
+  allowsVariantSelection: false;
+  quantityStep: 1;
   colors: ProductColor[];
   sizes: ProductSize[];
   variants: InventoryVariant[];
@@ -33,4 +39,8 @@ export function getVariantStock(product: Product, color: ProductColor, size: Pro
 
 export function getColorSizeMatrix(product: Product, color: ProductColor) {
   return product.sizes.map((size) => ({ size, stock: getVariantStock(product, color, size) }));
+}
+
+export function getWholesalePackPrice(product: Product): number {
+  return product.wholesalePrice * product.wholesalePackSize;
 }
