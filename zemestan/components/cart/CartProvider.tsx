@@ -1,58 +1,45 @@
 "use client";
 
 import { createContext, useContext, useMemo, useReducer } from "react";
-import type { Product, ProductColor, ProductSize } from "@/types/product";
+import type { Product } from "@/types/product";
+import { getWholesalePackPrice } from "@/types/product";
 
 type CartItem = {
   product: Product;
-  quantity: number;
-  color: ProductColor;
-  size: ProductSize;
+  packCount: number;
 };
 
 type State = { items: CartItem[] };
 type Action =
   | { type: "add"; item: CartItem }
-  | { type: "setQuantity"; id: string; quantity: number }
+  | { type: "setPackCount"; id: string; packCount: number }
   | { type: "remove"; id: string }
   | { type: "clear" };
 
 const initialState: State = { items: [] };
 
-function clampQuantity(product: Product, quantity: number) {
-  const min = product.minWholesaleQuantity;
-  const step = product.quantityStep;
-  if (quantity < min) return min;
-  return min + Math.floor((quantity - min) / step) * step;
+function clampPackCount(product: Product, packCount: number) {
+  return Math.max(product.minWholesalePacks, Math.floor(packCount / product.quantityStep) * product.quantityStep);
 }
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
     case "add": {
-      const existing = state.items.find(
-        (item) =>
-          item.product.id === action.item.product.id &&
-          item.color === action.item.color &&
-          item.size === action.item.size,
-      );
+      const existing = state.items.find((item) => item.product.id === action.item.product.id);
       if (!existing) return { items: [...state.items, action.item] };
       return {
         items: state.items.map((item) =>
           item === existing
-            ? { ...item, quantity: clampQuantity(item.product, item.quantity + action.item.quantity) }
+            ? { ...item, packCount: clampPackCount(item.product, item.packCount + action.item.packCount) }
             : item,
         ),
       };
     }
-    case "setQuantity":
+    case "setPackCount":
       return {
         items: state.items
-          .map((item) =>
-            item.product.id === action.id
-              ? { ...item, quantity: Math.min(clampQuantity(item.product, action.quantity), item.product.stock) }
-              : item,
-          )
-          .filter((item) => item.quantity > 0),
+          .map((item) => (item.product.id === action.id ? { ...item, packCount: clampPackCount(item.product, action.packCount) } : item))
+          .filter((item) => item.packCount > 0),
       };
     case "remove":
       return { items: state.items.filter((item) => item.product.id !== action.id) };
@@ -64,10 +51,11 @@ function reducer(state: State, action: Action): State {
 type CartContextValue = {
   items: CartItem[];
   itemCount: number;
+  packCount: number;
   subtotal: number;
   hasInvalidItems: boolean;
-  addItem: (product: Product, color: ProductColor, size: ProductSize, quantity?: number) => void;
-  setQuantity: (id: string, quantity: number) => void;
+  addItem: (product: Product, packCount?: number) => void;
+  setPackCount: (id: string, packCount: number) => void;
   removeItem: (id: string) => void;
   clear: () => void;
 };
@@ -77,17 +65,18 @@ const CartContext = createContext<CartContextValue | null>(null);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = useMemo<CartContextValue>(() => {
-    const subtotal = state.items.reduce((sum, item) => sum + item.product.wholesalePrice * item.quantity, 0);
-    const hasInvalidItems = state.items.some((item) => item.quantity < item.product.minWholesaleQuantity);
-    const itemCount = state.items.reduce((sum, item) => sum + item.quantity, 0);
+    const subtotal = state.items.reduce((sum, item) => sum + getWholesalePackPrice(item.product) * item.packCount, 0);
+    const packCount = state.items.reduce((sum, item) => sum + item.packCount, 0);
+    const itemCount = state.items.reduce((sum, item) => sum + item.packCount * item.product.wholesalePackSize, 0);
+    const hasInvalidItems = state.items.some((item) => item.packCount < item.product.minWholesalePacks);
     return {
       items: state.items,
       itemCount,
+      packCount,
       subtotal,
       hasInvalidItems,
-      addItem: (product, color, size, quantity = product.minWholesaleQuantity) =>
-        dispatch({ type: "add", item: { product, color, size, quantity: clampQuantity(product, quantity) } }),
-      setQuantity: (id, quantity) => dispatch({ type: "setQuantity", id, quantity }),
+      addItem: (product, count = product.minWholesalePacks) => dispatch({ type: "add", item: { product, packCount: clampPackCount(product, count) } }),
+      setPackCount: (id, count) => dispatch({ type: "setPackCount", id, packCount: count }),
       removeItem: (id) => dispatch({ type: "remove", id }),
       clear: () => dispatch({ type: "clear" }),
     };
