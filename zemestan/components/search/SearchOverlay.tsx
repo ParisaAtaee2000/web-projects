@@ -1,5 +1,6 @@
 "use client";
 
+import "./SearchOverlay.css";
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { products } from "@/data/products";
@@ -22,10 +23,7 @@ export function SearchOverlay({ open, onClose }: Props) {
     <div className="search-overlay" role="dialog" aria-modal="true" aria-label="جستجوی محصولات" onClick={onClose}>
       <div className="search-panel" onClick={(event) => event.stopPropagation()}>
         <div className="search-head">
-          <div>
-            <span className="section-kicker">SEARCH / PRODUCTS</span>
-            <h2 className="serif">جستجوی محصول</h2>
-          </div>
+          <div><span className="section-kicker">SEARCH / PRODUCTS</span><h2 className="serif">جستجوی محصول</h2></div>
           <button className="icon-btn" type="button" onClick={onClose} aria-label="بستن">×</button>
         </div>
         <div className="search-input-wrap">
