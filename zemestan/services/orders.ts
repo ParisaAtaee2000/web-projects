@@ -3,7 +3,7 @@ import type { WholesaleOrder, WholesaleOrderDraft } from "@/types/order";
 const orders = new Map<string, WholesaleOrder>();
 
 function calculateSubtotal(draft: WholesaleOrderDraft) {
-  return draft.items.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
+  return draft.items.reduce((sum, item) => sum + item.packPrice * item.packCount, 0);
 }
 
 function validateDraft(draft: WholesaleOrderDraft) {
@@ -13,6 +13,11 @@ function validateDraft(draft: WholesaleOrderDraft) {
   if (!draft.address.trim()) throw new Error("آدرس الزامی است.");
   if (draft.shippingMethod !== "postal") throw new Error("روش ارسال نامعتبر است.");
   if (!draft.items.length) throw new Error("سبد سفارش خالی است.");
+  for (const item of draft.items) {
+    if (item.packSize !== 8) throw new Error("هر جین باید دقیقاً ۸ عدد باشد.");
+    if (item.packCount < 1) throw new Error("حداقل سفارش هر محصول ۱ جین است.");
+    if (item.totalPieces !== item.packCount * 8) throw new Error("تعداد کل با تعداد جین همخوانی ندارد.");
+  }
 }
 
 export async function createWholesaleOrder(draft: WholesaleOrderDraft): Promise<WholesaleOrder> {
