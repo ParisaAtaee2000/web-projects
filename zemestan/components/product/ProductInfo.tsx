@@ -10,8 +10,8 @@ const money = (value: number) => `${value.toLocaleString("fa-IR")} تومان`;
 export function ProductInfo({ product }: { product: Product }) {
   const [packCount, setPackCount] = useState(product.minWholesalePacks);
   const { addItem } = useCart();
-  const unitPackPrice = getWholesalePackPrice(product);
-  const totalPrice = unitPackPrice * packCount;
+  const unitPrice = product.wholesalePrice;
+  const totalPrice = getWholesalePackPrice(product) * packCount;
   const totalPieces = packCount * product.wholesalePackSize;
 
   const addPack = () => setPackCount((value) => value + product.quantityStep);
@@ -24,8 +24,8 @@ export function ProductInfo({ product }: { product: Product }) {
       <p className="product-copy">این محصول فقط به‌صورت جین عمده عرضه می‌شود. داخل هر جین، ترکیب کامل رنگ و سایز طبق بسته‌بندی تولیدکننده قرار دارد و انتخاب جداگانه رنگ یا سایز امکان‌پذیر نیست.</p>
 
       <div className="price-box">
-        <div className="wholesale-price">{money(unitPackPrice)}</div>
-        <small>قیمت واحد هر جین ۸تایی · هر جین شامل {product.wholesalePackSize.toLocaleString("fa-IR")} عدد با ترکیب کامل رنگ و سایز</small>
+        <div className="wholesale-price">{money(unitPrice)}</div>
+        <small>قیمت واحد هر عدد کاپشن · سفارش عمده فقط در جین ۸تایی انجام می‌شود</small>
       </div>
 
       <div className="variant-group">
@@ -57,9 +57,9 @@ export function ProductInfo({ product }: { product: Product }) {
       </div>
 
       <div className="product-price-breakdown">
-        <div className="summary-row"><span>قیمت هر جین</span><strong>{money(unitPackPrice)}</strong></div>
+        <div className="summary-row"><span>قیمت واحد هر کاپشن</span><strong>{money(unitPrice)}</strong></div>
         <div className="summary-row"><span>تعداد جین</span><strong>{packCount.toLocaleString("fa-IR")} جین</strong></div>
-        <div className="summary-row"><span>تعداد کل لباس</span><strong>{totalPieces.toLocaleString("fa-IR")} عدد</strong></div>
+        <div className="summary-row"><span>تعداد کل کاپشن</span><strong>{totalPieces.toLocaleString("fa-IR")} عدد</strong></div>
         <div className="summary-row total"><span>قیمت کل سفارش این محصول</span><strong>{money(totalPrice)}</strong></div>
       </div>
 
