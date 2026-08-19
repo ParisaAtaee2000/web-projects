@@ -40,6 +40,7 @@ export default async function ProductPage({ params }: Props) {
   const product = products.find((item: Product) => item.slug === slug);
   if (!product) notFound();
 
+  const totalStock = product.variants.reduce((sum, variant) => sum + variant.stock, 0);
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -53,8 +54,8 @@ export default async function ProductPage({ params }: Props) {
       "@type": "Offer",
       url: absoluteUrl(`/product/${product.slug}`),
       priceCurrency: "IRR",
-      price: product.wholesalePrice,
-      availability: product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      price: product.wholesalePrice * 10,
+      availability: totalStock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
       seller: { "@type": "Organization", name: BRAND_NAME },
     },
   };
