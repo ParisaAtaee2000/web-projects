@@ -3,7 +3,8 @@ export type ProductCategory =
   | "coat"
   | "parka"
   | "leather"
-  | "bomber";
+  | "bomber"
+  | "raincoat";
 
 export type ProductColor = "مشکی" | "زغالی" | "قهوه‌ای" | "سبز زیتونی";
 export type ProductSize = "M" | "L" | "XL" | "XXL";
