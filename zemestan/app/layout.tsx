@@ -5,7 +5,7 @@ import "@/components/layout/mobile-ui-fixes.css";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { WishlistProvider } from "@/components/wishlist/WishlistProvider";
-import { BRAND_ENGLISH, BRAND_NAME, SITE_DESCRIPTION, getSiteUrl } from "@/lib/seo";
+import { BRAND_ENGLISH, BRAND_EXPERIENCE, BRAND_NAME, SITE_DESCRIPTION, getSiteUrl } from "@/lib/seo";
 
 const siteUrl = getSiteUrl();
 
@@ -20,17 +20,7 @@ export const metadata: Metadata = {
   authors: [{ name: BRAND_NAME }],
   creator: BRAND_NAME,
   publisher: BRAND_NAME,
-  keywords: [
-    "اچ عطایی",
-    "اِچ عطایی",
-    "H Atayi",
-    "فروش عمده پوشاک مردانه",
-    "کاپشن مردانه عمده",
-    "کت مردانه عمده",
-    "پالتو مردانه عمده",
-    "کاپشن زمستانه مردانه",
-    "پوشاک زمستانه مردانه",
-  ],
+  keywords: ["اچ عطایی", "اِچ عطایی", "H Atayi", "فروش عمده پوشاک مردانه", "کاپشن مردانه عمده", "کت مردانه عمده", "پالتو مردانه عمده", "کاپشن زمستانه مردانه", "پوشاک زمستانه مردانه"],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -60,6 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@type": "Organization",
     name: BRAND_NAME,
     alternateName: BRAND_ENGLISH,
+    description: `${BRAND_EXPERIENCE}. ${SITE_DESCRIPTION}`,
     url: siteUrl,
   };
 
