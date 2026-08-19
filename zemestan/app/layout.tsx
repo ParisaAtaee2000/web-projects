@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { CartProvider } from "@/components/cart/CartProvider";
+import { AuthProvider } from "@/components/auth/AuthProvider";
+import { WishlistProvider } from "@/components/wishlist/WishlistProvider";
 
 export const metadata: Metadata = {
   title: "زمستان | فروش عمده پوشاک مردانه زمستانه",
@@ -18,7 +20,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="fa" dir="rtl">
       <body>
-        <CartProvider>{children}</CartProvider>
+        <AuthProvider>
+          <WishlistProvider>
+            <CartProvider>{children}</CartProvider>
+          </WishlistProvider>
+        </AuthProvider>
       </body>
     </html>
   );
