@@ -11,6 +11,12 @@ export type InventoryVariant = {
 
 export type WholesaleUnit = "jean";
 
+export type JeanPack = {
+  piecesPerPack: 8;
+  sizeBreakdown: Partial<Record<ProductSize, number>>;
+  colorBreakdown: Partial<Record<ProductColor, number>>;
+};
+
 export type Product = {
   id: string;
   slug: string;
@@ -27,6 +33,7 @@ export type Product = {
   colors: ProductColor[];
   sizes: ProductSize[];
   variants: InventoryVariant[];
+  jeanPack: JeanPack;
   material: string;
   season: string;
   fit: string;
@@ -43,4 +50,10 @@ export function getColorSizeMatrix(product: Product, color: ProductColor) {
 
 export function getWholesalePackPrice(product: Product): number {
   return product.wholesalePrice * product.wholesalePackSize;
+}
+
+export function getJeanDescription(product: Product): string {
+  const sizes = Object.entries(product.jeanPack.sizeBreakdown).filter(([, qty]) => (qty ?? 0) > 0).map(([size, qty]) => `${size}: ${qty}`).join(" · ");
+  const colors = Object.entries(product.jeanPack.colorBreakdown).filter(([, qty]) => (qty ?? 0) > 0).map(([color, qty]) => `${color}: ${qty}`).join(" · ");
+  return `هر جین ${product.wholesalePackSize} عدد است و ترکیب آن ثابت است. سایزبندی: ${sizes || "کامل"}. رنگ‌بندی: ${colors || "کامل"}.`;
 }
