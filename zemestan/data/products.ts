@@ -19,7 +19,7 @@ export const products: Product[] = [
     ], material: "فوتر ترکیبی", season: "زمستان", fit: "Regular", isActive: true,
   },
   {
-    id: "p-1012", slug: "urban-leather-jacket", name: "کاپشن چرم شهری", code: "LJ-WM-1012", category: "leather", wholesalePrice: 2480000, minWholesaleQuantity: 12, quantityStep: 1,
+    id: "p-1012", slug: "urban-leather-jacket", name: "کاپشن چرم شهری", code: "LJ-WM-1012", category: "leather", wholesalePrice: 2480000, minWholesaleQuantity: 8, quantityStep: 1,
     colors: ["مشکی", "قهوه‌ای"], sizes: ["L", "XL", "2XL", "3XL"],
     variants: [
       {color:"مشکی",size:"L",stock:9},{color:"مشکی",size:"XL",stock:14},{color:"مشکی",size:"2XL",stock:10},{color:"مشکی",size:"3XL",stock:2},
@@ -35,7 +35,7 @@ export const products: Product[] = [
     ], material: "پارچه تکنیکال ضدباد", season: "زمستان", fit: "Relaxed", isActive: true,
   },
   {
-    id: "p-1020", slug: "urban-technical-coat", name: "اورکت فنی شهری", code: "OC-WM-1026", category: "raincoat", wholesalePrice: 1980000, minWholesaleQuantity: 12, quantityStep: 1,
+    id: "p-1020", slug: "urban-technical-coat", name: "اورکت فنی شهری", code: "OC-WM-1026", category: "raincoat", wholesalePrice: 1980000, minWholesaleQuantity: 8, quantityStep: 1,
     colors: ["زغالی", "مشکی"], sizes: ["L", "XL", "2XL", "3XL"],
     variants: [
       {color:"زغالی",size:"L",stock:13},{color:"زغالی",size:"XL",stock:20},{color:"زغالی",size:"2XL",stock:16},{color:"زغالی",size:"3XL",stock:6},
