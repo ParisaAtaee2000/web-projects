@@ -1,2 +1,2 @@
-import { categories } from "@/data/products";
+import { categories } from "@/data/catalog";
 export function CategoryIndex(){return <section className="section alt"><div className="container"><div className="section-head"><div><div className="section-kicker">INDEX / CATEGORIES</div><h2 className="section-title">دسته‌بندی‌ها</h2></div></div><div className="index-list">{categories.map((c,i)=><a className="index-row" href={`/shop?category=${c.value}`} key={c.value}><span className="index-num">۰{i+1}</span><h3>{c.label}</h3><small>مشاهده محصولات</small><span>←</span></a>)}</div></div></section>}
