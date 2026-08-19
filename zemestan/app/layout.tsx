@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./mobile.css";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { WishlistProvider } from "@/components/wishlist/WishlistProvider";
