@@ -1,0 +1,24 @@
+@media (max-width: 768px) {
+  .site-header .nav-actions .nav-account,
+  .site-header .nav-actions .nav-wishlist,
+  .site-header .nav-actions .nav-cart,
+  .site-header .nav-actions .nav-cta {
+    display: none;
+  }
+
+  .site-header .nav-actions {
+    margin-inline-start: auto;
+  }
+
+  .mobile-account-card > a {
+    display: none;
+  }
+
+  .mobile-menu-links a {
+    min-height: 48px;
+  }
+
+  body {
+    padding-bottom: 78px;
+  }
+}
