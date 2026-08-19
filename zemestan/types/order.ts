@@ -1,13 +1,11 @@
-import type { ProductColor, ProductSize } from "@/types/product";
-
 export type WholesaleOrderItem = {
   productId: string;
   productCode: string;
   productName: string;
-  color: ProductColor;
-  size: ProductSize;
-  quantity: number;
-  unitPrice: number;
+  packCount: number;
+  packSize: 8;
+  totalPieces: number;
+  packPrice: number;
 };
 
 export type ShippingMethod = "postal";
