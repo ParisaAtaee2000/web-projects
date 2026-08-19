@@ -1,18 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { Product } from "@/types/product";
 import { getWholesalePackPrice } from "@/types/product";
 import { useCart } from "@/components/cart/CartProvider";
+
+const money = (value: number) => `${value.toLocaleString("fa-IR")} تومان`;
 
 export function ProductInfo({ product }: { product: Product }) {
   const [packCount, setPackCount] = useState(product.minWholesalePacks);
   const { addItem } = useCart();
   const packPrice = getWholesalePackPrice(product);
+  const totalPieces = packCount * product.wholesalePackSize;
+  const totalPrice = useMemo(() => packPrice * packCount, [packPrice, packCount]);
 
   const addPack = () => setPackCount((value) => value + product.quantityStep);
   const removePack = () => setPackCount((value) => Math.max(product.minWholesalePacks, value - product.quantityStep));
-  const totalPieces = packCount * product.wholesalePackSize;
 
   return (
     <div className="product-info">
@@ -21,8 +24,12 @@ export function ProductInfo({ product }: { product: Product }) {
       <p className="product-copy">این محصول فقط به‌صورت جین عمده عرضه می‌شود. داخل هر جین، ترکیب کامل رنگ و سایز طبق بسته‌بندی تولیدکننده قرار دارد و انتخاب جداگانه رنگ یا سایز امکان‌پذیر نیست.</p>
 
       <div className="price-box">
-        <div className="wholesale-price">{packPrice.toLocaleString("fa-IR")} تومان</div>
+        <div className="wholesale-price">{money(packPrice)}</div>
         <small>قیمت هر جین ۸تایی · هر جین شامل {product.wholesalePackSize.toLocaleString("fa-IR")} عدد با ترکیب کامل رنگ و سایز</small>
+        <div className="live-total-price">
+          <span>قیمت کل سفارش فعلی</span>
+          <strong>{money(totalPrice)}</strong>
+        </div>
       </div>
 
       <div className="variant-group">
@@ -54,6 +61,10 @@ export function ProductInfo({ product }: { product: Product }) {
       </div>
 
       <div className="variant-label"><strong>{totalPieces.toLocaleString("fa-IR")} عدد</strong> در {packCount.toLocaleString("fa-IR")} جین</div>
+      <div className="live-total-price live-total-price--strong">
+        <span>جمع کل سفارش</span>
+        <strong>{money(totalPrice)}</strong>
+      </div>
 
       <button className="btn primary product-cta" type="button" onClick={() => addItem(product, packCount)}>
         افزودن {packCount.toLocaleString("fa-IR")} جین به سفارش عمده
