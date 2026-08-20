@@ -13,7 +13,7 @@ const standardSizeBreakdown = { L: 2, XL: 2, "2XL": 2, "3XL": 2 } as const;
 
 export const products: Product[] = [
   {
-    id: "p-1001", slug: "classic-bomber", name: "کاپشن بمبر کلاسیک", code: "NB-WM-1001", category: "bomber", wholesalePrice: 1280000,
+    id: "p-1001", slug: "classic-bomber", name: "کاپشن بامبر کلاسیک", code: "NB-WM-1001", category: "bomber", wholesalePrice: 1280000,
     ...wholesalePack,
     colors: ["مشکی", "زغالی", "قهوه‌ای"], sizes: ["L", "XL", "2XL", "3XL"],
     variants: [
