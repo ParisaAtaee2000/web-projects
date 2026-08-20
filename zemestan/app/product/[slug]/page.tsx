@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import type { Product } from "@/types/product";
 import { BRAND_NAME, absoluteUrl } from "@/lib/seo";
 import { getWholesalePackPrice } from "@/types/product";
+import styles from "./ProductPage.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -59,22 +60,27 @@ export default async function ProductPage({ params }: Props) {
     <main dir="rtl">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
-      <section className="container product-layout">
+      <section className={`${styles.productMain} container product-layout`}>
         <ProductGallery />
         <ProductInfo product={product} />
       </section>
       <InventorySection product={product} />
-      <section id="details" className="container section">
-        <div className="section-head"><div><div className="section-kicker">PRODUCT DETAILS</div><h2 className="section-title">مشخصات محصول</h2></div></div>
-        <div className="detail-grid">
-          <div className="detail-cell"><strong>کد محصول</strong><span>{product.code}</span></div>
-          <div className="detail-cell"><strong>واحد فروش عمده</strong><span>جین ۸تایی</span></div>
-          <div className="detail-cell"><strong>حداقل سفارش</strong><span>۱ جین = ۸ عدد</span></div>
-          <div className="detail-cell"><strong>جنس</strong><span>{product.material}</span></div>
-          <div className="detail-cell"><strong>فیت</strong><span>{product.fit}</span></div>
-          <div className="detail-cell"><strong>فصل</strong><span>{product.season}</span></div>
-          <div className="detail-cell"><strong>سایزبندی داخل جین</strong><span>L / XL / 2XL / 3XL</span></div>
-          <div className="detail-cell"><strong>انتخاب رنگ و سایز</strong><span>امکان انتخاب جداگانه ندارد؛ ترکیب جین ثابت است.</span></div>
+      <section id="details" className={`${styles.detailSection} container section`}>
+        <div className="section-head">
+          <div>
+            <div className="section-kicker">PRODUCT DETAILS</div>
+            <h2 className={`${styles.detailTitle} section-title`}>مشخصات محصول</h2>
+          </div>
+        </div>
+        <div className={`${styles.detailsGrid} detail-grid`}>
+          <div className={`${styles.detailCell} detail-cell`}><strong>کد محصول</strong><span>{product.code}</span></div>
+          <div className={`${styles.detailCell} detail-cell`}><strong>واحد فروش عمده</strong><span>جین ۸تایی</span></div>
+          <div className={`${styles.detailCell} detail-cell`}><strong>حداقل سفارش</strong><span>۱ جین = ۸ عدد</span></div>
+          <div className={`${styles.detailCell} detail-cell`}><strong>جنس</strong><span>{product.material}</span></div>
+          <div className={`${styles.detailCell} detail-cell`}><strong>فیت</strong><span>{product.fit}</span></div>
+          <div className={`${styles.detailCell} detail-cell`}><strong>فصل</strong><span>{product.season}</span></div>
+          <div className={`${styles.detailCell} detail-cell`}><strong>سایزبندی داخل جین</strong><span>L / XL / 2XL / 3XL</span></div>
+          <div className={`${styles.detailCell} detail-cell`}><strong>انتخاب رنگ و سایز</strong><span>امکان انتخاب جداگانه ندارد؛ ترکیب جین ثابت است.</span></div>
         </div>
       </section>
       <Footer />
