@@ -10,11 +10,11 @@ import type { Metadata } from "next";
 import { BRAND_NAME, SITE_DESCRIPTION } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: `${BRAND_NAME} | تولید و فروش عمده پوشاک مردانه زمستانه`,
-  description: `${BRAND_NAME} تولیدکننده و فروشنده عمده کاپشن، کت و پالتو مردانه زمستانه؛ خرید مستقیم با حداقل سفارش ۸ عدد.`,
+  title: `${BRAND_NAME} | پوشاک مردانه زمستانه برای خرید عمده`,
+  description: `مدل‌های زمستانه مردانه برای فروشگاه‌ها و بوتیک‌ها؛ خرید عمده کاپشن، کت و پالتو با شرایط روشن و جین ۸تایی.`,
   alternates: { canonical: "/" },
   openGraph: {
-    title: `${BRAND_NAME} | تولید و فروش عمده پوشاک مردانه زمستانه`,
+    title: `${BRAND_NAME} | پوشاک مردانه زمستانه برای خرید عمده`,
     description: SITE_DESCRIPTION,
     type: "website",
   },
