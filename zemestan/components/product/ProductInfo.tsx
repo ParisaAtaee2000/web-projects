@@ -23,33 +23,25 @@ export function ProductInfo({ product }: { product: Product }) {
       <div className="kicker mono">PRODUCT / {product.code}</div>
       <h1>{product.name}</h1>
       <p className={styles.copy}>
-        این محصول فقط به‌صورت جین عمده عرضه می‌شود. داخل هر جین، ترکیب کامل رنگ و سایز طبق بسته‌بندی تولیدکننده قرار دارد و انتخاب جداگانهٔ رنگ یا سایز امکان‌پذیر نیست.
+        برای خرید عمده این مدل، سفارش از یک جین شروع می‌شود. داخل هر جین ترکیب کامل رنگ و سایز آماده است و لازم نیست رنگ یا سایزها را جداگانه انتخاب کنید.
       </p>
 
       <div className={styles.priceBox}>
         <div className={styles.unitPrice}>{money(unitPrice)}</div>
-        <small className={styles.priceNote}>قیمت واحد هر عدد کاپشن · سفارش عمده فقط در جین ۸تایی انجام می‌شود.</small>
+        <small className={styles.priceNote}>قیمت واحد هر عدد کاپشن · فروش فقط به‌صورت جین ۸تایی</small>
       </div>
 
       <div className={styles.group}>
-        <span className={styles.label}>نوع فروش عمده</span>
+        <span className={styles.label}>داخل هر جین</span>
         <div className={styles.fixedBox}>
-          <strong>جین ۸تایی</strong>
-          <span>{product.wholesalePackLabel}</span>
-        </div>
-      </div>
-
-      <div className={styles.group}>
-        <span className={styles.label}>محتوای جین</span>
-        <div className={styles.fixedBox}>
-          <strong>رنگ‌بندی و سایزبندی کامل</strong>
-          <span>سایزها: L / XL / 2XL / 3XL · رنگ‌ها مطابق ترکیب آمادهٔ تولید.</span>
+          <strong>۸ عدد با ترکیب کامل رنگ و سایز</strong>
+          <span>سایزبندی: L / XL / 2XL / 3XL · ترکیب رنگ طبق بسته‌بندی محصول</span>
         </div>
       </div>
 
       <div className={`${styles.quantityBox} qty-box`}>
         <div>
-          <strong>تعداد جین</strong>
+          <strong>چند جین می‌خواهید؟</strong>
           <div className={styles.label}>حداقل سفارش: ۱ جین = ۸ عدد</div>
         </div>
         <div className="qty-controls">
@@ -60,16 +52,16 @@ export function ProductInfo({ product }: { product: Product }) {
       </div>
 
       <div className={styles.breakdown} aria-live="polite">
-        <div className={styles.breakdownRow}><span>قیمت واحد هر کاپشن</span><strong>{money(unitPrice)}</strong></div>
+        <div className={styles.breakdownRow}><span>قیمت هر کاپشن</span><strong>{money(unitPrice)}</strong></div>
         <div className={styles.breakdownRow}><span>تعداد جین</span><strong>{packCount.toLocaleString("fa-IR")} جین</strong></div>
         <div className={styles.breakdownRow}><span>تعداد کل کاپشن</span><strong>{totalPieces.toLocaleString("fa-IR")} عدد</strong></div>
-        <div className={`${styles.breakdownRow} ${styles.totalRow}`}><span>قیمت کل سفارش این محصول</span><strong>{money(totalPrice)}</strong></div>
+        <div className={`${styles.breakdownRow} ${styles.totalRow}`}><span>جمع این محصول</span><strong>{money(totalPrice)}</strong></div>
       </div>
 
       <button className={`${styles.cta} btn primary`} type="button" onClick={() => addItem(product, packCount)}>
-        افزودن {packCount.toLocaleString("fa-IR")} جین به سفارش عمده
+        افزودن به سفارش
       </button>
-      <a className={`${styles.detailLink} btn`} href="#details">مشخصات و ترکیب محصول</a>
+      <a className={`${styles.detailLink} btn`} href="#details">جزئیات و مشخصات مدل</a>
     </div>
   );
 }
