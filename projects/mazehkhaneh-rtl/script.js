@@ -1,0 +1,1 @@
+const chips=[...document.querySelectorAll('.chip')];const cards=[...document.querySelectorAll('.food-card')];chips.forEach(chip=>chip.addEventListener('click',()=>{chips.forEach(c=>c.classList.remove('active'));chip.classList.add('active')}));const header=document.querySelector('.site-header');window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>10));
