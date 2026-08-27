@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import './motion.module.css';
 import { ArrowLeft, Check, Clock3, Heart, Menu, Search, ShoppingBag, Sparkles, Star, Utensils, X } from 'lucide-react';
 import { CSSProperties, ReactNode, useEffect, useRef, useState } from 'react';
 
