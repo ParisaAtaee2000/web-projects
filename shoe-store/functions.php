@@ -17,8 +17,8 @@ add_action('after_setup_theme','sole_shoes_setup');
 
 function sole_shoes_assets() {
     wp_enqueue_style('sole-vazirmatn','https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap',array(),'1.0');
-    wp_enqueue_style('sole-style',get_stylesheet_uri(),array('sole-vazirmatn'),'1.0.0');
-    wp_enqueue_script('sole-theme',get_template_directory_uri().'/assets/js/theme.js',array(), '1.0.0', true);
+    wp_enqueue_style('sole-style',get_stylesheet_uri(),array('sole-vazirmatn'),'1.1.0');
+    wp_enqueue_script('sole-theme',get_template_directory_uri().'/assets/js/theme.js',array(), '1.1.0', true);
     wp_localize_script('sole-theme','soleShop',array('ajaxUrl'=>admin_url('admin-ajax.php'),'cartUrl'=>function_exists('wc_get_cart_url')?wc_get_cart_url():'#','nonce'=>wp_create_nonce('sole_shop')));
 }
 add_action('wp_enqueue_scripts','sole_shoes_assets');
@@ -46,3 +46,69 @@ add_filter('excerpt_more','sole_excerpt_more');
 
 function sole_body_classes($classes){ $classes[]='sole-theme'; return $classes; }
 add_filter('body_class','sole_body_classes');
+
+/* SEO: natural Persian metadata for the storefront, without requiring an SEO plugin. */
+function sole_seo_title($title) {
+    if (is_front_page()) return 'خرید کفش مردانه | کفش روزمره، اسپرت و رانینگ | SOLE';
+    return $title;
+}
+add_filter('pre_get_document_title','sole_seo_title',20);
+
+function sole_seo_meta() {
+    if (!is_front_page()) return;
+    $desc = 'خرید کفش مردانه با طراحی مینیمال و راحتی روزانه؛ مجموعه‌ای از کفش‌های روزمره، اسپرت و رانینگ SOLE با امکان خرید آنلاین و همکاری عمده.';
+    echo '<meta name="description" content="'.esc_attr($desc).'">' . "\n";
+    echo '<meta name="robots" content="index,follow,max-image-preview:large">' . "\n";
+    echo '<link rel="canonical" href="'.esc_url(home_url('/')).'">' . "\n";
+    echo '<meta property="og:type" content="website">' . "\n";
+    echo '<meta property="og:locale" content="fa_IR">' . "\n";
+    echo '<meta property="og:site_name" content="SOLE Shoes">' . "\n";
+    echo '<meta property="og:title" content="خرید کفش مردانه | SOLE Shoes">' . "\n";
+    echo '<meta property="og:description" content="خرید کفش مردانه، روزمره، اسپرت و رانینگ با طراحی مینیمال و راحتی روزانه.">' . "\n";
+    echo '<meta property="og:url" content="'.esc_url(home_url('/')).'">' . "\n";
+    echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+    echo '<meta name="twitter:title" content="خرید کفش مردانه | SOLE Shoes">' . "\n";
+    echo '<meta name="twitter:description" content="خرید کفش مردانه، روزمره، اسپرت و رانینگ با طراحی مینیمال و راحتی روزانه.">' . "\n";
+}
+add_action('wp_head','sole_seo_meta',5);
+
+function sole_front_schema() {
+    if (!is_front_page()) return;
+    $data = array(
+        '@context' => 'https://schema.org',
+        '@graph' => array(
+            array(
+                '@type' => 'Organization',
+                '@id' => home_url('/') . '#organization',
+                'name' => 'SOLE Shoes',
+                'url' => home_url('/'),
+                'description' => 'فروشگاه تخصصی کفش با تمرکز بر طراحی مینیمال، راحتی و کیفیت ساخت.'
+            ),
+            array(
+                '@type' => 'WebSite',
+                '@id' => home_url('/') . '#website',
+                'url' => home_url('/'),
+                'name' => 'SOLE Shoes',
+                'inLanguage' => 'fa-IR',
+                'publisher' => array('@id' => home_url('/') . '#organization'),
+                'potentialAction' => array(
+                    '@type' => 'SearchAction',
+                    'target' => home_url('/?s={search_term_string}'),
+                    'query-input' => 'required name=search_term_string'
+                )
+            ),
+            array(
+                '@type' => 'ItemList',
+                'name' => 'دسته‌بندی‌های کفش',
+                'itemListElement' => array(
+                    array('@type'=>'ListItem','position'=>1,'name'=>'کفش روزمره'),
+                    array('@type'=>'ListItem','position'=>2,'name'=>'کفش رانینگ'),
+                    array('@type'=>'ListItem','position'=>3,'name'=>'کفش اسپرت'),
+                    array('@type'=>'ListItem','position'=>4,'name'=>'کفش لوکس')
+                )
+            )
+        )
+    );
+    echo '<script type="application/ld+json">'.wp_json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES).'</script>' . "\n";
+}
+add_action('wp_head','sole_front_schema',20);
