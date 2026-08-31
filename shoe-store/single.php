@@ -1,0 +1,1 @@
+<?php get_header(); ?><main class="sole-shell sole-woocommerce-wrap"><?php while(have_posts()): the_post(); ?><article class="sole-card"><div class="sole-card-info"><h1 class="sole-page-title"><?php the_title(); ?></h1><?php the_post_thumbnail('large'); ?><div><?php the_content(); ?></div></div></article><?php endwhile; ?></main><?php get_footer(); ?>
