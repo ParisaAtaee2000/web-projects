@@ -8,23 +8,5 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div class="sole-topbar">کالکشن جدید پاییز ۱۴۰۵ · ارسال سریع سراسر کشور</div>
-<header class="sole-shell sole-nav">
-<a class="sole-logo" href="<?php echo esc_url(home_url('/')); ?>">SOLE<span>SHOES / STUDIO</span></a>
-<nav class="sole-menu" aria-label="منوی اصلی">
-<?php if(has_nav_menu('primary')): wp_nav_menu(array('theme_location'=>'primary','container'=>false,'items_wrap'=>'%3$s')); else: ?>
-<a href="<?php echo esc_url(home_url('/')); ?>">خانه</a>
-<a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>">فروشگاه</a>
-<a href="<?php echo esc_url(home_url('/#new')); ?>">جدیدها</a>
-<a href="<?php echo esc_url(home_url('/#collections')); ?>">کالکشن‌ها</a>
-<a href="<?php echo esc_url(home_url('/#about')); ?>">درباره ما</a>
-<?php endif; ?>
-</nav>
-<div class="sole-actions">
-<?php if(function_exists('wc_get_cart_url')): ?>
-<a class="sole-icon" href="<?php echo esc_url(wc_get_cart_url()); ?>" aria-label="سبد خرید">🛒</a>
-<?php endif; ?>
-<a class="sole-icon" href="<?php echo esc_url(wp_login_url()); ?>" aria-label="حساب کاربری">♙</a>
-<a class="sole-icon" href="<?php echo esc_url(home_url('/?s=')); ?>" aria-label="جستجو">⌕</a>
-</div>
-</header>
+<div class="topbar">ارسال رایگان برای سفارش‌های بالای ۳ میلیون تومان · کالکشن جدید پاییز ۱۴۰۵</div>
+<header class="shell nav"><a class="logo" href="<?php echo esc_url(home_url('/')); ?>">SOLE<span>SHOES / STUDIO</span></a><nav class="navlinks"><a href="<?php echo esc_url(home_url('/')); ?>">خانه</a><a href="<?php echo esc_url(function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/')); ?>">فروشگاه</a><a href="<?php echo esc_url(home_url('/#new')); ?>">جدیدها</a><a href="<?php echo esc_url(home_url('/#collections')); ?>">کالکشن‌ها</a><a href="<?php echo esc_url(home_url('/#about')); ?>">درباره ما</a></nav><div class="navactions"><a class="iconbtn" href="<?php echo esc_url(function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/')); ?>" aria-label="سبد خرید">🛒</a><a class="iconbtn" href="<?php echo esc_url(function_exists('wc_get_account_endpoint_url') ? wc_get_account_endpoint_url('dashboard') : wp_login_url()); ?>" aria-label="حساب کاربری">♙</a><a class="iconbtn" href="<?php echo esc_url(home_url('/?s=')); ?>" aria-label="جستجو">⌕</a></div></header>
