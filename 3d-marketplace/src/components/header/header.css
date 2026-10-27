@@ -294,7 +294,7 @@
   column-gap: clamp(12px, 2vw, 26px);
   row-gap: 0;
   min-height: 0;
-  padding-left: calc(230px + clamp(18px, 2.6vw, 36px));
+  padding-left: clamp(18px, 2.6vw, 36px);
   padding-right: clamp(18px, 2.6vw, 36px);
 }
 
@@ -371,7 +371,7 @@
       "actions search brand"
       "nav nav nav";
     column-gap: 14px;
-    padding-left: 224px;
+    padding-left: 14px;
     padding-right: 14px;
   }
 
