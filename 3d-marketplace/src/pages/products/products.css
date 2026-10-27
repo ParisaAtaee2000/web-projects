@@ -4,7 +4,7 @@
 .products-page__heading-copy{min-width:0}
 .products-page__heading h1{margin:0;color:#f8f8ff;font-size:clamp(27px,3vw,38px);font-weight:850;line-height:1.45}
 .products-page__heading p{max-width:620px;margin:8px 0 0;color:#B1BCD2;font-size:14px;line-height:1.9}
-.products-page__count{flex-shrink:0;padding:10px 13px;border:1px solid #34415F;border-radius:12px;background:#172238;color:#c5cce0;font-size:12px}
+.products-page__count{flex-shrink:0;padding:10px 13px;border:1px solid #465873;border-radius:12px;background:#24344C;color:#c5cce0;font-size:12px}
 .products-page__count strong{color:#fff;font-size:15px}
 .products-page__toolbar{display:grid;grid-template-columns:minmax(220px,1fr) 220px;gap:12px;margin-bottom:18px}
 .products-page__search{display:flex;align-items:center;gap:10px;min-width:0;padding:0 14px;border:1px solid #34415F;border-radius:12px;background:#172238;color:#8f9bb6}
@@ -16,9 +16,9 @@
 .products-page__filter:hover{border-color:#6656c8;color:#fff}
 .products-page__filter.is-active{border-color:#8170f5;background:#7662e7;color:#fff}
 .products-page__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.products-page__card{position:relative;min-width:0;overflow:hidden;border:1px solid #2B3852;border-radius:16px;background:linear-gradient(155deg,#1B2941,#080d18);transition:transform .18s,border-color .18s}
+.products-page__card{position:relative;min-width:0;overflow:hidden;border:1px solid #465873;border-radius:16px;background:linear-gradient(155deg,#2A3D57,#172338);transition:transform .18s,border-color .18s}
 .products-page__card:hover{transform:translateY(-3px);border-color:#50458e}
-.products-page__media{position:relative;display:block;aspect-ratio:1.16/1;overflow:hidden;background:#1b2941}
+.products-page__media{position:relative;display:block;aspect-ratio:1.16/1;overflow:hidden;background:#2A3D57}
 .products-page__media img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
 .products-page__card:hover .products-page__media img{transform:scale(1.035)}
 .products-page__category{position:absolute;right:12px;top:12px;padding:6px 9px;border:1px solid #ffffff25;border-radius:7px;background:#172238D9;color:#e7e9f6;font-size:10px;backdrop-filter:blur(8px)}
