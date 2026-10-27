@@ -1,12 +1,9 @@
 import { ROUTES } from "../../app/router/routeNames";
 
 const links = [
-  { label: "محصولات", href: ROUTES.products },
-  { label: "پرینترها", href: ROUTES.printers },
-  { label: "مواد مصرفی", href: ROUTES.materials },
-  { label: "فایل‌های سه‌بعدی", href: ROUTES.files3d },
-  { label: "سازندگان", href: ROUTES.makers },
-  { label: "سفارش اختصاصی", href: ROUTES.customOrders },
+  { label: "درباره ما", href: ROUTES.about },
+  { label: "راهنما و پشتیبانی", href: ROUTES.support },
+  { label: "تماس با ما", href: ROUTES.contact },
 ];
 
 function normalizePath(pathname: string) {
@@ -17,7 +14,7 @@ export function HeaderNavigation() {
   const currentPath = normalizePath(window.location.pathname);
 
   return (
-    <nav className="header-navigation" aria-label="منوی اصلی">
+    <nav className="header-navigation" aria-label="پیوندهای اطلاعاتی">
       {links.map((link) => {
         const active = currentPath === link.href || currentPath.startsWith(link.href + "/");
         return (
