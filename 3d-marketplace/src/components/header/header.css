@@ -287,8 +287,8 @@
 
 /* Desktop reference layout: brand, search, horizontal menu, account actions. */
 .reference-header {
-  grid-template-columns: auto minmax(190px, 24vw) minmax(0, 1fr) auto;
-  grid-template-areas: "brand search nav actions";
+  grid-template-columns: auto minmax(0, 1fr) minmax(190px, 24vw) auto;
+  grid-template-areas: "actions nav search brand";
   column-gap: clamp(10px, 1.35vw, 20px);
   min-height: 56px;
   padding-inline: clamp(16px, 2.4vw, 34px);
@@ -299,7 +299,7 @@
   top: auto;
   right: auto;
   grid-area: brand;
-  justify-self: start;
+  justify-self: end;
   transform: none;
 }
 
@@ -347,14 +347,14 @@
 }
 
 .reference-header .header-actions {
-  justify-self: end;
+  justify-self: start;
   gap: clamp(4px, .7vw, 10px);
 }
 
 @media (max-width: 1050px) and (min-width: 761px) {
   .reference-header {
-    grid-template-columns: auto minmax(145px, 20vw) minmax(0, 1fr) auto;
-    grid-template-areas: "brand search nav actions";
+    grid-template-columns: auto minmax(0, 1fr) minmax(145px, 20vw) auto;
+    grid-template-areas: "actions nav search brand";
     column-gap: 10px;
     padding-inline: 12px;
   }
@@ -368,7 +368,7 @@
 @media (max-width: 900px) and (min-width: 761px) {
   .reference-header {
     grid-template-columns: auto minmax(0, 1fr) auto;
-    grid-template-areas: "brand nav actions";
+    grid-template-areas: "actions nav brand";
   }
 
   .reference-header .header-search { display: none; }
