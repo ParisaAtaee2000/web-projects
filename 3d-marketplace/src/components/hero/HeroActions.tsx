@@ -1,4 +1,4 @@
-import { ArrowLeft, Boxes, Store } from "lucide-react";
+import { ArrowLeft, Store } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 
 export function HeroActions() {
