@@ -9,8 +9,8 @@
   gap: 12px;
   padding: 12px 13px 14px;
   border-left: 0;
-  border-right: 1px solid #465873;
-  background: #1C2A40;
+  border-right: 1px solid #172035;
+  background: #050914;
   min-width: 0;
   direction: rtl;
 }
@@ -28,7 +28,7 @@
 }
 .sidebar-menu__heading {
   margin: 0 9px 3px;
-  color: #9DAAC3;
+  color: #78839f;
   font-size: 10px;
   font-weight: 750;
   line-height: 1.6;
@@ -54,7 +54,7 @@
   box-shadow: 0 3px 12px #25206655;
 }
 .sidebar-item:hover:not(.is-active) {
-  background: #2A3D57;
+  background: #10182b;
   color: #fff;
 }
 .seller-card {
@@ -65,7 +65,7 @@
   border-radius: 12px;
   background:
     radial-gradient(ellipse at 100% 0%, #8b78ef20, transparent 65%),
-    linear-gradient(145deg, #2D405B, #24344C);
+    linear-gradient(145deg, #101629, #080d19);
   color: #dfe5f7;
 }
 .seller-card__eyebrow {
@@ -94,7 +94,7 @@
 }
 .seller-card p {
   margin: 0 0 10px;
-  color: #B1BCD2;
+  color: #9fa8c1;
   font-size: 10px;
   line-height: 1.8;
 }
