@@ -203,7 +203,7 @@
   padding: 19px;
   border: 1px solid var(--seller-border);
   border-radius: 15px;
-  background: linear-gradient(145deg, #0e1526, #080d19 75%);
+  background: linear-gradient(145deg, #0e1526, #172238 75%);
 }
 .seller-panel__heading {
   display: flex;
