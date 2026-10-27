@@ -127,3 +127,32 @@
   .reference-sidebar { display: none; }
 }
 
+
+
+/* Palette 2: only navigation states and the seller callout are lifted. */
+.sidebar-item.is-active {
+  border-color: #7665b4;
+  background: linear-gradient(105deg, #302A50, #403467);
+}
+.sidebar-item:hover:not(.is-active) {
+  background: #302A50;
+}
+.seller-card {
+  border-color: #51476f;
+  background:
+    radial-gradient(ellipse at 100% 0%, #A995FF24, transparent 65%),
+    linear-gradient(145deg, #302A50, #211F3A);
+}
+.seller-card__icon {
+  border-color: #51476f;
+  background: #302A50;
+  color: #d2c8ff;
+}
+.seller-card__register {
+  border-color: #A995FF;
+  background: #A995FF;
+}
+.seller-card__register:hover {
+  border-color: #c0b3ff;
+  background: #c0b3ff;
+}
