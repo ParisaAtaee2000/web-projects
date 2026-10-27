@@ -1,6 +1,6 @@
 /* Homepage sections — dark workshop palette, responsive without a UI framework. */
 .home-page {
-  background: var(--color-bg);
+  background: #050813;
   color: #f5f4ff;
 }
 .home-section {
@@ -38,7 +38,7 @@
 .home-section__lead {
   max-width: 610px;
   margin: 9px 0 0;
-  color: #B7C2D6;
+  color: #a6acc1;
   font-size: 14px;
   line-height: 2;
 }
@@ -71,17 +71,17 @@
 .home-filter-chip {
   min-height: 38px;
   padding: 8px 15px;
-  border: 1px solid #465873;
+  border: 1px solid #272c41;
   border-radius: 999px;
-  background: #2A3D57;
-  color: #D5DDEF;
+  background: #0b1020;
+  color: #b9bfd3;
   font-size: 12px;
   transition: color .18s ease, border-color .18s ease, background .18s ease;
 }
 .home-filter-chip:hover,
 .home-filter-chip.is-active {
   border-color: #8672ee;
-  background: #31295A;
+  background: #211d3b;
   color: #f8f6ff;
 }
 .home-product-grid {
@@ -93,9 +93,9 @@
   position: relative;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid #465873;
+  border: 1px solid #20263a;
   border-radius: 17px;
-  background: linear-gradient(160deg, #2D405B, #24344C 72%);
+  background: linear-gradient(160deg, #11182b, #0a0e1b 72%);
   transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 .home-product-card:hover {
@@ -108,7 +108,7 @@
   display: block;
   height: 205px;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 55%, #405575, #24344C 70%);
+  background: radial-gradient(ellipse at 50% 55%, #2c3150, #121829 70%);
 }
 .home-product-card__media::after {
   position: absolute;
@@ -142,7 +142,7 @@
   right: 12px;
   padding: 5px 9px;
   border-radius: 999px;
-  background: #2A3D57D9;
+  background: #101426d9;
   color: #eeebff;
   font-size: 10px;
 }
@@ -175,7 +175,7 @@
   place-items: center;
   border: 1px solid #ffffff2a;
   border-radius: 50%;
-  background: #24344CDD;
+  background: #0a0d19d9;
   color: #ebe8ff;
 }
 .home-product-card__favorite:hover,
@@ -209,7 +209,7 @@
 }
 .home-product-card__rating-label {
   margin-right: 3px;
-  color: #9DAAC3;
+  color: #757d95;
   font-size: 10px;
 }
 .home-product-card__footer {
@@ -229,12 +229,12 @@
 }
 .home-product-card__footer small {
   margin-right: 5px;
-  color: #AAB6CD;
+  color: #8990a7;
   font-size: 10px;
 }
 .home-section__footnote {
   margin: 17px 0 0;
-  color: #98A6C0;
+  color: #727b94;
   font-size: 11px;
   line-height: 1.9;
 }
@@ -249,11 +249,11 @@
 .home-maker-card {
   min-width: 0;
   padding: 21px;
-  border: 1px solid #2B3852;
+  border: 1px solid #272a40;
   border-radius: 16px;
   background:
     radial-gradient(ellipse at 100% 0%, #39305a38, transparent 52%),
-    #141E32;
+    #0c1120;
   transition: transform .2s ease, border-color .2s ease;
 }
 .home-maker-card:hover {
@@ -288,7 +288,7 @@
   width: 20px;
   height: 20px;
   place-items: center;
-  border: 2px solid #263750;
+  border: 2px solid #0c1120;
   border-radius: 50%;
   background: #a99aff;
   color: #161127;
@@ -306,7 +306,7 @@
 .home-maker-card__identity span {
   display: block;
   margin-top: 5px;
-  color: #ABB6CD;
+  color: #8f97b1;
   font-size: 11px;
   line-height: 1.7;
 }
@@ -320,7 +320,7 @@
 .home-maker-card__description {
   min-height: 49px;
   margin: 21px 0 18px;
-  color: #B7C2D6;
+  color: #a6acc1;
   font-size: 12px;
   line-height: 2;
 }
@@ -364,7 +364,7 @@
   border-radius: 24px;
   background:
     radial-gradient(ellipse at 18% 4%, #765dc52b, transparent 45%),
-    linear-gradient(120deg, #2A3B54, #202F46 65%);
+    linear-gradient(120deg, #11152a, #0b0e1b 65%);
 }
 .custom-order__copy {
   align-self: center;
@@ -406,7 +406,7 @@
   overflow: hidden;
   border: 1px solid #ffffff0b;
   border-radius: 18px;
-  background: radial-gradient(ellipse at 50% 49%, #493b70 0%, #24344C 50%, #202F46 100%);
+  background: radial-gradient(ellipse at 50% 49%, #342858 0%, #15152b 50%, #0d1121 100%);
 }
 .custom-order__visual-grid {
   position: absolute;
@@ -611,9 +611,9 @@
 .model-file-card {
   min-width: 0;
   overflow: hidden;
-  border: 1px solid #2B3852;
+  border: 1px solid #272a40;
   border-radius: 16px;
-  background: #263750;
+  background: #0c1120;
 }
 .model-file-card__art {
   position: relative;
@@ -622,10 +622,10 @@
   place-items: center;
   overflow: hidden;
   isolation: isolate;
-  background: radial-gradient(ellipse at 50% 55%, #332852, #202D47 62%, #172238);
+  background: radial-gradient(ellipse at 50% 55%, #332852, #15182b 62%, #0e1221);
 }
-.model-file-card--blue .model-file-card__art { background: radial-gradient(ellipse at 50% 55%, #1c3d54, #151c2e 62%, #172238); }
-.model-file-card--orange .model-file-card__art { background: radial-gradient(ellipse at 50% 55%, #533b2b, #211b25 62%, #172238); }
+.model-file-card--blue .model-file-card__art { background: radial-gradient(ellipse at 50% 55%, #1c3d54, #151c2e 62%, #0e1221); }
+.model-file-card--orange .model-file-card__art { background: radial-gradient(ellipse at 50% 55%, #533b2b, #211b25 62%, #0e1221); }
 .model-file-card__mesh {
   position: absolute;
   z-index: -1;
@@ -689,7 +689,7 @@
   padding: 5px 7px;
   border: 1px solid #ffffff27;
   border-radius: 6px;
-  background: #172238a8;
+  background: #0b1020a8;
 }
 .model-file-card__body { padding: 18px; }
 .model-file-card__tag {
@@ -761,7 +761,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px 17px;
-  color: #B1BCD2;
+  color: #9ea6bd;
   font-size: 10px;
 }
 .seller-recruitment__benefits span { display: inline-flex; align-items: center; gap: 6px; }
@@ -793,7 +793,7 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
-  color: #939FB8;
+  color: #757d94;
   font-size: 9px;
   text-align: center;
 }
