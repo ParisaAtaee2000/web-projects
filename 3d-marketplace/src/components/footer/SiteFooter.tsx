@@ -1,4 +1,4 @@
-import { Box, Github, Instagram, Layers3 } from "lucide-react";
+import { Box, FileBox, Layers3 } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 import "./site-footer.css";
 
@@ -20,7 +20,7 @@ export function SiteFooter() {
         <p className="site-footer__description">جایی برای کشف محصولات چاپ سه‌بعدی، ابزار ساخت، فایل‌های دیجیتال و سازندگانی که ایده‌ها را به قطعه تبدیل می‌کنند.</p>
         <div className="site-footer__social" aria-label="پیوندهای اجتماعی">
           <a href={ROUTES.makers} aria-label="سازندگان Makerā"><Box size={16} aria-hidden="true" /></a>
-          <a href={ROUTES.files3d} aria-label="فایل‌های سه‌بعدی"><Github size={16} aria-hidden="true" /></a>
+          <a href={ROUTES.files3d} aria-label="فایل‌های سه‌بعدی"><FileBox size={16} aria-hidden="true" /></a>
         </div>
       </div>
       <nav className="site-footer__links" aria-label="دسترسی سریع">
