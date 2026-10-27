@@ -288,7 +288,7 @@
   width: 20px;
   height: 20px;
   place-items: center;
-  border: 2px solid #141E32;
+  border: 2px solid #263750;
   border-radius: 50%;
   background: #a99aff;
   color: #161127;
@@ -364,7 +364,7 @@
   border-radius: 24px;
   background:
     radial-gradient(ellipse at 18% 4%, #765dc52b, transparent 45%),
-    linear-gradient(120deg, #1B2941, #141E32 65%);
+    linear-gradient(120deg, #2A3B54, #202F46 65%);
 }
 .custom-order__copy {
   align-self: center;
@@ -406,7 +406,7 @@
   overflow: hidden;
   border: 1px solid #ffffff0b;
   border-radius: 18px;
-  background: radial-gradient(ellipse at 50% 49%, #342858 0%, #15152b 50%, #172238 100%);
+  background: radial-gradient(ellipse at 50% 49%, #493b70 0%, #24344C 50%, #202F46 100%);
 }
 .custom-order__visual-grid {
   position: absolute;
@@ -613,7 +613,7 @@
   overflow: hidden;
   border: 1px solid #2B3852;
   border-radius: 16px;
-  background: #141E32;
+  background: #263750;
 }
 .model-file-card__art {
   position: relative;
