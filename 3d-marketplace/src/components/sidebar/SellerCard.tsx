@@ -1,2 +1,21 @@
-import { BadgeCheck } from "lucide-react";
-export function SellerCard(){return <section className="seller-card"><BadgeCheck size={24} strokeWidth={1.5}/><h2>به فروشنده می‌پیوندی؟</h2><p>محصولات خود را در مارکت‌پلیس ما عرضه کنید.</p><a href="/seller/register">ثبت‌نام به‌عنوان فروشنده</a></section>;}
+import { BadgeCheck, LayoutDashboard } from "lucide-react";
+import { ROUTES } from "../../app/router/routeNames";
+
+export function SellerCard() {
+  return (
+    <section className="seller-card" aria-labelledby="seller-card-title">
+      <LayoutDashboard size={23} strokeWidth={1.6} aria-hidden="true" />
+      <h2 id="seller-card-title">پنل فروشندگان</h2>
+      <p>محصولات، سفارش‌ها و درخواست‌های ساخت را از داشبورد پیگیری کن.</p>
+      <div className="seller-card__actions">
+        <a className="seller-card__dashboard" href={ROUTES.sellerDashboard}>
+          ورود به داشبورد
+        </a>
+        <a className="seller-card__register" href={ROUTES.sellerRegister}>
+          <BadgeCheck size={14} aria-hidden="true" />
+          ثبت‌نام فروشنده
+        </a>
+      </div>
+    </section>
+  );
+}
