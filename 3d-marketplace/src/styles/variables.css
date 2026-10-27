@@ -1,10 +1,10 @@
 :root {
-  --color-bg: #19263A;
-  --color-surface: #24344C;
-  --color-surface-raised: #2D405B;
-  --color-border: #465873;
+  --color-bg: #202F46;
+  --color-surface: #2A3B54;
+  --color-surface-raised: #354965;
+  --color-border: #526681;
   --color-text: #F7F8FF;
-  --color-muted: #D0D9E8;
+  --color-muted: #D5DDEF;
   --color-accent: #B8ABFF;
   --color-accent-strong: #8A75FF;
   --layout-header-height: 56px;
