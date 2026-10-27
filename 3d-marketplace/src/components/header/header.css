@@ -2,8 +2,8 @@
   position: relative;
   z-index: 5;
   display: grid;
-  grid-template-columns: minmax(240px, 360px) auto minmax(0, 1fr);
-  grid-template-areas: "search actions nav";
+  grid-template-columns: auto minmax(220px, 320px) minmax(0, 1fr);
+  grid-template-areas: "actions search nav";
   align-items: center;
   column-gap: clamp(14px, 2vw, 28px);
   height: 56px;
@@ -159,7 +159,7 @@
 
 @media (max-width: 1050px) {
   .reference-header {
-    grid-template-columns: minmax(180px, 260px) auto minmax(0, 1fr);
+    grid-template-columns: auto minmax(180px, 260px) minmax(0, 1fr);
     column-gap: 14px;
     padding-inline: 14px;
   }
