@@ -10,11 +10,11 @@ export function AppShell({ children }: PropsWithChildren) {
       <Header />
       <div className="app-shell__body">
         <Sidebar />
-        <div className="app-shell__main" dir="rtl">
+        <main className="app-shell__main" dir="rtl">
           {children}
-          <SiteFooter />
-        </div>
+        </main>
       </div>
+      <SiteFooter />
     </div>
   );
 }
