@@ -2,7 +2,6 @@ import type { LucideIcon } from "lucide-react";
 import {
   Boxes,
   CircleHelp,
-  FileText,
   House,
   Info,
   Layers3,
@@ -29,7 +28,7 @@ const informationItems: { label: string; href: string; Icon: LucideIcon }[] = [
 ];
 
 function normalizePath(pathname: string) {
-  return pathname.length > 1 ? pathname.replace(/\\/+$/, "") : "/";
+  return pathname.length > 1 ? pathname.replace(/\/+$/, "") : "/";
 }
 
 function isActiveRoute(href: string, pathname: string) {
