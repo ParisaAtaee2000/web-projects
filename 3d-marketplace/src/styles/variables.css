@@ -1,15 +1,1 @@
-:root {
-  /* Makerā's dark identity, with clearer separation between page and surfaces. */
-  --color-bg: #25354C;
-  --color-surface: #30435D;
-  --color-surface-raised: #3A506D;
-  --color-border: #5B708C;
-  --color-text: #F7F8FF;
-  --color-muted: #D5DDEF;
-  --color-accent: #B8ABFF;
-  --color-accent-strong: #8A75FF;
-  --layout-header-height: 56px;
-  --layout-sidebar-width: 230px;
-  --radius-card: 12px;
-  --radius-pill: 22px;
-}
+:root{--color-bg:#030610;--color-surface:#080d19;--color-surface-raised:#10182a;--color-border:#1b2941;--color-text:#f7f7ff;--color-muted:#9ea8c0;--color-accent:#8d70ff;--color-accent-strong:#6439ff;--layout-header-height:56px;--layout-sidebar-width:230px;--radius-card:9px;--radius-pill:22px}
