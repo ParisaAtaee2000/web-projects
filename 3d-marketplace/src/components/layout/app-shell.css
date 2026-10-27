@@ -1,1 +1,43 @@
-.app-shell{min-height:100vh;background:#030610;color:#f7f7ff;overflow:hidden;direction:ltr}.app-shell__body{display:grid;grid-template-columns:164px minmax(0,1fr);min-height:calc(100vh - 56px)}.app-shell__main{min-width:0;min-height:calc(100vh - 56px);background:#030610;direction:rtl}@media(max-width:760px){.app-shell__body{grid-template-columns:minmax(0,1fr)}.app-shell__main{min-height:calc(100vh - 56px)}}
+.app-shell {
+  min-height: 100vh;
+  background: #030610;
+  color: #f7f7ff;
+  overflow: hidden;
+  direction: ltr;
+}
+
+.app-shell__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  min-height: calc(100vh - 56px);
+}
+
+.app-shell__body > .reference-sidebar {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.app-shell__main {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+  min-height: calc(100vh - 56px);
+  background: #030610;
+  direction: rtl;
+}
+
+@media (max-width: 760px) {
+  .app-shell__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app-shell__body > .reference-sidebar {
+    display: none;
+  }
+
+  .app-shell__main {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: calc(100vh - 56px);
+  }
+}
