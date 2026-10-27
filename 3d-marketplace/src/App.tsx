@@ -17,6 +17,9 @@ import { CheckoutPage } from "./pages/checkout/CheckoutPage";
 import { AccountPage } from "./pages/account/AccountPage";
 import { LoginPage } from "./pages/auth/LoginPage";
 import { SignupPage } from "./pages/auth/SignupPage";
+import { SupportPage } from "./pages/info/SupportPage";
+import { AboutPage } from "./pages/info/AboutPage";
+import { ContactPage } from "./pages/info/ContactPage";
 
 function normalizePath(pathname: string) {
   return pathname.length > 1 ? pathname.replace(/\/+$/, "") : "/";
@@ -40,6 +43,9 @@ function resolvePage(pathname: string): ReactNode {
   if (path === ROUTES.checkout) return <CheckoutPage />;
   if (path === ROUTES.account || path.startsWith(ROUTES.account + "/")) return <AccountPage />;
   if (path === ROUTES.login) return <LoginPage />;
+  if (path === ROUTES.support) return <SupportPage />;
+  if (path === ROUTES.about) return <AboutPage />;
+  if (path === ROUTES.contact) return <ContactPage />;
   if (path === ROUTES.register || path === "/signup" || path === ROUTES.sellerRegister) {
     return <SignupPage />;
   }
