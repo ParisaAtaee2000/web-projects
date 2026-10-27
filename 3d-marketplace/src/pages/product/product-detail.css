@@ -10,7 +10,7 @@
 .product-detail__rating{display:flex;align-items:center;gap:7px;margin-top:12px;color:#ffcf84;font-size:12px}
 .product-detail__rating span{color:#B1BCD2}
 .product-detail__description{margin-top:22px!important;max-width:none!important;color:#b0bad0!important;font-size:14px!important;line-height:2!important}
-.product-detail__price-box{margin-top:24px;padding:18px;border:1px solid #29334b;border-radius:14px;background:linear-gradient(135deg,#1B2941,#141E32)}
+.product-detail__price-box{margin-top:24px;padding:18px;border:1px solid #3a4965;border-radius:14px;background:linear-gradient(135deg,#1B2941,#141E32)}
 .product-detail__price-label{color:#9da8c0;font-size:12px}
 .product-detail__price{display:block;margin-top:6px;color:#fff;font-size:26px;font-weight:850}
 .product-detail__price small{margin-right:6px;color:#aab4cb;font-size:12px;font-weight:500}
