@@ -1,7 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { SidebarMenu } from "../sidebar/SidebarMenu";
-import { ROUTES } from "../../app/router/routeNames";
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,11 +77,6 @@ export function MobileMenu() {
               </button>
             </div>
             <SidebarMenu />
-            <nav className="mobile-menu-info-links" aria-label="اطلاعات و پشتیبانی">
-              <a href={ROUTES.about}>درباره ما</a>
-              <a href={ROUTES.support}>راهنما و پشتیبانی</a>
-              <a href={ROUTES.contact}>تماس با ما</a>
-            </nav>
           </div>
         </>
       )}
