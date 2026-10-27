@@ -442,3 +442,29 @@
     color: #fff;
   }
 }
+
+
+/* Palette 2 accents for search and popovers only; keep the header itself dark. */
+.reference-header .header-search {
+  border-color: #454062;
+  background: #211F3A;
+}
+.reference-header .header-search:focus-within {
+  border-color: #A995FF;
+  background: #302A50;
+}
+.reference-header .header-navigation__link.is-active::after {
+  background: #A995FF;
+}
+.reference-header .mobile-menu-toggle {
+  border-color: #454062;
+  background: #211F3A;
+}
+.reference-header .mobile-menu-panel {
+  border-color: #454062;
+  background: #211F3A;
+}
+.reference-header .mobile-menu-panel__close {
+  border-color: #454062;
+  background: #302A50;
+}
