@@ -2,7 +2,7 @@
   width: 100%;
   min-width: 0;
   padding: clamp(28px, 4vw, 58px) clamp(18px, 5.2vw, 76px) 70px;
-  background: #0D1424;
+  background: #050813;
   color: #f5f4ff;
 }
 .info-page__hero {
@@ -14,7 +14,7 @@
   padding: clamp(30px, 5vw, 64px);
   border: 1px solid #302c4d;
   border-radius: 22px;
-  background: radial-gradient(ellipse at 10% 0%, #8675ff24, transparent 44%), linear-gradient(120deg, #1B2941, #141E32 72%);
+  background: radial-gradient(ellipse at 10% 0%, #8675ff24, transparent 44%), linear-gradient(120deg, #11182b, #090d1a 72%);
 }
 .info-page__hero::after {
   position: absolute;
@@ -51,7 +51,7 @@
 .info-page__hero > p {
   max-width: 740px;
   margin: 12px 0 0;
-  color: #B1BCD2;
+  color: #a9b1c8;
   font-size: 14px;
   line-height: 2.1;
 }
@@ -106,7 +106,7 @@
   padding: 20px;
   border: 1px solid #242a40;
   border-radius: 15px;
-  background: linear-gradient(145deg, #11182a, #172238);
+  background: linear-gradient(145deg, #11182a, #0a0e1b);
 }
 .support-topic__icon,
 .contact-aside__icon,
@@ -140,7 +140,7 @@
   overflow: hidden;
   border: 1px solid #262a42;
   border-radius: 15px;
-  background: #172238;
+  background: #0c1120;
 }
 .support-faq__item { border-bottom: 1px solid #ffffff12; }
 .support-faq__item:last-child { border-bottom: 0; }
@@ -197,7 +197,7 @@
   padding: 22px;
   border: 1px solid #242a40;
   border-radius: 15px;
-  background: #172238;
+  background: #0c1120;
 }
 .about-principle__index {
   position: absolute;
@@ -237,7 +237,7 @@
   padding: clamp(20px, 3vw, 32px);
   border: 1px solid #252a41;
   border-radius: 18px;
-  background: #172238;
+  background: #0c1120;
 }
 .contact-form-card .info-page__section-heading { margin-bottom: 23px; }
 .contact-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -276,7 +276,7 @@
 }
 .contact-form__preview p { margin: 5px 0 0; color: #aaa3ca; }
 .contact-aside { display: flex; flex-direction: column; gap: 12px; }
-.contact-aside__card { padding: 19px; border: 1px solid #252a41; border-radius: 15px; background: #172238; }
+.contact-aside__card { padding: 19px; border: 1px solid #252a41; border-radius: 15px; background: #0c1120; }
 .contact-aside__card h3 { margin-top: 12px; }
 .contact-aside__card > a { display: inline-flex; gap: 7px; margin-top: 12px; color: #c7bcff; font-size: 11px; }
 .info-page a:focus-visible,
