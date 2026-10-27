@@ -1,8 +1,10 @@
 .reference-sidebar {
-  position: sticky;
-  top: var(--layout-header-height);
-  align-self: start;
-  height: calc(100vh - var(--layout-header-height));
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 230px;
+  height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -88,6 +90,10 @@
   font-weight: 600;
   line-height: 1.6;
 }
+@media (max-width: 1050px) and (min-width: 761px) {
+  .reference-sidebar { width: 210px; }
+}
+
 @media (max-width: 760px) {
   .reference-sidebar { display: none; }
 }
