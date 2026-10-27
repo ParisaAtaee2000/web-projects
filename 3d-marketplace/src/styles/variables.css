@@ -1,1 +1,14 @@
-:root{--color-bg:#0D1424;--color-surface:#141E32;--color-surface-raised:#1B2941;--color-border:#2B3852;--color-text:#F7F7FF;--color-muted:#B1BCD2;--color-accent:#B0A0FF;--color-accent-strong:#7656F6;--layout-header-height:56px;--layout-sidebar-width:230px;--radius-card:9px;--radius-pill:22px}
+:root{
+  --color-bg:#111B2D;
+  --color-surface:#1A2740;
+  --color-surface-raised:#22314B;
+  --color-border:#34435E;
+  --color-text:#F7F7FF;
+  --color-muted:#C0CADD;
+  --color-accent:#B0A0FF;
+  --color-accent-strong:#8067F5;
+  --layout-header-height:56px;
+  --layout-sidebar-width:230px;
+  --radius-card:9px;
+  --radius-pill:22px
+}
