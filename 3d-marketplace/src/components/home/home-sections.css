@@ -71,9 +71,9 @@
 .home-filter-chip {
   min-height: 38px;
   padding: 8px 15px;
-  border: 1px solid #34435E;
+  border: 1px solid #465873;
   border-radius: 999px;
-  background: #202F49;
+  background: #2A3D57;
   color: #D5DDEF;
   font-size: 12px;
   transition: color .18s ease, border-color .18s ease, background .18s ease;
@@ -93,9 +93,9 @@
   position: relative;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid #2B3852;
+  border: 1px solid #465873;
   border-radius: 17px;
-  background: linear-gradient(160deg, #22314B, #1A2740 72%);
+  background: linear-gradient(160deg, #2D405B, #24344C 72%);
   transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 .home-product-card:hover {
@@ -108,7 +108,7 @@
   display: block;
   height: 205px;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 55%, #394563, #1A2740 70%);
+  background: radial-gradient(ellipse at 50% 55%, #405575, #24344C 70%);
 }
 .home-product-card__media::after {
   position: absolute;
@@ -142,7 +142,7 @@
   right: 12px;
   padding: 5px 9px;
   border-radius: 999px;
-  background: #1B2941D9;
+  background: #2A3D57D9;
   color: #eeebff;
   font-size: 10px;
 }
@@ -175,7 +175,7 @@
   place-items: center;
   border: 1px solid #ffffff2a;
   border-radius: 50%;
-  background: #172238D9;
+  background: #24344CDD;
   color: #ebe8ff;
 }
 .home-product-card__favorite:hover,
