@@ -1,2 +1,26 @@
-import { HeroVisual } from "./HeroVisual"; import { HeroContent } from "./HeroContent"; import { HeroBenefits } from "./HeroBenefits"; import "./hero.css";
-export function Hero({imageUrl}:{imageUrl?:string}) { return <section className="reference-hero" aria-label="معرفی مارکت‌پلیس"><HeroVisual imageUrl={imageUrl}/><div className="reference-hero__grid"><div className="reference-hero__content"><HeroContent/></div><div className="reference-hero__benefits"><HeroBenefits/></div></div></section>; }
+import { HeroBenefits } from "./HeroBenefits";
+import { HeroContent } from "./HeroContent";
+import { HeroVisual } from "./HeroVisual";
+import "./hero.css";
+
+interface HeroProps {
+  imageUrl?: string;
+}
+
+export function Hero({ imageUrl }: HeroProps) {
+  return (
+    <section className="hero" aria-labelledby="hero-title">
+      <HeroVisual imageUrl={imageUrl} />
+
+      <div className="hero__inner">
+        <div className="hero__main">
+          <HeroContent />
+        </div>
+
+        <aside className="hero__features" aria-label="بخش‌های اصلی مارکت‌پلیس">
+          <HeroBenefits />
+        </aside>
+      </div>
+    </section>
+  );
+}
