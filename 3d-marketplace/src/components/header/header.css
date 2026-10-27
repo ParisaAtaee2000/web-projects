@@ -1,6 +1,7 @@
 .reference-header {
-  position: relative;
-  z-index: 5;
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: grid;
   grid-template-columns: auto minmax(220px, 320px) minmax(0, 1fr);
   grid-template-areas: "actions search nav";
