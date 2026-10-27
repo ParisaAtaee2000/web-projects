@@ -57,3 +57,16 @@
   .site-footer { padding-inline: 18px; }
   .site-footer__links { gap: 12px; }
 }
+
+
+/* Footer stays dark; only small interactive/brand surfaces use palette 2. */
+.site-footer__brand-mark {
+  border-color: #A995FF60;
+  background: linear-gradient(145deg, #302A50, #211F3A);
+  color: #d2c8ff;
+}
+.site-footer__social a:hover {
+  border-color: #A995FF;
+  background: #302A50;
+  color: #eee9ff;
+}
