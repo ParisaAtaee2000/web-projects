@@ -9,7 +9,6 @@ import {
   Package,
   ShoppingBag,
   Store,
-  TrendingUp,
   WalletCards,
 } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
