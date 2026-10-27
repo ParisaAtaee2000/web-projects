@@ -1,11 +1,9 @@
 .reference-sidebar {
-  position: sticky;
-  top: var(--layout-header-height);
-  align-self: start;
-  height: calc(100vh - var(--layout-header-height));
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #34305f transparent;
+  position: relative;
+  align-self: stretch;
+  height: auto;
+  min-height: calc(100vh - var(--layout-header-height));
+  overflow: visible;
   display: flex;
   flex-direction: column;
   gap: 26px;
