@@ -1,6 +1,5 @@
 import type { PropsWithChildren } from "react";
 import { Header } from "../header/Header";
-import { Sidebar } from "../sidebar/Sidebar";
 import { SiteFooter } from "../footer/SiteFooter";
 import "./app-shell.css";
 
@@ -9,11 +8,10 @@ export function AppShell({ children }: PropsWithChildren) {
     <div className="app-shell" dir="ltr">
       <Header />
       <div className="app-shell__body">
-        <Sidebar />
-        <div className="app-shell__main" dir="rtl">
+        <main className="app-shell__main" dir="rtl">
           {children}
           <SiteFooter />
-        </div>
+        </main>
       </div>
     </div>
   );
