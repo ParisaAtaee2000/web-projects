@@ -52,7 +52,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  direction: rtl;
+  direction: ltr;
   grid-template-columns: minmax(0, 1fr) minmax(220px, 270px);
   align-items: center;
   gap: clamp(28px, 4vw, 58px);
