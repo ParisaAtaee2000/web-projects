@@ -305,3 +305,55 @@
   .info-page__button { transition: none; }
   .info-page__button:hover { transform: none; }
 }
+
+
+/* Palette 2 for content cards; retain the existing dark page canvas. */
+.info-page__hero {
+  border-color: #51476f;
+  background:
+    radial-gradient(ellipse at 10% 0%, #A995FF24, transparent 44%),
+    linear-gradient(120deg, #302A50, #211F3A 72%);
+}
+.info-page__button,
+.info-page__button--primary {
+  border-color: #A995FF;
+  background: #A995FF;
+}
+.support-topic,
+.about-principle,
+.support-faq__list,
+.contact-form-card,
+.contact-aside__card {
+  border-color: #454062;
+  background: #211F3A;
+}
+.support-faq__item summary:hover {
+  background: #302A50;
+}
+.about-next {
+  border-color: #51476f;
+  background:
+    radial-gradient(ellipse at 10% 0%, #A995FF20, transparent 48%),
+    #211F3A;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  border-color: #454062;
+  background: #17162B;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: #A995FF;
+  box-shadow: 0 0 0 3px #A995FF22;
+}
+.contact-form__preview {
+  border-color: #51476f;
+  background: #302A50;
+  color: #e0d9ff;
+}
+.contact-aside__card > a,
+.about-next h2 span {
+  color: #C3B5FF;
+}
