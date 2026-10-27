@@ -27,15 +27,15 @@
 .category-section h2 {
   margin: 0;
   color: #f8f8ff;
-  font-size: clamp(21px, 2vw, 28px);
+  font-size: clamp(22px, 2vw, 28px);
   font-weight: 800;
-  letter-spacing: -.04em;
+  letter-spacing: normal;
 }
 
 .category-section__heading p {
   margin: 8px 0 0;
-  color: #98a3bb;
-  font-size: 13px;
+  color: #a5afc5;
+  font-size: 14px;
   line-height: 1.9;
 }
 
@@ -50,7 +50,7 @@
   background: rgba(116, 89, 255, .07);
   color: #c0b7ff;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   transition: background .18s ease, border-color .18s ease, color .18s ease;
 }
@@ -148,14 +148,14 @@
 
 .category-tile__copy strong {
   color: #f7f7ff;
-  font-size: 14px;
-  font-weight: 750;
+  font-size: 15px;
+  font-weight: 700;
   line-height: 1.7;
 }
 
 .category-tile__copy small {
-  color: #a4afc5;
-  font-size: 11px;
+  color: #aeb8cc;
+  font-size: 12px;
   line-height: 1.8;
 }
 
@@ -189,13 +189,13 @@
 
   .category-section__heading p {
     max-width: 300px;
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .category-section__all {
     gap: 5px;
     padding: 8px;
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .category-section__grid {
@@ -216,7 +216,7 @@
   }
 
   .category-tile__copy strong {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
