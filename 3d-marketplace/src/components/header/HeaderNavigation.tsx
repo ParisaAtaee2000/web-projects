@@ -8,7 +8,7 @@ const links = [
 ];
 
 function normalizePath(pathname: string) {
-  return pathname.length > 1 ? pathname.replace(/\\/+$/, "") : "/";
+  return pathname.length > 1 ? pathname.replace(/\/+$/, "") : "/";
 }
 
 export function HeaderNavigation() {
