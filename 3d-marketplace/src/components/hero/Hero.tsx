@@ -1,0 +1,2 @@
+import { HeroVisual } from "./HeroVisual"; import { HeroContent } from "./HeroContent"; import { HeroBenefits } from "./HeroBenefits"; import "./hero.css";
+export function Hero({imageUrl}:{imageUrl?:string}) { return <section className="reference-hero" aria-label="معرفی مارکت‌پلیس"><HeroVisual imageUrl={imageUrl}/><div className="reference-hero__grid"><div className="reference-hero__content"><HeroContent/></div><div className="reference-hero__benefits"><HeroBenefits/></div></div></section>; }
