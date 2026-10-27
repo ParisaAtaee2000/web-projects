@@ -67,9 +67,10 @@
 }
 
 .hero-content {
+  position: relative;
+  left: -100px;
   max-width: 650px;
   margin-inline-start: auto;
-  transform: translateX(-32px);
   text-align: right;
 }
 
@@ -267,9 +268,9 @@
   }
 
   .hero-content {
+    left: 0;
     max-width: 620px;
     margin-inline-start: 0;
-    transform: none;
   }
 
   .hero__features {
