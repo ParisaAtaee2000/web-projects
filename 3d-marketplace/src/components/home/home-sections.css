@@ -816,3 +816,92 @@
   .seller-recruitment__copy h2 { font-size: 23px; }
   .seller-recruitment__action { grid-column: 1; }
 }
+
+
+/* Palette 2: brighter purple-toned surfaces; the page background stays untouched. */
+.home-filter-chip {
+  border-color: #454062;
+  background: #211F3A;
+  color: #d5d0eb;
+}
+.home-filter-chip:hover,
+.home-filter-chip.is-active {
+  border-color: #A995FF;
+  background: #302A50;
+  color: #fbf9ff;
+}
+.home-product-card {
+  border-color: #454062;
+  background: linear-gradient(160deg, #302A50, #211F3A 76%);
+}
+.home-product-card:hover {
+  border-color: #A995FF;
+}
+.home-product-card__media {
+  background: radial-gradient(ellipse at 50% 55%, #40365f, #302A50 72%);
+}
+.home-maker-card {
+  border-color: #454062;
+  background:
+    radial-gradient(ellipse at 100% 0%, #A995FF20, transparent 52%),
+    #211F3A;
+}
+.home-maker-card:hover {
+  border-color: #6b5b9d;
+}
+.home-maker-card__avatar i {
+  border-color: #302A50;
+  background: #A995FF;
+}
+.home-maker-card__bottom a:hover {
+  background: #302A50;
+}
+.custom-order__panel {
+  border-color: #51476f;
+  background:
+    radial-gradient(ellipse at 18% 4%, #A995FF2b, transparent 45%),
+    linear-gradient(120deg, #302A50, #211F3A 68%);
+}
+.custom-order__visual {
+  border-color: #454062;
+  background: radial-gradient(ellipse at 50% 49%, #51416f 0%, #302A50 52%, #211F3A 100%);
+}
+.custom-order__float-card {
+  border-color: #51476f;
+  background: rgba(33, 31, 58, .94);
+}
+.custom-order__float-card > span {
+  background: #A995FF2b;
+  color: #ded6ff;
+}
+.model-file-card {
+  border-color: #454062;
+  background: #211F3A;
+}
+.model-file-card__art {
+  background: radial-gradient(ellipse at 50% 55%, #40365f, #302A50 62%, #211F3A);
+}
+.model-file-card--blue .model-file-card__art {
+  background: radial-gradient(ellipse at 50% 55%, #25455e, #302A50 62%, #211F3A);
+}
+.model-file-card--orange .model-file-card__art {
+  background: radial-gradient(ellipse at 50% 55%, #604432, #302A50 62%, #211F3A);
+}
+.model-file-card__filetype {
+  background: rgba(33, 31, 58, .85);
+}
+.model-file-card__footer a:hover {
+  background: #302A50;
+}
+.seller-recruitment__mark {
+  border-color: #A995FF65;
+  background: linear-gradient(145deg, #302A50, #211F3A);
+  color: #d5caff;
+}
+.seller-recruitment__action > a {
+  border-color: #A995FF;
+  background: #A995FF;
+}
+.seller-recruitment__action > a:hover {
+  background: #bdb0ff;
+}
