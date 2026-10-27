@@ -184,3 +184,17 @@ select:focus-visible {
     transition: none;
   }
 }
+
+
+/* Palette 2: category cards use a lifted surface while the page remains near-black. */
+.categories-page__card {
+  border-color: #454062;
+  background: linear-gradient(135deg, #302A50, #211F3A);
+}
+.categories-page__card:hover {
+  border-color: #A995FF;
+  background: linear-gradient(135deg, #3a315b, #302A50);
+}
+.categories-page__arrow {
+  color: #c7baff;
+}
