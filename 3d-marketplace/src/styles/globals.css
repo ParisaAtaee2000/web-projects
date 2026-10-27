@@ -74,3 +74,113 @@ select:focus-visible {
   color: #c0b7ff;
   font-weight: 700;
 }
+
+.categories-page__heading {
+  margin-bottom: 28px;
+}
+
+.categories-page__eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #a99aff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.categories-page__heading p {
+  max-width: 680px;
+}
+
+.categories-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.categories-page__card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  min-height: 116px;
+  padding: 18px;
+  border: 1px solid #1b2941;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #10182a, #090e1a);
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+}
+
+.categories-page__card:hover {
+  transform: translateY(-2px);
+  border-color: #544a9b;
+  background: linear-gradient(135deg, #151d35, #0b1020);
+}
+
+.categories-page__icon {
+  display: grid;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.categories-page__icon--violet { color: #b3a7ff; }
+.categories-page__icon--blue { color: #8cc7ff; }
+.categories-page__icon--orange { color: #ffc18e; }
+.categories-page__icon--green { color: #8ce7c4; }
+.categories-page__icon--pink { color: #f3a9d4; }
+
+.categories-page__copy {
+  display: block;
+  flex: 1;
+  min-width: 0;
+}
+
+.categories-page__copy h2 {
+  margin: 0;
+  color: #f7f7ff;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.categories-page__copy p {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.categories-page__arrow {
+  flex: 0 0 auto;
+  color: #929db7;
+}
+
+@media (max-width: 1000px) {
+  .categories-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .page {
+    padding: 24px 16px;
+  }
+
+  .categories-page__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .categories-page__card {
+    min-height: 96px;
+    padding: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .categories-page__card {
+    transition: none;
+  }
+}
