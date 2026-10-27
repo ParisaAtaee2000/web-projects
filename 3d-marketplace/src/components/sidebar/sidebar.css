@@ -9,8 +9,8 @@
   gap: 12px;
   padding: 12px 13px 14px;
   border-left: 0;
-  border-right: 1px solid #2B3852;
-  background: #152039;
+  border-right: 1px solid #465873;
+  background: #1C2A40;
   min-width: 0;
   direction: rtl;
 }
@@ -54,7 +54,7 @@
   box-shadow: 0 3px 12px #25206655;
 }
 .sidebar-item:hover:not(.is-active) {
-  background: #1B2941;
+  background: #2A3D57;
   color: #fff;
 }
 .seller-card {
@@ -65,7 +65,7 @@
   border-radius: 12px;
   background:
     radial-gradient(ellipse at 100% 0%, #8b78ef20, transparent 65%),
-    linear-gradient(145deg, #22314B, #1A2740);
+    linear-gradient(145deg, #2D405B, #24344C);
   color: #dfe5f7;
 }
 .seller-card__eyebrow {
