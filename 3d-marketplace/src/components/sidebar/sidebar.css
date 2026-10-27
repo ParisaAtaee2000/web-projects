@@ -9,8 +9,8 @@
   gap: 12px;
   padding: 12px 13px 14px;
   border-left: 0;
-  border-right: 1px solid #172035;
-  background: #050914;
+  border-right: 1px solid #2B3852;
+  background: #111B30;
   min-width: 0;
   direction: rtl;
 }
@@ -65,7 +65,7 @@
   border-radius: 12px;
   background:
     radial-gradient(ellipse at 100% 0%, #8b78ef20, transparent 65%),
-    linear-gradient(145deg, #101629, #080d19);
+    linear-gradient(145deg, #1B2941, #141E32);
   color: #dfe5f7;
 }
 .seller-card__eyebrow {
@@ -94,7 +94,7 @@
 }
 .seller-card p {
   margin: 0 0 10px;
-  color: #9fa8c1;
+  color: #B1BCD2;
   font-size: 10px;
   line-height: 1.8;
 }
