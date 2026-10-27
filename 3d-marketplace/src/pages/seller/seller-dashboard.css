@@ -370,3 +370,57 @@
   .seller-dashboard__quick-actions > a { transition: none; }
   .seller-dashboard__button:hover { transform: none; }
 }
+
+
+/* Palette 2 for seller dashboard cards and panels; page canvas remains dark. */
+.seller-dashboard {
+  --seller-border: #454062;
+  --seller-panel: #211F3A;
+}
+.seller-dashboard__button--primary {
+  border-color: #A995FF;
+  background: #A995FF;
+}
+.seller-dashboard__store-banner {
+  border-color: #51476f;
+  background: linear-gradient(100deg, #302A50, #211F3A 78%);
+}
+.seller-dashboard__store-icon {
+  border-color: #51476f;
+  background: #302A50;
+  color: #d5caff;
+}
+.seller-stat-card {
+  border-color: #454062;
+  background: linear-gradient(145deg, #302A50, #211F3A 84%);
+}
+.seller-panel {
+  border-color: #454062;
+  background: linear-gradient(145deg, #302A50, #211F3A 75%);
+}
+.seller-panel__heading-icon {
+  border-color: #51476f;
+  background: #302A50;
+}
+.seller-request {
+  border-color: #454062;
+  background: #211F3A;
+}
+.seller-dashboard__quick-actions > a {
+  border-color: #454062;
+  background: #211F3A;
+}
+.seller-dashboard__quick-actions > a:hover {
+  border-color: #A995FF;
+  background: #302A50;
+}
+.seller-product-dot {
+  border-color: #51476f;
+  background: #302A50;
+  color: #d2c8ff;
+}
+.seller-dashboard__text-link,
+.seller-panel__view-all,
+.seller-request__bottom a {
+  color: #C3B5FF;
+}
