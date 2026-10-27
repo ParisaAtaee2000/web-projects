@@ -1,12 +1,12 @@
 :root {
-  --color-bg: #151F32;
-  --color-surface: #202D43;
-  --color-surface-raised: #293851;
-  --color-border: #3A4964;
-  --color-text: #F7F7FF;
-  --color-muted: #C4CEE0;
-  --color-accent: #B0A0FF;
-  --color-accent-strong: #8067F5;
+  --color-bg: #19263A;
+  --color-surface: #24344C;
+  --color-surface-raised: #2D405B;
+  --color-border: #465873;
+  --color-text: #F7F8FF;
+  --color-muted: #D0D9E8;
+  --color-accent: #B8ABFF;
+  --color-accent-strong: #8A75FF;
   --layout-header-height: 56px;
   --layout-sidebar-width: 230px;
   --radius-card: 12px;
