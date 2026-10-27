@@ -93,3 +93,41 @@
 @media (max-width: 760px) {
   .reference-sidebar { display: none; }
 }
+
+
+.seller-card__actions {
+  display: grid;
+  gap: 7px;
+  margin-top: 13px;
+}
+.seller-card__actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 35px;
+  padding: 7px 8px;
+  text-align: center;
+  font-size: 11px;
+}
+.seller-card__actions .seller-card__dashboard {
+  border-color: #a99aff;
+  background: #a99aff;
+  color: #17132b;
+  font-weight: 800;
+}
+.seller-card__actions .seller-card__dashboard:hover {
+  border-color: #c0b6ff;
+  background: #c0b6ff;
+  color: #17132b;
+}
+.seller-card__actions .seller-card__register {
+  border-color: #35304f;
+  background: transparent;
+  color: #c7c0ec;
+}
+.seller-card__actions .seller-card__register:hover {
+  border-color: #6657a4;
+  background: #17152a;
+  color: #f2efff;
+}
