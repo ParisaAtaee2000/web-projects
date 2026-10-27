@@ -1,14 +1,14 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Box,
   Boxes,
-  FileBox,
+  CircleHelp,
+  FileText,
   House,
+  Info,
   Layers3,
   LayoutGrid,
+  Mail,
   Printer,
-  ShoppingBag,
-  UsersRound,
 } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 import { SidebarMenuItem } from "./SidebarMenuItem";
@@ -16,17 +16,16 @@ import { SidebarMenuItem } from "./SidebarMenuItem";
 const homeItem = { label: "صفحه اصلی", href: ROUTES.home, Icon: House };
 
 const marketItems: { label: string; href: string; Icon: LucideIcon }[] = [
-  { label: "محصولات", href: ROUTES.products, Icon: Box },
-  { label: "دسته‌بندی‌ها", href: ROUTES.categories, Icon: LayoutGrid },
+  { label: "همه دسته‌بندی‌ها", href: ROUTES.categories, Icon: LayoutGrid },
   { label: "پرینترهای سه‌بعدی", href: ROUTES.printers, Icon: Printer },
   { label: "تجهیزات و لوازم جانبی", href: ROUTES.accessories, Icon: Boxes },
   { label: "مواد مصرفی", href: ROUTES.materials, Icon: Layers3 },
-  { label: "فایل‌های سه‌بعدی", href: ROUTES.files3d, Icon: FileBox },
 ];
 
-const serviceItems: { label: string; href: string; Icon: LucideIcon }[] = [
-  { label: "سفارش اختصاصی", href: ROUTES.customOrders, Icon: ShoppingBag },
-  { label: "فروشندگان", href: ROUTES.makers, Icon: UsersRound },
+const informationItems: { label: string; href: string; Icon: LucideIcon }[] = [
+  { label: "راهنما و پشتیبانی", href: ROUTES.support, Icon: CircleHelp },
+  { label: "درباره Makerā", href: ROUTES.about, Icon: Info },
+  { label: "تماس با ما", href: ROUTES.contact, Icon: Mail },
 ];
 
 function normalizePath(pathname: string) {
@@ -55,19 +54,19 @@ export function SidebarMenu() {
   const pathname = normalizePath(window.location.pathname);
 
   return (
-    <nav className="sidebar-menu" aria-label="ناوبری اصلی">
+    <nav className="sidebar-menu" aria-label="ناوبری سایت">
       <div className="sidebar-menu__primary">
         {renderItem(homeItem, pathname)}
       </div>
 
       <div className="sidebar-menu__group">
-        <h2 className="sidebar-menu__heading">بازار و محصولات</h2>
+        <h2 className="sidebar-menu__heading">کاوش در بازار</h2>
         {marketItems.map((item) => renderItem(item, pathname))}
       </div>
 
       <div className="sidebar-menu__group">
-        <h2 className="sidebar-menu__heading">خدمات و جامعه</h2>
-        {serviceItems.map((item) => renderItem(item, pathname))}
+        <h2 className="sidebar-menu__heading">اطلاعات و راهنما</h2>
+        {informationItems.map((item) => renderItem(item, pathname))}
       </div>
     </nav>
   );
