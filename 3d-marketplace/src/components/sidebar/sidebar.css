@@ -19,7 +19,20 @@
 .sidebar-menu {
   display: flex;
   flex-direction: column;
+  gap: 17px;
+}
+.sidebar-menu__primary,
+.sidebar-menu__group {
+  display: flex;
+  flex-direction: column;
   gap: 4px;
+}
+.sidebar-menu__heading {
+  margin: 0 10px 5px;
+  color: #78839f;
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1.8;
 }
 .sidebar-item {
   display: flex;
