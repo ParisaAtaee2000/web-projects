@@ -1,3 +1,76 @@
 @import "./variables.css";
 @import "./typography.css";
-*{box-sizing:border-box}html{min-width:320px;background:var(--color-bg)}body{margin:0;min-width:320px;min-height:100vh;background:var(--color-bg)}button,input,textarea,select{font:inherit}a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--color-bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #a99aff;
+  outline-offset: 3px;
+}
+
+.page {
+  min-height: calc(100vh - var(--layout-header-height, 56px));
+  padding: clamp(24px, 4vw, 48px);
+  color: #f5f7ff;
+  background:
+    radial-gradient(ellipse at 82% 0%, rgba(91, 61, 245, 0.08), transparent 44%),
+    #030610;
+}
+
+.page h1 {
+  margin: 0;
+  color: #f8f8ff;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.page p {
+  max-width: 720px;
+  margin: 12px 0 0;
+  color: #a5afc5;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.page > a {
+  display: inline-flex;
+  margin-top: 22px;
+  color: #c0b7ff;
+  font-weight: 700;
+}
