@@ -56,8 +56,8 @@
 .seller-card p {
   margin: 0 0 12px;
   color: #a7b0c7;
-  font-size: 11px;
-  line-height: 1.9;
+  font-size: 12px;
+  line-height: 1.8;
 }
 .seller-card a {
   display: block;
@@ -66,7 +66,7 @@
   border-radius: 7px;
   color: #d9d1ff;
   text-align: center;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1.6;
 }
