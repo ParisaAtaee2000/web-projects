@@ -9,7 +9,9 @@ export function AppShell({ children }: PropsWithChildren) {
       <Header />
       <div className="app-shell__body">
         <Sidebar />
-        <main className="app-shell__main" dir="rtl">{children}</main>
+        <div className="app-shell__main" dir="rtl">
+          {children}
+        </div>
       </div>
     </div>
   );
