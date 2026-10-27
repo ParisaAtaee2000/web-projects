@@ -1,6 +1,5 @@
 import { Brand } from "./Brand";
 import { SearchBar } from "./SearchBar";
-import { HeaderNavigation } from "./HeaderNavigation";
 import { HeaderActions } from "./HeaderActions";
 import { MobileMenu } from "./MobileMenu";
 import "./header.css";
@@ -10,7 +9,6 @@ export function Header() {
     <header className="reference-header">
       <Brand />
       <SearchBar />
-      <HeaderNavigation />
       <HeaderActions />
       <MobileMenu />
     </header>
