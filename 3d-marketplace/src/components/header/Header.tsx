@@ -1,4 +1,10 @@
-/** Site header component boundary; visual implementation is being extracted from the homepage. */
+import { Brand } from "./Brand";
+import { SearchBar } from "./SearchBar";
+import { HeaderNavigation } from "./HeaderNavigation";
+import { HeaderActions } from "./HeaderActions";
+import "./header.css";
 export function Header() {
-  return <header className="site-header" aria-label="سربرگ سایت" />;
+  return <header className="reference-header">
+    <Brand /><SearchBar /><HeaderNavigation /><HeaderActions />
+  </header>;
 }
