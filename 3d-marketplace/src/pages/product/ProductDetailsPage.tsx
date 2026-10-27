@@ -28,7 +28,8 @@ const productDetails: ProductDetail[] = [
 ];
 
 export function ProductDetailsPage() {
-  const pathParts = window.location.pathname.split("/").filter(Boolean);\n  const productId = decodeURIComponent(pathParts[pathParts.length - 1] ?? "");
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const productId = decodeURIComponent(pathParts[pathParts.length - 1] ?? "");
   const product = productDetails.find((item) => item.id === productId);
 
   if (!product) {
