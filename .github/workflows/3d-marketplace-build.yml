@@ -1,0 +1,35 @@
+name: Makerā marketplace build
+
+on:
+  pull_request:
+    paths:
+      - "3d-marketplace/**"
+      - ".github/workflows/3d-marketplace-build.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "3d-marketplace/**"
+      - ".github/workflows/3d-marketplace-build.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: TypeScript and Vite production build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 3d-marketplace
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
