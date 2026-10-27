@@ -1,22 +1,30 @@
 # نقشه صفحات
 
-| مسیر پیشنهادی | صفحه | وضعیت |
+| مسیر | صفحه | وضعیت فعلی |
 |---|---|---|
-| `/` | HomePage | رابط فعلی از App.tsx استخراج شده |
-| `/products` | ProductsPage | اسکلت اولیه |
-| `/products/:productId` | ProductDetailsPage | اسکلت اولیه |
-| `/categories` | CategoriesPage | اسکلت اولیه |
-| `/makers` | MakersPage | اسکلت اولیه |
-| `/makers/:makerId` | MakerProfilePage | اسکلت اولیه |
-| `/custom-orders` | CustomOrdersPage | اسکلت اولیه |
-| `/3d-files` | Files3DPage | اسکلت اولیه |
-| `/printers` | PrintersPage | اسکلت اولیه |
-| `/materials` | MaterialsPage | اسکلت اولیه |
-| `/accessories` | AccessoriesPage | اسکلت اولیه |
-| `/cart` | CartPage | اسکلت اولیه |
-| `/checkout` | CheckoutPage | اسکلت اولیه |
-| `/account` | AccountPage | اسکلت اولیه |
-| `/login` | LoginPage | اسکلت اولیه |
-| `/register` | SignupPage | اسکلت اولیه |
+| / | HomePage | صفحه اصلی فعلی، با هدر و سایدبار مشترک |
+| /products | ProductsPage | مسیر متصل؛ محتوای فهرست هنوز اسکلت اولیه است |
+| /products/:productId | ProductDetailsPage | مسیر پویا متصل؛ جزئیات محصول هنوز اسکلت اولیه است |
+| /categories | CategoriesPage | صفحه دسته‌بندی‌ها از داده مشترک ساخته می‌شود |
+| /makers | MakersPage | مسیر متصل؛ فهرست سازندگان هنوز اسکلت اولیه است |
+| /makers/:makerId | MakerProfilePage | مسیر پویا متصل؛ پروفایل سازنده هنوز اسکلت اولیه است |
+| /custom-orders | CustomOrdersPage | مسیر متصل؛ فرایند ثبت سفارش هنوز پیاده‌سازی نشده است |
+| /3d-files | Files3DPage | مسیر متصل؛ فهرست فایل‌ها هنوز اسکلت اولیه است |
+| /printers | PrintersPage | مسیر متصل؛ فهرست پرینترها هنوز اسکلت اولیه است |
+| /materials | MaterialsPage | مسیر متصل؛ فهرست مواد مصرفی هنوز اسکلت اولیه است |
+| /accessories | AccessoriesPage | مسیر متصل؛ فهرست تجهیزات هنوز اسکلت اولیه است |
+| /cart | CartPage | مسیر متصل؛ سبد خرید هنوز پیاده‌سازی نشده است |
+| /checkout | CheckoutPage | مسیر متصل؛ پرداخت هنوز پیاده‌سازی نشده است |
+| /account | AccountPage | مسیر متصل؛ امکانات حساب هنوز اسکلت اولیه است |
+| /login | LoginPage | مسیر متصل؛ احراز هویت هنوز پیاده‌سازی نشده است |
+| /register | SignupPage | مسیر متصل؛ ثبت‌نام هنوز پیاده‌سازی نشده است |
+| /seller/register | SignupPage | به صفحه ثبت‌نام فعلی متصل است؛ فرم مستقل فروشنده وجود ندارد |
 
-توجه: مسیرها هنوز به router واقعی وصل نشده‌اند؛ این سند نقشه هدف است، نه ادعای تکمیل قابلیت‌ها.
+## رفتار مسیریابی
+
+- لینک‌های داخلی هم‌مبدأ در اپلیکیشن جابه‌جا می‌شوند و دکمه‌های جلو/عقب مرورگر پشتیبانی می‌شوند.
+- مسیرهای ناشناخته صفحه «صفحه پیدا نشد» نمایش می‌دهند.
+- منوی هدر و سایدبار، صفحه فعال را از مسیر جاری تشخیص می‌دهند.
+- لینک‌های دسته‌بندی از داده مشترک src/data/categories.ts ساخته می‌شوند.
+
+وجود مسیر به معنی تکمیل قابلیت، داده واقعی، خرید، پرداخت یا احراز هویت نیست؛ صفحات فهرست و عملیات تجاری همچنان نیازمند پیاده‌سازی جداگانه‌اند.
