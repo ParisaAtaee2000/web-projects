@@ -40,7 +40,9 @@ function resolvePage(pathname: string): ReactNode {
   if (path === ROUTES.checkout) return <CheckoutPage />;
   if (path === ROUTES.account || path.startsWith(ROUTES.account + "/")) return <AccountPage />;
   if (path === ROUTES.login) return <LoginPage />;
-  if (path === ROUTES.register || path === "/signup") return <SignupPage />;
+  if (path === ROUTES.register || path === "/signup" || path === ROUTES.sellerRegister) {
+    return <SignupPage />;
+  }
 
   return (
     <main className="page page--not-found">
