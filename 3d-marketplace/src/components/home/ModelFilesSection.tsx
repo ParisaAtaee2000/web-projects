@@ -1,4 +1,4 @@
-import { ArrowLeft, Download, FileBox, Layers3 } from "lucide-react";
+import { ArrowLeft, FileBox, Layers3 } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 
 const fileCards = [
