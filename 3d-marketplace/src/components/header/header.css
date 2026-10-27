@@ -285,13 +285,13 @@
 }
 
 
-/* Desktop reference layout: brand, search, horizontal menu, account actions. */
+/* Desktop layout: global utilities only; main site navigation lives in the sidebar. */
 .reference-header {
-  grid-template-columns: auto minmax(0, 1fr) minmax(190px, 24vw) auto;
-  grid-template-areas: "actions nav search brand";
-  column-gap: clamp(10px, 1.35vw, 20px);
-  min-height: 56px;
-  padding-inline: clamp(16px, 2.4vw, 34px);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: "actions search brand";
+  column-gap: clamp(12px, 2vw, 26px);
+  min-height: 62px;
+  padding-inline: clamp(18px, 2.6vw, 36px);
 }
 
 .reference-header .brand {
@@ -303,75 +303,38 @@
   transform: none;
 }
 
-.header-navigation {
-  grid-area: nav;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(8px, 1.2vw, 18px);
-  min-width: 0;
-  overflow-x: auto;
-  white-space: nowrap;
-  scrollbar-width: none;
-  direction: rtl;
-}
-
-.header-navigation::-webkit-scrollbar { display: none; }
-
-.header-navigation__link {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  min-height: 56px;
-  flex: 0 0 auto;
-  color: #c7c9d7;
-  font-size: clamp(10px, .82vw, 12px);
-  font-weight: 550;
-  transition: color 160ms ease;
-}
-
-.header-navigation__link:hover,
-.header-navigation__link.is-active {
-  color: #f8f6ff;
-}
-
-.header-navigation__link.is-active::after {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  border-radius: 2px 2px 0 0;
-  background: #9884ff;
-  content: "";
+.reference-header .header-search {
+  justify-self: center;
+  width: min(100%, 620px);
 }
 
 .reference-header .header-actions {
   justify-self: start;
-  gap: clamp(4px, .7vw, 10px);
+  gap: clamp(5px, .8vw, 11px);
 }
 
 @media (max-width: 1050px) and (min-width: 761px) {
   .reference-header {
-    grid-template-columns: auto minmax(0, 1fr) minmax(145px, 20vw) auto;
-    grid-template-areas: "actions nav search brand";
-    column-gap: 10px;
-    padding-inline: 12px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "actions search brand";
+    column-gap: 14px;
+    padding-inline: 14px;
   }
 
-  .header-navigation { gap: 9px; }
-  .header-navigation__link { font-size: 10px; }
   .reference-header .brand { gap: 5px; }
   .reference-header .brand__name { font-size: 18px; }
+  .reference-header .header-actions { gap: 7px; }
 }
 
 @media (max-width: 900px) and (min-width: 761px) {
   .reference-header {
     grid-template-columns: auto minmax(0, 1fr) auto;
-    grid-template-areas: "actions nav brand";
+    grid-template-areas: "actions search brand";
   }
 
-  .reference-header .header-search { display: none; }
+  .reference-header .header-search {
+    width: min(100%, 420px);
+  }
 }
 
 @media (max-width: 760px) {
@@ -385,8 +348,6 @@
     padding: 10px 12px;
   }
 
-  .header-navigation { display: none; }
-
   .reference-header .brand {
     position: static;
     top: auto;
@@ -397,7 +358,6 @@
     transform: none;
   }
 }
-
 
 .mobile-menu-info-links {
   display: none;
