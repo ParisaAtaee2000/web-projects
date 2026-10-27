@@ -1,21 +1,24 @@
 .reference-header {
-  height: 56px;
-  display: grid;
-  grid-template-columns: auto minmax(180px, 360px) minmax(0, 1fr) auto;
-  grid-template-areas: "actions search nav brand";
-  align-items: center;
-  column-gap: clamp(14px, 2vw, 28px);
-  padding: 0 18px;
-  background: #050914;
-  border-bottom: 1px solid #172035;
-  color: #f7f7ff;
   position: relative;
   z-index: 5;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 360px) minmax(0, 1fr);
+  grid-template-areas: "actions search nav";
+  align-items: center;
+  column-gap: clamp(14px, 2vw, 28px);
+  height: 56px;
+  padding: 0 18px;
+  border-bottom: 1px solid #172035;
+  background: #050914;
+  color: #f7f7ff;
   direction: ltr;
 }
 
 .brand {
-  grid-area: brand;
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-self: end;
@@ -24,6 +27,7 @@
   font-weight: 800;
   letter-spacing: -.5px;
   direction: rtl;
+  transform: translateY(-50%);
 }
 
 .brand__mark {
@@ -42,17 +46,17 @@
 
 .header-search {
   grid-area: search;
-  height: 32px;
   display: flex;
   align-items: center;
   gap: 9px;
   width: 100%;
   min-width: 0;
+  height: 32px;
   max-width: none;
   padding: 0 12px;
-  background: #142039;
   border: 1px solid #263653;
   border-radius: 9px;
+  background: #142039;
   color: #cdd8f4;
   direction: rtl;
 }
@@ -60,9 +64,9 @@
 .header-search input {
   width: 100%;
   min-width: 0;
-  background: transparent;
   border: 0;
   outline: 0;
+  background: transparent;
   color: #fff;
   font-size: 10px;
 }
@@ -77,16 +81,17 @@
   align-items: stretch;
   align-self: stretch;
   justify-content: flex-start;
-  gap: clamp(10px, 1.4vw, 20px);
+  gap: clamp(10px, 1.2vw, 18px);
   min-width: 0;
+  padding-right: 126px;
   white-space: nowrap;
   direction: rtl;
 }
 
 .header-nav__item {
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
   font-size: 10px;
   color: #c5c8d5;
 }
@@ -96,13 +101,13 @@
 }
 
 .header-nav__item.is-active:after {
-  content: "";
-  height: 2px;
   position: absolute;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  height: 2px;
   background: #7459ff;
+  content: "";
 }
 
 .header-actions {
@@ -129,13 +134,14 @@
 
 @media (max-width: 1050px) {
   .reference-header {
-    grid-template-columns: auto minmax(145px, 260px) minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 280px) minmax(0, 1fr);
     column-gap: 14px;
     padding-inline: 14px;
   }
 
   .header-nav {
-    gap: 10px;
+    gap: 8px;
+    padding-right: 108px;
   }
 
   .header-nav__item {
@@ -162,11 +168,11 @@
   }
 
   .brand {
+    position: static;
+    top: auto;
+    right: auto;
+    transform: none;
     justify-self: end;
-  }
-
-  .header-actions {
-    justify-self: start;
   }
 
   .header-search {
@@ -178,10 +184,15 @@
     overflow-x: auto;
     overflow-y: hidden;
     gap: 16px;
+    padding-right: 0;
   }
 
   .header-nav__item {
     flex: 0 0 auto;
     font-size: 10px;
+  }
+
+  .header-actions {
+    justify-self: start;
   }
 }
