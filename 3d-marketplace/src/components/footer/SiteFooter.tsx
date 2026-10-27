@@ -33,6 +33,9 @@ export function SiteFooter() {
         <a href={ROUTES.customOrders}>سفارش اختصاصی</a>
         <a href={ROUTES.sellerRegister}>فروشندگی در Makerā</a>
         <a href={ROUTES.categories}>همهٔ دسته‌بندی‌ها</a>
+        <a href={ROUTES.support}>راهنما و پشتیبانی</a>
+        <a href={ROUTES.about}>درباره ما</a>
+        <a href={ROUTES.contact}>تماس با ما</a>
       </nav>
       <div className="site-footer__bottom">
         <span>© Makerā — نسخهٔ نمایشی اولیه</span>
