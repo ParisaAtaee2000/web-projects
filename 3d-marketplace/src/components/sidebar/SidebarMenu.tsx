@@ -1,10 +1,12 @@
 import type { LucideIcon } from "lucide-react";
 import {
+  BadgeCheck,
   Boxes,
   CircleHelp,
   House,
   Info,
   Layers3,
+  LayoutDashboard,
   LayoutGrid,
   Mail,
   Printer,
@@ -19,6 +21,11 @@ const marketItems: { label: string; href: string; Icon: LucideIcon }[] = [
   { label: "پرینترهای سه‌بعدی", href: ROUTES.printers, Icon: Printer },
   { label: "تجهیزات و لوازم جانبی", href: ROUTES.accessories, Icon: Boxes },
   { label: "مواد مصرفی", href: ROUTES.materials, Icon: Layers3 },
+];
+
+const sellerItems: { label: string; href: string; Icon: LucideIcon }[] = [
+  { label: "داشبورد فروشنده", href: ROUTES.sellerDashboard, Icon: LayoutDashboard },
+  { label: "ثبت‌نام فروشنده", href: ROUTES.sellerRegister, Icon: BadgeCheck },
 ];
 
 const informationItems: { label: string; href: string; Icon: LucideIcon }[] = [
@@ -61,6 +68,11 @@ export function SidebarMenu() {
       <div className="sidebar-menu__group">
         <h2 className="sidebar-menu__heading">کاوش در بازار</h2>
         {marketItems.map((item) => renderItem(item, pathname))}
+      </div>
+
+      <div className="sidebar-menu__group">
+        <h2 className="sidebar-menu__heading">پنل فروشندگان</h2>
+        {sellerItems.map((item) => renderItem(item, pathname))}
       </div>
 
       <div className="sidebar-menu__group">
