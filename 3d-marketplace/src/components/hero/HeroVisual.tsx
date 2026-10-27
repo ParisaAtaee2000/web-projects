@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const HERO_IMAGES = [
   "https://images.pexels.com/photos/33977799/pexels-photo-33977799.jpeg?cs=srgb&dl=pexels-jakubzerdzicki-33977799.jpg&fm=jpg",
-  "https://images.pexels.com/photos/19871842/pexels-photo-19871842.jpeg?auto=compress&cs=tinysrgb&w=2200",
+  "https://images.unsplash.com/photo-1758387933125-5ac945b4e2cd?auto=format&fit=crop&w=1800&q=80",
 ];
 
 interface HeroVisualProps {
