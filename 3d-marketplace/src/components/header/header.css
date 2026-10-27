@@ -294,7 +294,8 @@
   column-gap: clamp(12px, 2vw, 26px);
   row-gap: 0;
   min-height: 0;
-  padding-inline: clamp(18px, 2.6vw, 36px);
+  padding-left: calc(230px + clamp(18px, 2.6vw, 36px));
+  padding-right: clamp(18px, 2.6vw, 36px);
 }
 
 .reference-header .brand {
@@ -370,7 +371,8 @@
       "actions search brand"
       "nav nav nav";
     column-gap: 14px;
-    padding-inline: 14px;
+    padding-left: 224px;
+    padding-right: 14px;
   }
 
   .reference-header .brand { gap: 5px; }
