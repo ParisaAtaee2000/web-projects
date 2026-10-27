@@ -8,7 +8,7 @@
 
 .app-shell__body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 200px;
+  grid-template-columns: minmax(0, 1fr) 250px;
   min-height: calc(100vh - 56px);
 }
 
@@ -24,6 +24,12 @@
   min-height: calc(100vh - 56px);
   background: #030610;
   direction: rtl;
+}
+
+@media (max-width: 1050px) and (min-width: 761px) {
+  .app-shell__body {
+    grid-template-columns: minmax(0, 1fr) 220px;
+  }
 }
 
 @media (max-width: 760px) {
