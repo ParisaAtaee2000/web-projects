@@ -1,8 +1,7 @@
 export function HeroTitle() {
   return (
     <h1 className="hero-title" id="hero-title">
-      هر چیزی که با <span className="hero-title__accent">پرینتر سه‌بعدی</span>{" "}
-      ساخته می‌شود، اینجاست.
+      دنیای <span className="hero-title__accent">سه‌بعدی</span>، در دستان تو
     </h1>
   );
 }
