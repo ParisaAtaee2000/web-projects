@@ -1,4 +1,4 @@
-const DEFAULT_HERO_IMAGE = "https://images.unsplash.com/photo-1760446410955-86c0446b9be2?auto=format&fit=crop&fm=jpg&q=85&w=2200";
+const DEFAULT_HERO_IMAGE = "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=2200";
 
 interface HeroVisualProps { imageUrl?: string; }
 
