@@ -17,4 +17,5 @@ export const ROUTES = {
   accountFavorites: "/account/favorites",
   login: "/login",
   register: "/register",
+  sellerRegister: "/seller/register",
 } as const;
