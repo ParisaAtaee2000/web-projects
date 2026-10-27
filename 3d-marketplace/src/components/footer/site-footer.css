@@ -6,7 +6,7 @@
   gap: 34px;
   padding: 42px clamp(22px, 4vw, 56px) 0;
   border-top: 1px solid #2B3852;
-  background: #101A2E;
+  background: #141F34;
   color: #eceaff;
 }
 .site-footer__main { max-width: 440px; }
@@ -18,7 +18,7 @@
   place-items: center;
   border: 1px solid #a99aff60;
   border-radius: 13px;
-  background: linear-gradient(145deg, #342b53, #1B2941);
+  background: linear-gradient(145deg, #40365F, #22314B);
   color: #c3b8ff;
 }
 .site-footer__brand strong { display: block; color: #fff; font-size: 23px; font-weight: 850; line-height: 1; letter-spacing: -.04em; }
@@ -41,7 +41,7 @@
   min-height: 57px;
   margin-top: 4px;
   border-top: 1px solid #2B3852;
-  color: #939FB8;
+  color: #AAB6CD;
   font-size: 10px;
 }
 .site-footer a:focus-visible { outline: 2px solid #c4b8ff; outline-offset: 3px; }
