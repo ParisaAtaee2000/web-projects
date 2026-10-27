@@ -24,3 +24,22 @@
 .product-detail__sample-warning{margin-top:24px;padding:12px 14px;border-right:3px solid #8b7cf6;border-radius:8px;background:#17142c;color:#bcb5ef;font-size:11px;line-height:1.9}
 .product-detail__missing{padding:40px 0}
 @media(max-width:760px){.product-detail__layout{grid-template-columns:minmax(0,1fr);gap:24px}.product-detail__image{aspect-ratio:1/0.8}.product-detail__title{font-size:27px}}
+
+
+/* Palette 2 product-detail surfaces. */
+.product-detail__visual {
+  border-color: #454062;
+  background: #211F3A;
+}
+.product-detail__price-box {
+  border-color: #454062;
+  background: linear-gradient(135deg, #302A50, #211F3A);
+}
+.product-detail__spec {
+  border-bottom-color: #454062;
+}
+.product-detail__sample-warning {
+  border-right-color: #A995FF;
+  background: #302A50;
+  color: #ded6ff;
+}
