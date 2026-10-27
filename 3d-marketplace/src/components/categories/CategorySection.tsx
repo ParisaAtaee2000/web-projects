@@ -2,11 +2,11 @@ import { ArrowLeft, Box, Cpu, Layers3, Printer, Wrench } from "lucide-react";
 import "./category-section.css";
 
 const categories = [
-  { title: "محصولات چاپ سه‌بعدی", description: "قطعات و محصولات آماده", icon: Box, tone: "violet", image: "https://images.unsplash.com/photo-1758387836566-6a342434f5b4?auto=format&fit=crop&fm=jpg&q=80&w=700", imageAlt: "چاپگر سه‌بعدی در حال ساخت محصول" },
-  { title: "پرینترهای سه‌بعدی", description: "دستگاه‌ها و تجهیزات چاپ", icon: Printer, tone: "blue", image: "https://images.unsplash.com/photo-1760446410955-86c0446b9be2?auto=format&fit=crop&fm=jpg&q=80&w=700", imageAlt: "دستگاه چاپ سه‌بعدی و فیلامنت‌ها" },
-  { title: "قطعات و لوازم جانبی", description: "ارتقا، تعمیر و نگهداری", icon: Wrench, tone: "orange", image: "https://images.unsplash.com/photo-1758387836566-6a342434f5b4?auto=format&fit=crop&fm=jpg&q=80&w=700", imageAlt: "جزئیات فرایند چاپ سه‌بعدی" },
-  { title: "فیلامنت و مواد مصرفی", description: "مواد اولیه برای ساخت", icon: Layers3, tone: "green", image: "https://images.unsplash.com/photo-1760446410955-86c0446b9be2?auto=format&fit=crop&fm=jpg&q=80&w=700", imageAlt: "فیلامنت‌های چاپ سه‌بعدی" },
-  { title: "قطعات الکترونیکی", description: "بردها، سنسورها و ماژول‌ها", icon: Cpu, tone: "pink", image: "https://images.unsplash.com/photo-1758387836566-6a342434f5b4?auto=format&fit=crop&fm=jpg&q=80&w=700", imageAlt: "تجهیزات ساخت و نمونه‌سازی" },
+  { title: "محصولات چاپ سه‌بعدی", description: "قطعات و محصولات آماده", icon: Box, tone: "violet", image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=700", imageAlt: "چاپگر سه‌بعدی در حال ساخت محصول" },
+  { title: "پرینترهای سه‌بعدی", description: "دستگاه‌ها و تجهیزات چاپ", icon: Printer, tone: "blue", image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=700", imageAlt: "دستگاه چاپ سه‌بعدی و فیلامنت‌ها" },
+  { title: "قطعات و لوازم جانبی", description: "ارتقا، تعمیر و نگهداری", icon: Wrench, tone: "orange", image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=700", imageAlt: "جزئیات فرایند چاپ سه‌بعدی" },
+  { title: "فیلامنت و مواد مصرفی", description: "مواد اولیه برای ساخت", icon: Layers3, tone: "green", image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=700", imageAlt: "فیلامنت‌های چاپ سه‌بعدی" },
+  { title: "قطعات الکترونیکی", description: "بردها، سنسورها و ماژول‌ها", icon: Cpu, tone: "pink", image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=700", imageAlt: "تجهیزات ساخت و نمونه‌سازی" },
 ];
 
 export function CategorySection() {
