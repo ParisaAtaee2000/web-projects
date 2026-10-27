@@ -1,6 +1,6 @@
 /* Homepage sections — dark workshop palette, responsive without a UI framework. */
 .home-page {
-  background: #0D1424;
+  background: var(--color-bg);
   color: #f5f4ff;
 }
 .home-section {
@@ -71,10 +71,10 @@
 .home-filter-chip {
   min-height: 38px;
   padding: 8px 15px;
-  border: 1px solid #272c41;
+  border: 1px solid #34435E;
   border-radius: 999px;
-  background: #172238;
-  color: #b9bfd3;
+  background: #202F49;
+  color: #D5DDEF;
   font-size: 12px;
   transition: color .18s ease, border-color .18s ease, background .18s ease;
 }
@@ -95,7 +95,7 @@
   overflow: hidden;
   border: 1px solid #2B3852;
   border-radius: 17px;
-  background: linear-gradient(160deg, #1B2941, #141E32 72%);
+  background: linear-gradient(160deg, #22314B, #1A2740 72%);
   transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 .home-product-card:hover {
@@ -108,7 +108,7 @@
   display: block;
   height: 205px;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 55%, #2c3150, #121829 70%);
+  background: radial-gradient(ellipse at 50% 55%, #394563, #1A2740 70%);
 }
 .home-product-card__media::after {
   position: absolute;
@@ -209,7 +209,7 @@
 }
 .home-product-card__rating-label {
   margin-right: 3px;
-  color: #757d95;
+  color: #9DAAC3;
   font-size: 10px;
 }
 .home-product-card__footer {
@@ -229,12 +229,12 @@
 }
 .home-product-card__footer small {
   margin-right: 5px;
-  color: #8990a7;
+  color: #AAB6CD;
   font-size: 10px;
 }
 .home-section__footnote {
   margin: 17px 0 0;
-  color: #727b94;
+  color: #98A6C0;
   font-size: 11px;
   line-height: 1.9;
 }
