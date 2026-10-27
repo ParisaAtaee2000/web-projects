@@ -9,8 +9,8 @@
   column-gap: clamp(14px, 2vw, 28px);
   min-height: 56px;
   padding: 0 18px;
-  border-bottom: 1px solid #2B3852;
-  background: #152039;
+  border-bottom: 1px solid #465873;
+  background: #1C2A40;
   color: #f7f7ff;
   direction: ltr;
 }
@@ -54,9 +54,9 @@
   height: 34px;
   max-width: none;
   padding: 0 12px;
-  border: 1px solid #34415F;
+  border: 1px solid #465873;
   border-radius: 10px;
-  background: linear-gradient(135deg, #22314B, #17243B);
+  background: linear-gradient(135deg, #2A3C57, #22334C);
   color: #cdd8f4;
   direction: rtl;
   transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
@@ -65,7 +65,7 @@
 .header-search:focus-within {
   border-color: rgba(139, 119, 255, .8);
   box-shadow: 0 0 0 3px rgba(116, 89, 255, .12);
-  background: #1B2941;
+  background: #2A3D57;
 }
 
 .header-search input {
