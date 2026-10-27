@@ -1,6 +1,5 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  BadgeCheck,
   Boxes,
   CircleHelp,
   House,
@@ -25,7 +24,6 @@ const marketItems: { label: string; href: string; Icon: LucideIcon }[] = [
 
 const sellerItems: { label: string; href: string; Icon: LucideIcon }[] = [
   { label: "داشبورد فروشنده", href: ROUTES.sellerDashboard, Icon: LayoutDashboard },
-  { label: "ثبت‌نام فروشنده", href: ROUTES.sellerRegister, Icon: BadgeCheck },
 ];
 
 const informationItems: { label: string; href: string; Icon: LucideIcon }[] = [
@@ -71,7 +69,7 @@ export function SidebarMenu() {
       </div>
 
       <div className="sidebar-menu__group">
-        <h2 className="sidebar-menu__heading">پنل فروشندگان</h2>
+        <h2 className="sidebar-menu__heading">مدیریت فروشگاه</h2>
         {sellerItems.map((item) => renderItem(item, pathname))}
       </div>
 
