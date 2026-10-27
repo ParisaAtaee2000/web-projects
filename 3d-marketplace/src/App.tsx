@@ -120,5 +120,9 @@ export default function App() {
     };
   }, []);
 
-  return <AppShell>{resolvePage(pathname)}</AppShell>;
+  return (
+    <AppShell showSidebar={normalizePath(pathname) === ROUTES.home}>
+      {resolvePage(pathname)}
+    </AppShell>
+  );
 }
