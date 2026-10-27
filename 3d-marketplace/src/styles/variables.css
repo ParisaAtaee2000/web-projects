@@ -1,8 +1,9 @@
 :root {
-  --color-bg: #202F46;
-  --color-surface: #2A3B54;
-  --color-surface-raised: #354965;
-  --color-border: #526681;
+  /* Makerā's dark identity, with clearer separation between page and surfaces. */
+  --color-bg: #25354C;
+  --color-surface: #30435D;
+  --color-surface-raised: #3A506D;
+  --color-border: #5B708C;
   --color-text: #F7F8FF;
   --color-muted: #D5DDEF;
   --color-accent: #B8ABFF;
