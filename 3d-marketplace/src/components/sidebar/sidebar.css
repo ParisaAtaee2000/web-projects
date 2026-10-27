@@ -1,9 +1,9 @@
 .reference-sidebar {
-  position: relative;
-  align-self: stretch;
-  height: auto;
-  min-height: calc(100vh - var(--layout-header-height));
-  overflow: visible;
+  position: sticky;
+  top: var(--layout-header-height);
+  align-self: start;
+  height: calc(100vh - var(--layout-header-height));
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 26px;
