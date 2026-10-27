@@ -250,3 +250,24 @@
     transition: none;
   }
 }
+
+
+/* Palette 2: retain the near-black page background; lift only the category cards. */
+.category-tile {
+  background: #211F3A;
+  border-color: #454062;
+}
+.category-tile__overlay {
+  background: linear-gradient(
+    270deg,
+    rgba(33, 31, 58, .86) 0%,
+    rgba(33, 31, 58, .67) 60%,
+    rgba(33, 31, 58, .24) 100%
+  );
+}
+.category-tile:hover {
+  border-color: #A995FF;
+}
+.category-section__all:hover {
+  border-color: rgba(169, 149, 255, .55);
+}
