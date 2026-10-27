@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { SidebarMenu } from "../sidebar/SidebarMenu";
+import { SellerCard } from "../sidebar/SellerCard";
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,6 +78,7 @@ export function MobileMenu() {
               </button>
             </div>
             <SidebarMenu />
+            <SellerCard />
           </div>
         </>
       )}
