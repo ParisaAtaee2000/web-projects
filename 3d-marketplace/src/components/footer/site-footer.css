@@ -1,4 +1,6 @@
 .site-footer {
+  width: 100%;
+  min-width: 0;
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(150px, .75fr));
   gap: 34px;
