@@ -2,14 +2,14 @@
   min-height: 100vh;
   background: #030610;
   color: #f7f7ff;
-  overflow: hidden;
+  overflow-x: clip;
   direction: ltr;
 }
 
 .app-shell__body {
   display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
-  min-height: calc(100vh - 56px);
+  grid-template-columns: 230px minmax(0, 1fr);
+  min-height: calc(100vh - var(--layout-header-height));
 }
 
 .app-shell__body > .reference-sidebar {
@@ -21,14 +21,14 @@
   grid-column: 2;
   grid-row: 1;
   min-width: 0;
-  min-height: calc(100vh - 56px);
+  min-height: calc(100vh - var(--layout-header-height));
   background: #030610;
   direction: rtl;
 }
 
 @media (max-width: 1050px) and (min-width: 761px) {
   .app-shell__body {
-    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-columns: 210px minmax(0, 1fr);
   }
 }
 
@@ -44,6 +44,6 @@
   .app-shell__main {
     grid-column: 1;
     grid-row: 1;
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - var(--layout-header-height));
   }
 }
