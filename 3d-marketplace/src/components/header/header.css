@@ -285,12 +285,15 @@
 }
 
 
-/* Desktop layout: global utilities only; main site navigation lives in the sidebar. */
+/* Header hierarchy: utilities on row one, primary marketplace links on row two. */
 .reference-header {
   grid-template-columns: auto minmax(0, 1fr) auto;
-  grid-template-areas: "actions search brand";
+  grid-template-areas:
+    "actions search brand"
+    "nav nav nav";
   column-gap: clamp(12px, 2vw, 26px);
-  min-height: 62px;
+  row-gap: 0;
+  min-height: 0;
   padding-inline: clamp(18px, 2.6vw, 36px);
 }
 
@@ -313,10 +316,59 @@
   gap: clamp(5px, .8vw, 11px);
 }
 
+.header-navigation {
+  grid-area: nav;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: clamp(18px, 3vw, 42px);
+  min-width: 0;
+  min-height: 42px;
+  margin-top: 8px;
+  border-top: 1px solid #172035;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  direction: rtl;
+}
+
+.header-navigation::-webkit-scrollbar { display: none; }
+
+.header-navigation__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  flex: 0 0 auto;
+  color: #bfc6d9;
+  font-size: 12px;
+  font-weight: 650;
+  transition: color 160ms ease;
+}
+
+.header-navigation__link:hover,
+.header-navigation__link.is-active {
+  color: #f8f6ff;
+}
+
+.header-navigation__link.is-active::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: #9884ff;
+  content: "";
+}
+
 @media (max-width: 1050px) and (min-width: 761px) {
   .reference-header {
     grid-template-columns: auto minmax(0, 1fr) auto;
-    grid-template-areas: "actions search brand";
+    grid-template-areas:
+      "actions search brand"
+      "nav nav nav";
     column-gap: 14px;
     padding-inline: 14px;
   }
@@ -324,17 +376,16 @@
   .reference-header .brand { gap: 5px; }
   .reference-header .brand__name { font-size: 18px; }
   .reference-header .header-actions { gap: 7px; }
+  .header-navigation { gap: 22px; }
 }
 
 @media (max-width: 900px) and (min-width: 761px) {
-  .reference-header {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    grid-template-areas: "actions search brand";
-  }
-
   .reference-header .header-search {
     width: min(100%, 420px);
   }
+
+  .header-navigation { gap: 16px; }
+  .header-navigation__link { font-size: 11px; }
 }
 
 @media (max-width: 760px) {
@@ -347,6 +398,8 @@
     row-gap: 10px;
     padding: 10px 12px;
   }
+
+  .header-navigation { display: none; }
 
   .reference-header .brand {
     position: static;
