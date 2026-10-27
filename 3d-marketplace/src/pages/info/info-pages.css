@@ -314,7 +314,7 @@
     radial-gradient(ellipse at 10% 0%, #A995FF24, transparent 44%),
     linear-gradient(120deg, #302A50, #211F3A 72%);
 }
-.info-page__button,
+.info-page__button:not(.info-page__button--ghost),
 .info-page__button--primary {
   border-color: #A995FF;
   background: #A995FF;
