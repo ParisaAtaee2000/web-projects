@@ -40,7 +40,7 @@
 }
 
 .brand__name {
-  font-size: 19px;
+  font-size: 20px;
 }
 
 .header-search {
@@ -74,7 +74,7 @@
   outline: 0;
   background: transparent;
   color: #fff;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .header-search input::placeholder {
@@ -105,7 +105,9 @@
   border: 1px solid transparent;
   border-radius: 10px;
   color: #b9c3d8;
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
   transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
 }
 
@@ -170,7 +172,7 @@
   .header-nav__item {
     min-height: 32px;
     padding-inline: 8px;
-    font-size: 9px;
+    font-size: 11px;
   }
 
   .header-actions {
@@ -215,7 +217,7 @@
   .header-nav__item {
     min-height: 30px;
     padding-inline: 11px;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .header-actions {
