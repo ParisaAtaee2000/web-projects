@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="rail" x1="610" y1="205" x2="1200" y2="740" gradientUnits="userSpaceOnUse"><stop stop-color="#71829D"/><stop offset=".28" stop-color="#243149"/><stop offset=".52" stop-color="#8796AE"/><stop offset=".75" stop-color="#1B2639"/><stop offset="1" stop-color="#52627B"/></linearGradient>
+    <linearGradient id="darkMetal" x1="700" y1="240" x2="1050" y2="680" gradientUnits="userSpaceOnUse"><stop stop-color="#24334A"/><stop offset=".45" stop-color="#0D1421"/><stop offset="1" stop-color="#303C51"/></linearGradient>
+    <linearGradient id="glass" x1="708" y1="292" x2="1186" y2="679" gradientUnits="userSpaceOnUse"><stop stop-color="#111C2B" stop-opacity=".32"/><stop offset=".45" stop-color="#101827" stop-opacity=".1"/><stop offset="1" stop-color="#725CFF" stop-opacity=".12"/></linearGradient>
+    <linearGradient id="purple" x1="760" y1="205" x2="1050" y2="270" gradientUnits="userSpaceOnUse"><stop stop-color="#B8A8FF"/><stop offset=".45" stop-color="#745BFF"/><stop offset="1" stop-color="#4332B8"/></linearGradient>
+    <linearGradient id="print" x1="830" y1="560" x2="1060" y2="690" gradientUnits="userSpaceOnUse"><stop stop-color="#A99BFF"/><stop offset=".5" stop-color="#6E57EE"/><stop offset="1" stop-color="#312A8A"/></linearGradient>
+    <linearGradient id="bed" x1="650" y1="630" x2="1190" y2="736" gradientUnits="userSpaceOnUse"><stop stop-color="#8394AE"/><stop offset=".5" stop-color="#253249"/><stop offset="1" stop-color="#65758F"/></linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(0 365 -500 0 925 465)" gradientUnits="userSpaceOnUse"><stop stop-color="#6351FF" stop-opacity=".34"/><stop offset="1" stop-color="#6351FF" stop-opacity="0"/></radialGradient>
+    <filter id="blur" x="480" y="60" width="900" height="820" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="36"/></filter>
+    <filter id="shadow" x="540" y="140" width="800" height="710" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="18"/></filter>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" stroke="#91A4C4" stroke-opacity=".075"/></pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <ellipse cx="930" cy="494" rx="400" ry="300" fill="url(#glow)" filter="url(#blur)"/>
+  <ellipse cx="930" cy="763" rx="360" ry="39" fill="#000713" fill-opacity=".7" filter="url(#shadow)"/>
+  <g opacity=".7" stroke="#91A4C4" stroke-opacity=".24">
+    <path d="M600 770H1280"/><path d="M640 794H1230"/><path d="M680 818H1180"/>
+  </g>
+  <!-- printer frame -->
+  <path d="M681 234 735 190H1144L1195 234V724L1155 762H720L681 724V234Z" fill="#08101D" fill-opacity=".5" stroke="#71819A" stroke-opacity=".55" stroke-width="7"/>
+  <path d="M696 242 738 207H1140L1180 242" stroke="url(#rail)" stroke-width="20" stroke-linecap="round"/>
+  <path d="M712 253V710" stroke="url(#rail)" stroke-width="23" stroke-linecap="round"/>
+  <path d="M1164 253V710" stroke="url(#rail)" stroke-width="23" stroke-linecap="round"/>
+  <path d="M718 267V700M1158 267V700" stroke="#A8B6CC" stroke-opacity=".22" stroke-width="2"/>
+  <path d="M711 710 727 731H1147L1163 710" stroke="#53647D" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- transparent enclosure -->
+  <path d="M749 280H1127V663H749V280Z" fill="url(#glass)" stroke="#64748F" stroke-opacity=".3" stroke-width="3"/>
+  <path d="M768 296V645M1108 296V645" stroke="#7486A5" stroke-opacity=".18" stroke-width="2"/>
+  <!-- top gantry -->
+  <path d="M703 280H1172" stroke="#9AAAC0" stroke-width="20" stroke-linecap="round"/>
+  <path d="M726 279H1148" stroke="#D3D9E5" stroke-opacity=".4" stroke-width="3"/>
+  <path d="M756 282H1119" stroke="#151E30" stroke-width="8" stroke-linecap="round"/>
+  <path d="M781 278H1096" stroke="url(#purple)" stroke-width="3" stroke-linecap="round"/>
+  <!-- filament spool on the upper left -->
+  <g transform="translate(515 308) rotate(-12)">
+    <ellipse cx="64" cy="91" rx="56" ry="69" fill="#080D18" stroke="#5A6780" stroke-width="8"/>
+    <ellipse cx="64" cy="91" rx="44" ry="56" fill="#171E31" stroke="#9A86FF" stroke-width="7"/>
+    <ellipse cx="64" cy="91" rx="16" ry="21" fill="#070B15" stroke="#BDB3FF" stroke-width="5"/>
+    <path d="M26 63C43 47 77 45 98 68M23 81C42 61 84 62 106 84M22 101C44 81 87 83 106 104M29 123C49 105 80 107 96 124" stroke="#7F6CFF" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+    <path d="M120 95C153 95 145 145 183 145L210 145" stroke="#A695FF" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <!-- extruder carriage -->
+  <g>
+    <rect x="861" y="257" width="148" height="58" rx="12" fill="#111A2A" stroke="#7B8AA4" stroke-width="4"/>
+    <rect x="878" y="269" width="114" height="35" rx="8" fill="#252F45"/>
+    <path d="M893 277H978" stroke="#A4B2C9" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>
+    <rect x="909" y="300" width="54" height="88" rx="9" fill="url(#darkMetal)" stroke="#8794AA" stroke-width="4"/>
+    <rect x="922" y="315" width="28" height="34" rx="5" fill="#090F1B" stroke="#6355C9" stroke-width="3"/>
+    <path d="M924 355H948L943 382H929L924 355Z" fill="#A9B4C8"/>
+    <path d="M929 382H943L938 407H934L929 382Z" fill="#E6B985"/>
+    <path d="M936 407 931 418H941L936 407Z" fill="#A79AFF"/>
+    <path d="M935 420V454" stroke="#9D8BFF" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 7"/>
+  </g>
+  <!-- build plate -->
+  <path d="M654 625 1084 625 1206 682 768 682 654 625Z" fill="#070D17" stroke="#53647D" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M654 625 1084 625 1206 682 768 682 654 625Z" fill="url(#bed)" fill-opacity=".72"/>
+  <path d="M683 634 1080 634 1174 678 775 678 683 634Z" stroke="#A4B0C8" stroke-opacity=".48" stroke-width="2"/>
+  <path d="M708 644 1071 644 1132 673 768 673 708 644Z" stroke="#8A78FF" stroke-opacity=".48" stroke-width="2"/>
+  <!-- printed geometric object -->
+  <g>
+    <path d="M842 587 941 536 1041 588 941 640 842 587Z" fill="#C1B7FF" fill-opacity=".9"/>
+    <path d="M842 587 941 640V674L842 621V587Z" fill="#6251D0"/>
+    <path d="M941 640 1041 588V621L941 674V640Z" fill="url(#print)"/>
+    <path d="M842 587 941 536 1041 588 941 640 842 587Z" fill="url(#print)"/>
+    <path d="M866 588 941 550 1016 588 941 627 866 588Z" stroke="#D4CCFF" stroke-opacity=".65" stroke-width="3"/>
+    <path d="M852 599 941 646 1030 599M852 609 941 656 1030 609M852 619 941 666 1030 619" stroke="#C4B8FF" stroke-opacity=".52" stroke-width="2"/>
+    <path d="M941 640V674" stroke="#D8D0FF" stroke-opacity=".45" stroke-width="2"/>
+  </g>
+  <!-- small technical details -->
+  <g fill="#A99BFF">
+    <circle cx="713" cy="265" r="5"/><circle cx="1163" cy="265" r="5"/>
+    <circle cx="714" cy="704" r="5"/><circle cx="1162" cy="704" r="5"/>
+  </g>
+  <g stroke="#9EADCA" stroke-opacity=".5" stroke-width="3" stroke-linecap="round">
+    <path d="M728 742H1151"/><path d="M750 751H1129"/>
+  </g>
+  <path d="M1290 270h78M1329 231v78M1280 650h112M1336 610v82" stroke="#9885FF" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="1368" cy="270" r="5" fill="#B8ACFF"/>
+  <circle cx="1392" cy="650" r="4" fill="#B8ACFF"/>
+</svg>
