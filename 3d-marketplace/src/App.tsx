@@ -21,6 +21,7 @@ import { SupportPage } from "./pages/info/SupportPage";
 import { AboutPage } from "./pages/info/AboutPage";
 import { ContactPage } from "./pages/info/ContactPage";
 import { SellerDashboardPage } from "./pages/seller/SellerDashboardPage";
+import "./components/catalog/extra-pages.css";
 
 function normalizePath(pathname: string) {
   return pathname.length > 1 ? pathname.replace(/\/+$/, "") : "/";
