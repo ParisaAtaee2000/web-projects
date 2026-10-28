@@ -314,7 +314,7 @@
   background: #eaf9ef;
   color: #187247;
 }
-.custom-order-stepper > .custom-order-stepper__group > i.is-complete {
+.custom-order-stepper__group > i.is-complete {
   background: #8acba8;
 }
 .custom-order-form { overflow: hidden; }
