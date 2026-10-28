@@ -1,6 +1,7 @@
 import { ROUTES } from "../../app/router/routeNames";
 
 const links = [
+  { label: "صفحه اصلی", href: ROUTES.home },
   { label: "محصولات", href: ROUTES.products },
   { label: "سازندگان", href: ROUTES.makers },
   { label: "فایل‌های سه‌بعدی", href: ROUTES.files3d },
@@ -19,7 +20,7 @@ export function HeaderNavigation() {
       {links.map((link) => {
         const active =
           currentPath === link.href ||
-          currentPath.startsWith(link.href + "/");
+          (link.href !== ROUTES.home && currentPath.startsWith(link.href + "/"));
         return (
           <a
             key={link.href}
