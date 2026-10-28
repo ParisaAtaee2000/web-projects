@@ -1,5 +1,7 @@
-import { useMemo, useState } from "react";
-import { ArrowLeft, Heart, Star } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { ArrowLeft, Heart, ShoppingCart, Star } from "lucide-react";
+import { addToCart, parseLocalizedPrice } from "../../lib/demoCart";
+import { readFavoriteIds, subscribeToFavorites, toggleFavoriteId } from "../../lib/demoFavorites";
 import { ROUTES } from "../../app/router/routeNames";
 
 type ProductFilter = "all" | "printed" | "printer" | "accessory" | "material";
@@ -21,16 +23,15 @@ const filters: { id: ProductFilter; label: string }[] = [
 
 export function FeaturedProductsSection() {
   const [activeFilter, setActiveFilter] = useState<ProductFilter>("all");
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [favorites, setFavorites] = useState<string[]>(() => readFavoriteIds());
+  useEffect(() => subscribeToFavorites(() => setFavorites(readFavoriteIds())), []);
   const visibleProducts = useMemo(
     () => activeFilter === "all" ? products : products.filter((product) => product.category === activeFilter),
     [activeFilter],
   );
 
   function toggleFavorite(productId: string) {
-    setFavorites((current) => current.includes(productId)
-      ? current.filter((id) => id !== productId)
-      : [...current, productId]);
+    toggleFavoriteId(productId);
   }
 
   return (
@@ -68,7 +69,7 @@ export function FeaturedProductsSection() {
                 <span className="home-product-card__maker">{product.maker}</span>
                 <h3><a href={`${ROUTES.products}/${product.id}`}>{product.title}</a></h3>
                 <div className="home-product-card__rating"><Star size={14} fill="currentColor" aria-hidden="true" /><span>{product.rating}</span><span className="home-product-card__rating-label">امتیاز نمایشی</span></div>
-                <div className="home-product-card__footer"><div><strong>{product.price}</strong><small>تومان</small></div><span aria-hidden="true">↗</span></div>
+                <div className="home-product-card__footer"><div><strong>{product.price}</strong><small>تومان</small></div><button className="home-product-card__add" type="button" onClick={() => addToCart({ id: product.id, title: product.title, maker: product.maker, price: parseLocalizedPrice(product.price), image: product.image, alt: product.alt, categoryLabel: product.categoryLabel })}><ShoppingCart size={14} aria-hidden="true" /><span>افزودن</span></button></div>
               </div>
             </article>
           );

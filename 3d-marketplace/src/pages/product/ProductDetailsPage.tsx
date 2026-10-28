@@ -1,5 +1,7 @@
-import { ArrowRight, CheckCircle2, Star } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, CheckCircle2, ShoppingCart, Star } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
+import { addToCart, parseLocalizedPrice } from "../../lib/demoCart";
 import "./product-detail.css";
 
 type ProductDetail = {
@@ -28,6 +30,7 @@ const productDetails: ProductDetail[] = [
 ];
 
 export function ProductDetailsPage() {
+  const [added, setAdded] = useState(false);
   const pathParts = window.location.pathname.split("/").filter(Boolean);
   const productId = decodeURIComponent(pathParts[pathParts.length - 1] ?? "");
   const product = productDetails.find((item) => item.id === productId);
@@ -61,6 +64,7 @@ export function ProductDetailsPage() {
             <span className="product-detail__status"><CheckCircle2 size={15} aria-hidden="true" /> نمایش اطلاعات محصول</span>
             <p className="product-detail__notice">این صفحه در حال حاضر برای بررسی تجربه کاربری است و سفارش یا پرداخت واقعی انجام نمی‌دهد.</p>
           </div>
+          <button className={`product-detail__cart${added ? " is-added" : ""}`} type="button" onClick={() => { addToCart({ id: product.id, title: product.title, maker: product.maker, price: parseLocalizedPrice(product.price), image: product.image, alt: product.alt, categoryLabel: product.category }); setAdded(true); }}><ShoppingCart size={17} aria-hidden="true" /> {added ? "به سبد اضافه شد" : "افزودن به سبد خرید"}</button>
           <div className="product-detail__specs">
             <h2>مشخصات محصول</h2>
             {product.specs.map(([label, value]) => <div className="product-detail__spec" key={label}><span>{label}</span><span>{value}</span></div>)}
