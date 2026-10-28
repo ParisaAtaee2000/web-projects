@@ -12,12 +12,20 @@ export function CustomOrdersPage() {
     setSubmitted(true);
   }
   return (
-    <div className="page form-page" dir="rtl">
+    <div className="page form-page custom-order-page" dir="rtl">
       <header className="form-page__header">
         <span className="marketplace-catalog__eyebrow"><Sparkles size={15} aria-hidden="true" /> سفارش ساخت اختصاصی</span>
         <h1>ایده‌ات را به یک قطعهٔ واقعی تبدیل کن</h1>
         <p>نیاز، ابعاد و جنس مدنظرت را بنویس تا درخواست ساخت برای بررسی آماده شود.</p>
       </header>
+      <nav className="custom-order-stepper" aria-label="مراحل ثبت سفارش اختصاصی">
+        <div className="custom-order-stepper__item is-active"><span>۱</span><strong>توضیحات</strong></div>
+        <i aria-hidden="true" />
+        <div className="custom-order-stepper__item"><span>۲</span><strong>جزئیات</strong></div>
+        <i aria-hidden="true" />
+        <div className="custom-order-stepper__item"><span>۳</span><strong>بررسی و ارسال</strong></div>
+      </nav>
+
       <div className="form-page__layout">
         <form className="form-panel" onSubmit={handleSubmit}>
           <h2>مشخصات درخواست</h2>
