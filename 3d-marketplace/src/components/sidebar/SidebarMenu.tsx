@@ -1,8 +1,7 @@
-import { Box, Boxes, FileBox, House, ShoppingBag, UserRound } from "lucide-react";
+import { Box, Boxes, FileBox, ShoppingBag, UserRound } from "lucide-react";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 
 const items = [
-  { label: "صفحه اصلی", href: "/", Icon: House, active: true },
   { label: "محصولات", href: "/products", Icon: Box },
   { label: "تجهیزات و لوازم جانبی", href: "/accessories", Icon: Boxes },
   { label: "فایل سه‌بعدی", href: "/3d-files", Icon: FileBox },
