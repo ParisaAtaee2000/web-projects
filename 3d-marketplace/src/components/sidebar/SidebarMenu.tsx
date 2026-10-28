@@ -54,14 +54,20 @@ function renderItem(
   );
 }
 
-export function SidebarMenu() {
+interface SidebarMenuProps {
+  includeHome?: boolean;
+}
+
+export function SidebarMenu({ includeHome = false }: SidebarMenuProps) {
   const pathname = normalizePath(window.location.pathname);
 
   return (
     <nav className="sidebar-menu" aria-label="ناوبری سایت">
-      <div className="sidebar-menu__primary">
-        {renderItem(homeItem, pathname)}
-      </div>
+      {includeHome && (
+        <div className="sidebar-menu__primary">
+          {renderItem(homeItem, pathname)}
+        </div>
+      )}
 
       <div className="sidebar-menu__group">
         <h2 className="sidebar-menu__heading">کاوش در بازار</h2>
