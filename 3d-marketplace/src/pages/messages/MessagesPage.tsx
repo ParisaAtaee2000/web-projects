@@ -2,7 +2,7 @@ import { useMemo, useState, type FormEvent } from "react";
 import {
   ArrowRight, Bell, CheckCheck, Heart, Home, Image as ImageIcon,
   LogOut, MoreVertical, Paperclip, Search, Send, Settings,
-  ShoppingBag, Store, Boxes, MessageSquare,
+  ShoppingBag, Boxes, MessageSquare,
 } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 import "./messages.css";
