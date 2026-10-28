@@ -632,3 +632,17 @@
 @media (prefers-reduced-motion: reduce) {
   .header-search__clear { transition: none; }
 }
+
+
+/* Put the Maker logo on the right side of the desktop header. */
+@media (min-width: 761px) {
+  .reference-header {
+    grid-template-areas: "actions search nav brand";
+  }
+  .reference-header .brand {
+    justify-self: end;
+  }
+  .reference-header .header-actions {
+    justify-self: start;
+  }
+}
