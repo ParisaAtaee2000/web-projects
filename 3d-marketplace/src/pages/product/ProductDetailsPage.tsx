@@ -138,7 +138,7 @@ export function ProductDetailsPage() {
         <div className="product-detail__related-heading"><h2 id="related-products-title">محصولات مرتبط</h2><a href={ROUTES.products}>مشاهده همه <ArrowLeft size={13} aria-hidden="true" /></a></div>
         <div className="product-detail__related-grid">
           {relatedProducts.map((item) => (
-            <a className="product-detail__related-card" href={\`\${ROUTES.products}/\${item.id}\`} key={item.id}>
+            <a className="product-detail__related-card" href={`${ROUTES.products}/${item.id}`} key={item.id}>
               <img src={item.image} alt={item.alt} loading="lazy" />
               <strong>{item.title}</strong>
               <small><Star size={11} fill="currentColor" aria-hidden="true" /> {item.rating}</small>
