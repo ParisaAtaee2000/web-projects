@@ -60,7 +60,7 @@ export function ProductsPage() {
     const normalizedQuery = query.trim().toLocaleLowerCase("fa");
     const filtered = products.filter((product) => {
       const matchesCategory = category === "all" || product.category === category;
-      const searchableText = \`\${product.title} \${product.maker} \${product.categoryLabel}\`.toLocaleLowerCase("fa");
+      const searchableText = `${product.title} ${product.maker} ${product.categoryLabel}`.toLocaleLowerCase("fa");
       return matchesCategory && product.price <= maxPrice && (!normalizedQuery || searchableText.includes(normalizedQuery));
     });
     return filtered.sort((a, b) => {
@@ -141,16 +141,16 @@ export function ProductsPage() {
                 const favorite = favorites.includes(product.id);
                 return (
                   <article className="products-page__card" key={product.id}>
-                    <a className="products-page__media" href={\`\${ROUTES.products}/\${product.id}\`} aria-label={\`مشاهده \${product.title}\`}>
+                    <a className="products-page__media" href={`${ROUTES.products}/${product.id}`} aria-label={`مشاهده ${product.title}`}>
                       <img src={product.image} alt={product.alt} loading="lazy" />
                       {product.featured && <span className="products-page__badge">پیشنهاد Maker</span>}
                     </a>
                     <button type="button" className={"products-page__favorite" + (favorite ? " is-favorite" : "")} onClick={() => toggleFavoriteId(product.id)} aria-label={favorite ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"} aria-pressed={favorite}><Heart size={15} fill={favorite ? "currentColor" : "none"} aria-hidden="true" /></button>
                     <div className="products-page__body">
                       <span className="products-page__maker">{product.maker}</span>
-                      <h3 className="products-page__title"><a href={\`\${ROUTES.products}/\${product.id}\`}>{product.title}</a></h3>
+                      <h3 className="products-page__title"><a href={`${ROUTES.products}/${product.id}`}>{product.title}</a></h3>
                       <div className="products-page__meta"><span className="products-page__rating"><Star size={12} fill="currentColor" aria-hidden="true" /> {product.rating.toLocaleString("fa-IR")} <span>({product.reviews.toLocaleString("fa-IR")})</span></span><span>{product.categoryLabel}</span></div>
-                      <div className="products-page__price-row"><span className="products-page__price">{product.priceLabel}<small>تومان</small></span><button className="products-page__add-cart" type="button" aria-label={\`افزودن \${product.title} به سبد\`} onClick={() => addToCart({ id: product.id, title: product.title, maker: product.maker, price: product.price, image: product.image, alt: product.alt, categoryLabel: product.categoryLabel })}><ShoppingCart size={13} aria-hidden="true" /></button></div>
+                      <div className="products-page__price-row"><span className="products-page__price">{product.priceLabel}<small>تومان</small></span><button className="products-page__add-cart" type="button" aria-label={`افزودن ${product.title} به سبد`} onClick={() => addToCart({ id: product.id, title: product.title, maker: product.maker, price: product.price, image: product.image, alt: product.alt, categoryLabel: product.categoryLabel })}><ShoppingCart size={13} aria-hidden="true" /></button></div>
                     </div>
                   </article>
                 );
