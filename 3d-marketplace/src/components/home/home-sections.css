@@ -1058,3 +1058,281 @@
   .featured-products .home-product-card__body h3 { font-size: 10px; min-height: 0; }
   .featured-products .home-product-card__footer strong { font-size: 10px; }
 }
+
+
+
+/* Approved homepage community strip, custom order banner, and trust band. */
+.makers-spotlight {
+  width: calc(100% - 40px);
+  max-width: 1240px;
+  margin: 22px auto 0;
+  padding: 0;
+}
+.maker-community {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr);
+  min-height: 156px;
+  overflow: hidden;
+  border: 1px solid #1d2c47;
+  border-radius: 11px;
+  background: #071327;
+  color: #fff;
+}
+.maker-community__feature {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 19px 20px;
+  background:
+    linear-gradient(90deg, rgba(6, 16, 34, .97), rgba(6, 16, 34, .75) 55%, rgba(6, 16, 34, .22)),
+    url("https://images.pexels.com/photos/19588197/pexels-photo-19588197.jpeg?auto=compress&cs=tinysrgb&w=1000") center / cover no-repeat;
+}
+.maker-community__feature-copy { position: relative; z-index: 1; max-width: 260px; }
+.maker-community__feature h2 {
+  margin: 0 0 6px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.maker-community__feature p {
+  margin: 0 0 10px;
+  color: #c1cbdd;
+  font-size: 8px;
+  line-height: 1.9;
+}
+.maker-community__feature a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  background: #7046f6;
+  color: #fff;
+  font-size: 8px;
+}
+.maker-community__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 15px 17px;
+}
+.maker-community__list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 13px;
+}
+.maker-community__list-head h2 {
+  margin: 0;
+  font-size: 13px;
+  color: #fff;
+}
+.maker-community__list-head a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #a995ff;
+  font-size: 8px;
+  white-space: nowrap;
+}
+.maker-community__avatars {
+  display: flex;
+  justify-content: space-between;
+  gap: 9px;
+}
+.maker-community__person {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  text-align: center;
+}
+.maker-community__avatar {
+  position: relative;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  margin-bottom: 6px;
+  border: 1px solid #7161bf;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #7b5bf4, #222d51);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+}
+.maker-community__avatar--blue { background: linear-gradient(145deg, #54b3d2, #25395c); }
+.maker-community__avatar--pink { background: linear-gradient(145deg, #c77eb3, #3f2b5c); }
+.maker-community__avatar--orange { background: linear-gradient(145deg, #d99b66, #4a3150); }
+.maker-community__avatar--green { background: linear-gradient(145deg, #61a994, #25395c); }
+.maker-community__avatar i {
+  position: absolute;
+  left: -3px;
+  bottom: -2px;
+  display: grid;
+  width: 14px;
+  height: 14px;
+  place-items: center;
+  border: 1px solid #071327;
+  border-radius: 50%;
+  background: #a995ff;
+  color: #101020;
+  font-style: normal;
+}
+.maker-community__person strong {
+  max-width: 100%;
+  color: #f5f5ff;
+  font-size: 8px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.maker-community__person small {
+  margin-top: 2px;
+  color: #9eaec5;
+  font-size: 7px;
+  line-height: 1.5;
+}
+.custom-order--banner {
+  width: calc(100% - 40px);
+  max-width: 1240px;
+  margin: 16px auto 0;
+  padding: 0;
+}
+.custom-order__banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  min-height: 118px;
+  overflow: hidden;
+  padding: 16px 22px;
+  border: 1px solid #332a70;
+  border-radius: 11px;
+  background:
+    linear-gradient(90deg, rgba(28, 12, 83, .72), rgba(34, 19, 98, .86) 30%, rgba(27, 14, 76, .80)),
+    url("https://images.pexels.com/photos/24859620/pexels-photo-24859620.jpeg?auto=compress&cs=tinysrgb&w=1200") center 47% / cover no-repeat;
+  color: #fff;
+  text-align: center;
+}
+.custom-order__banner:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(123, 78, 255, .33), transparent 66%);
+  pointer-events: none;
+}
+.custom-order__banner-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+}
+.custom-order__banner-mark { display: none; }
+.custom-order__banner h2 {
+  margin: 0 0 5px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.custom-order__banner p {
+  margin: 0 0 9px;
+  color: #d7d1f4;
+  font-size: 8px;
+  line-height: 1.8;
+}
+.custom-order__banner a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 28px;
+  padding: 0 12px;
+  border-radius: 7px;
+  background: #7046f6;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+}
+.custom-order__banner-benefits {
+  position: absolute;
+  z-index: 1;
+  left: 18px;
+  bottom: 15px;
+  display: flex;
+  gap: 13px;
+}
+.custom-order__banner-benefits span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #e2dcff;
+  font-size: 7px;
+}
+.custom-order__banner-benefits svg { color: #a795ff; }
+.why-maker-section {
+  width: calc(100% - 40px);
+  max-width: 1240px;
+  margin: 16px auto 0;
+  padding: 0 0 18px;
+}
+.why-maker-band {
+  display: grid;
+  grid-template-columns: 1.25fr repeat(5, minmax(0, 1fr));
+  align-items: center;
+  min-height: 94px;
+  overflow: hidden;
+  border-radius: 11px;
+  background: #071327;
+  color: #fff;
+}
+.why-maker-intro { padding: 13px 17px; }
+.why-maker-intro h2 { margin: 0 0 4px; color: #fff; font-size: 14px; }
+.why-maker-intro p { margin: 0; color: #98a8c1; font-size: 7px; line-height: 1.7; }
+.why-maker-intro a { display: inline-flex; align-items: center; gap: 5px; margin-top: 6px; color: #d2caff; font-size: 7px; }
+.why-maker-benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 62px;
+  padding: 7px 5px;
+  border-right: 1px solid #1b2d48;
+  text-align: center;
+}
+.why-maker-benefit svg { margin-bottom: 6px; color: #b7a6ff; }
+.why-maker-benefit strong { color: #f5f4ff; font-size: 8px; line-height: 1.6; }
+.why-maker-benefit small { display: block; margin-top: 4px; color: #8f9fb6; font-size: 6px; line-height: 1.6; }
+@media (max-width: 1000px) and (min-width: 761px) {
+  .makers-spotlight,.custom-order--banner,.why-maker-section { width: calc(100% - 28px); }
+  .maker-community { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+  .maker-community__list { padding: 12px; }
+  .maker-community__avatars { gap: 5px; }
+  .maker-community__avatar { width: 30px; height: 30px; }
+  .maker-community__person strong { font-size: 7px; }
+  .maker-community__person small { font-size: 6px; }
+  .why-maker-band { grid-template-columns: 1.15fr repeat(5, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .makers-spotlight,.custom-order--banner,.why-maker-section { width: calc(100% - 24px); }
+  .maker-community { grid-template-columns: minmax(0, 1fr); }
+  .maker-community__feature { min-height: 155px; order: 0; }
+  .maker-community__list { padding: 14px 12px 16px; order: 1; }
+  .maker-community__avatars { gap: 7px; }
+  .maker-community__avatar { width: 34px; height: 34px; }
+  .maker-community__person strong { font-size: 7px; }
+  .custom-order__banner { min-height: 150px; padding: 20px 12px 42px; }
+  .custom-order__banner h2 { font-size: 14px; }
+  .custom-order__banner p { font-size: 8px; }
+  .custom-order__banner-benefits { right: 12px; left: 12px; bottom: 10px; justify-content: center; gap: 10px; }
+  .why-maker-band { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .why-maker-intro { grid-column: 1 / -1; padding: 15px; }
+  .why-maker-benefit { min-height: 80px; border-top: 1px solid #1b2d48; }
+  .why-maker-benefit:nth-child(odd) { border-right: 0; }
+  .why-maker-benefit strong { font-size: 9px; }
+  .why-maker-benefit small { font-size: 7px; }
+}
