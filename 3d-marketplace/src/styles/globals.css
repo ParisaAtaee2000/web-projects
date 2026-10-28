@@ -198,3 +198,37 @@ select:focus-visible {
 .categories-page__arrow {
   color: #c7baff;
 }
+
+
+
+/* Shared light marketplace surfaces from the approved desktop/mobile page boards. */
+.page {
+  padding: clamp(18px, 2.2vw, 28px);
+  color: #101827;
+  background:
+    radial-gradient(ellipse at 82% 0%, rgba(105, 75, 230, .035), transparent 42%),
+    #f5f7fc;
+}
+.page h1 { color: #101827; }
+.page h2,.page h3,.page h4 { color: #172033; }
+.page p { color: #667085; }
+.page > a { color: #6740e8; }
+.categories-page__eyebrow { color: #6740e8; }
+.categories-page__card {
+  border-color: #e1e6ef;
+  background: #fff;
+  box-shadow: 0 5px 18px #10182808;
+}
+.categories-page__card:hover {
+  border-color: #c6b7ff;
+  background: #fff;
+  box-shadow: 0 8px 24px #1018280d;
+}
+.categories-page__copy h2 { color: #172033; }
+.categories-page__copy p { color: #667085; }
+.categories-page__icon {
+  background: #f7f5ff;
+}
+@media (max-width: 620px) {
+  .page { padding: 18px 13px; }
+}
