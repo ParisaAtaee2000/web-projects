@@ -8,7 +8,7 @@ const homeCategories = [
     title: "سفارش اختصاصی",
     description: "طراحی و چاپ بر اساس ایده شما",
     href: ROUTES.customOrders,
-    image: "https://images.pexels.com/photos/30658380/pexels-photo-30658380.jpeg?auto=compress&cs=tinysrgb&w=900",
+    image: "/images/maker-category-custom.webp",
     imageAlt: "مدل سه‌بعدی آمادهٔ ساخت",
   },
   {
@@ -16,7 +16,7 @@ const homeCategories = [
     title: "فایل‌های سه‌بعدی",
     description: "مدل‌ها و فایل‌های قابل چاپ",
     href: ROUTES.files3d,
-    image: "https://images.pexels.com/photos/24859620/pexels-photo-24859620.jpeg?auto=compress&cs=tinysrgb&w=900",
+    image: "/images/maker-category-files.webp",
     imageAlt: "مدل سه‌بعدی برای چاپ",
   },
   {
@@ -24,7 +24,7 @@ const homeCategories = [
     title: "محصولات چاپ سه‌بعدی",
     description: "دکور، ابزار و محصولات آماده",
     href: ROUTES.products,
-    image: "https://images.pexels.com/photos/19588204/pexels-photo-19588204.jpeg?auto=compress&cs=tinysrgb&w=900",
+    image: "/images/maker-category-printed.webp",
     imageAlt: "محصول ساخته‌شده با چاپگر سه‌بعدی",
   },
   {
@@ -32,7 +32,7 @@ const homeCategories = [
     title: "تجهیزات و لوازم جانبی",
     description: "پرینتر، فیلامنت، قطعات و ابزار",
     href: ROUTES.categories,
-    image: "https://images.pexels.com/photos/19588197/pexels-photo-19588197.jpeg?auto=compress&cs=tinysrgb&w=900",
+    image: "/images/maker-category-equipment.webp",
     imageAlt: "چاپگر سه‌بعدی و تجهیزات ساخت",
   },
 ];

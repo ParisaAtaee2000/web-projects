@@ -2,8 +2,7 @@ interface HeroVisualProps {
   imageUrl?: string;
 }
 
-const referenceHeroImage =
-  "https://images.pexels.com/photos/19588197/pexels-photo-19588197.jpeg?auto=compress&cs=tinysrgb&w=1600";
+const referenceHeroImage = "/images/maker-home-hero.webp";
 
 export function HeroVisual({ imageUrl = referenceHeroImage }: HeroVisualProps) {
   return (

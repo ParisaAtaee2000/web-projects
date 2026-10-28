@@ -549,3 +549,37 @@
   .hero-benefit__copy strong { font-size: 10px; }
   .hero-benefit__copy small { font-size: 8px; }
 }
+
+
+/* Final art placement: use the cropped photography from the approved Maker reference. */
+.hero-visual__image {
+  inset: 0 0 0 34%;
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+  opacity: .98;
+  filter: saturate(.9) contrast(1.04);
+}
+.hero-visual__shade {
+  background:
+    linear-gradient(90deg, rgba(3, 7, 17, .97) 0%, rgba(3, 7, 17, .82) 20%, rgba(3, 7, 17, .20) 58%, rgba(3, 7, 17, .75) 100%),
+    linear-gradient(0deg, rgba(3, 7, 17, .76) 0%, transparent 45%);
+}
+.hero-visual__glow {
+  left: 47%;
+  width: 23%;
+  background: rgba(109, 79, 255, .09);
+}
+@media (max-width: 760px) {
+  .hero-visual__image {
+    inset: 0;
+    width: 100%;
+    object-position: 58% center;
+  }
+  .hero-visual__shade {
+    background:
+      linear-gradient(90deg, rgba(3, 7, 17, .82) 0%, rgba(3, 7, 17, .62) 60%, rgba(3, 7, 17, .48) 100%),
+      linear-gradient(0deg, rgba(3, 7, 17, .88) 0%, transparent 50%);
+  }
+}
