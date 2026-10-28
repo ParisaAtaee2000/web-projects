@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { ArrowLeft, BadgeCheck, CheckCircle2, Headset, MessageCircle, PackageCheck, ShieldCheck, ShoppingCart, Star, Store } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowLeft, BadgeCheck, CheckCircle2, Headset, Heart, MessageCircle, Minus, PackageCheck, Plus, ShieldCheck, ShoppingCart, Star, Store } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
-import { addToCart, parseLocalizedPrice } from "../../lib/demoCart";
+import { addToCart, parseLocalizedPrice, readCart, setCartQuantity } from "../../lib/demoCart";
+import { readFavoriteIds, subscribeToFavorites, toggleFavoriteId } from "../../lib/demoFavorites";
 import "./product-detail.css";
 
 type ProductDetail = {
@@ -30,9 +31,12 @@ const productDetails: ProductDetail[] = [
 ];
 
 export function ProductDetailsPage() {
-  const [added, setAdded] = useState(false);
   const pathParts = window.location.pathname.split("/").filter(Boolean);
   const productId = decodeURIComponent(pathParts[pathParts.length - 1] ?? "");
+  const [added, setAdded] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const [isFavorite, setIsFavorite] = useState(() => readFavoriteIds().includes(productId));
+  useEffect(() => subscribeToFavorites(() => setIsFavorite(readFavoriteIds().includes(productId))), [productId]);
   const product = productDetails.find((item) => item.id === productId);
 
   if (!product) {
@@ -56,21 +60,19 @@ export function ProductDetailsPage() {
         <section className="product-detail__visual" aria-label="تصاویر محصول">
           <div className="product-detail__image-wrap">
             <img className="product-detail__image" src={product.image} alt={product.alt} />
-            <span className="product-detail__image-count">۱ / ۵</span>
-          </div>
-          <div className="product-detail__thumbnails" aria-label="تصاویر بیشتر محصول">
-            {[0, 1, 2, 3, 4].map((item) => (
-              <div className={"product-detail__thumbnail" + (item === 0 ? " is-active" : "")} key={item}>
-                <img src={product.image} alt="" loading="lazy" />
-              </div>
-            ))}
+            <span className="product-detail__image-count">۱ / ۱</span>
           </div>
           <div className="product-detail__visual-note"><span className="product-detail__category">{product.category}</span><span>تصاویر نمونه محصول</span></div>
         </section>
 
         <section className="product-detail__information">
           <span className="product-detail__maker">{product.maker}</span>
-          <h1 className="product-detail__title">{product.title}</h1>
+          <div className="product-detail__title-row">
+            <h1 className="product-detail__title">{product.title}</h1>
+            <button type="button" className={"product-detail__favorite-toggle" + (isFavorite ? " is-favorite" : "")} aria-pressed={isFavorite} aria-label={isFavorite ? "حذف از علاقه‌مندی‌ها" : "افزودن به علاقه‌مندی‌ها"} onClick={() => toggleFavoriteId(product.id)}>
+              <Heart size={18} fill={isFavorite ? "currentColor" : "none"} aria-hidden="true" />
+            </button>
+          </div>
           <div className="product-detail__rating"><Star size={15} fill="currentColor" aria-hidden="true" /> {product.rating} <span>({product.reviews} نظر نمونه)</span></div>
           <p className="product-detail__description">{product.description}</p>
           <div className="product-detail__key-specs">
@@ -87,7 +89,22 @@ export function ProductDetailsPage() {
             <strong className="product-detail__price">{product.price}<small>تومان</small></strong>
             <span className="product-detail__status"><CheckCircle2 size={15} aria-hidden="true" /> اطلاعات محصول</span>
           </div>
-          <button className={"product-detail__cart" + (added ? " is-added" : "")} type="button" onClick={() => { addToCart({ id: product.id, title: product.title, maker: product.maker, price: parseLocalizedPrice(product.price), image: product.image, alt: product.alt, categoryLabel: product.category }); setAdded(true); }}>
+          <div className="product-detail__quantity" aria-label="تعداد محصول">
+            <span>تعداد</span>
+            <div>
+              <button type="button" aria-label="افزایش تعداد" disabled={quantity >= 99} onClick={() => setQuantity((value) => Math.min(99, value + 1))}><Plus size={14} aria-hidden="true" /></button>
+              <output aria-live="polite">{quantity.toLocaleString("fa-IR")}</output>
+              <button type="button" aria-label="کاهش تعداد" disabled={quantity <= 1} onClick={() => setQuantity((value) => Math.max(1, value - 1))}><Minus size={14} aria-hidden="true" /></button>
+            </div>
+          </div>
+          <button className={"product-detail__cart" + (added ? " is-added" : "")} type="button" onClick={() => {
+            const existing = readCart().find((item) => item.id === product.id);
+            const nextQuantity = Math.min((existing?.quantity ?? 0) + quantity, 99);
+            const cartProduct = { id: product.id, title: product.title, maker: product.maker, price: parseLocalizedPrice(product.price), image: product.image, alt: product.alt, categoryLabel: product.category };
+            if (existing) setCartQuantity(product.id, nextQuantity);
+            else { addToCart(cartProduct); setCartQuantity(product.id, quantity); }
+            setAdded(true);
+          }}>
             <ShoppingCart size={17} aria-hidden="true" /> {added ? "به سبد اضافه شد" : "افزودن به سبد خرید"}
           </button>
           <a className="product-detail__custom-link" href={ROUTES.customOrders}>درخواست محصول مشابه یا سفارش اختصاصی <ArrowLeft size={14} aria-hidden="true" /></a>
