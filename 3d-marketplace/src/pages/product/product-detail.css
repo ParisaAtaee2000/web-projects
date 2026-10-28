@@ -43,3 +43,45 @@
   background: #302A50;
   color: #ded6ff;
 }
+
+
+
+/* Product detail: white detail canvas, gallery, seller/purchase controls and specs. */
+.product-detail__back { color: #6740e8; }
+.product-detail__layout {
+  direction: ltr;
+  grid-template-columns: minmax(250px, .95fr) minmax(300px, 1.2fr);
+  gap: clamp(18px, 2vw, 28px);
+}
+.product-detail__visual { border-color: #e1e6ef; border-radius: 13px; background: #fff; }
+.product-detail__image { background: #f2f4f8; }
+.product-detail__visual-note { color: #667085; border-top: 1px solid #edf0f5; }
+.product-detail__category,.product-detail__maker { color: #6941e8; }
+.product-detail__title { color: #101827; font-size: clamp(22px, 2.2vw, 29px); }
+.product-detail__rating { color: #efa91f; }
+.product-detail__rating span { color: #667085; }
+.product-detail__description { color: #475467 !important; font-size: 12px !important; }
+.product-detail__price-box {
+  border-color: #e1e6ef;
+  background: #fff;
+}
+.product-detail__price-label { color: #667085; }
+.product-detail__price { color: #101827; font-size: 23px; }
+.product-detail__price small { color: #667085; }
+.product-detail__status { color: #039855; }
+.product-detail__notice { color: #667085 !important; }
+.product-detail__specs { border-top: 1px solid #edf0f5; padding-top: 18px; }
+.product-detail__specs h2 { color: #101827; }
+.product-detail__spec { border-bottom-color: #edf0f5; }
+.product-detail__spec span:first-child { color: #667085; }
+.product-detail__spec span:last-child { color: #344054; }
+.product-detail__sample-warning { border-right-color: #7046f6; background: #f5f2ff; color: #5233b8; }
+.product-detail__cart { background: #7046f6; border-color: #7046f6; color: #fff; }
+.product-detail__cart:hover { background: #5e36df; }
+.product-detail__cart.is-added { border-color: #039855; background: #ecfdf3; color: #027a48; }
+@media(max-width:760px) {
+  .product-detail__layout { direction: rtl; grid-template-columns: minmax(0,1fr); gap: 16px; }
+  .product-detail__image { aspect-ratio: 1 / .88; }
+  .product-detail__title { font-size: 23px; }
+  .product-detail__price-box { padding: 14px; }
+}
