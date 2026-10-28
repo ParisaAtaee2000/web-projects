@@ -1,4 +1,4 @@
-import { Box, Instagram, Send, Youtube } from "lucide-react";
+import { Box, CirclePlay, Heart, Send } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 import "./site-footer.css";
 
@@ -30,9 +30,9 @@ export function SiteFooter() {
           بازار تخصصی محصولات چاپ سه‌بعدی، تجهیزات ساخت، فایل‌های دیجیتال و سفارش‌های اختصاصی.
         </p>
         <div className="site-footer__social" aria-label="پیوندهای اجتماعی">
-          <a href={ROUTES.makers} aria-label="جامعه سازندگان"><Instagram size={15} aria-hidden="true" /></a>
+          <a href={ROUTES.makers} aria-label="جامعه سازندگان"><Heart size={15} aria-hidden="true" /></a>
           <a href={ROUTES.files3d} aria-label="فایل‌های سه‌بعدی"><Send size={15} aria-hidden="true" /></a>
-          <a href={ROUTES.products} aria-label="محصولات"><Youtube size={15} aria-hidden="true" /></a>
+          <a href={ROUTES.products} aria-label="محصولات"><CirclePlay size={15} aria-hidden="true" /></a>
           <a href={ROUTES.makers} aria-label="سازندگان"><Box size={15} aria-hidden="true" /></a>
         </div>
       </div>
