@@ -1,4 +1,4 @@
-import { BadgeCheck, Headset, PackageCheck, ShieldCheck, Tags, Truck } from "lucide-react";
+import { BadgeCheck, Headset, PackageCheck, ShieldCheck, Tags } from "lucide-react";
 
 const benefits = [
   { title: "قیمت‌های رقابتی", description: "با بهترین کیفیت", Icon: Tags },
