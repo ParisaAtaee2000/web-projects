@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, Check, Heart, Search, ShoppingCart, SlidersHorizontal, Star, X } from "lucide-react";
+import { Check, Heart, Search, ShoppingCart, SlidersHorizontal, Star, X } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 import { addToCart } from "../../lib/demoCart";
 import { readFavoriteIds, subscribeToFavorites, toggleFavoriteId } from "../../lib/demoFavorites";
