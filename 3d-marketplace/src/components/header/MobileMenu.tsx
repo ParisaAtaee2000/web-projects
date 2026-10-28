@@ -77,7 +77,7 @@ export function MobileMenu() {
                 <span>بستن</span>
               </button>
             </div>
-            <SidebarMenu />
+            <SidebarMenu includeHome />
             <SellerCard />
           </div>
         </>
