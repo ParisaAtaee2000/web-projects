@@ -13,6 +13,13 @@ export const ROUTES = {
   cart: "/cart",
   checkout: "/checkout",
   account: "/account",
+  accountMessages: "/account/messages",
+  accountFavorites: "/account/favorites",
   login: "/login",
   register: "/register",
+  sellerRegister: "/seller/register",
+  sellerDashboard: "/seller/dashboard",
+  support: "/support",
+  about: "/about",
+  contact: "/contact",
 } as const;

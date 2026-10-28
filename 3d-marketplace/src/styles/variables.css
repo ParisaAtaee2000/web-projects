@@ -1,1 +1,15 @@
-:root{--color-bg:#030610;--color-surface:#080d19;--color-surface-raised:#10182a;--color-border:#1b2941;--color-text:#f7f7ff;--color-muted:#9ea8c0;--color-accent:#8d70ff;--color-accent-strong:#6439ff;--layout-header-height:56px;--layout-sidebar-width:230px;--radius-card:9px;--radius-pill:22px}
+:root {
+  /* Keep Makerā's existing near-black navy page background. */
+  --color-bg: #030610;
+  --color-surface: #211F3A;
+  --color-surface-raised: #302A50;
+  --color-border: #454062;
+  --color-text: #F7F7FF;
+  --color-muted: #B7B1CF;
+  --color-accent: #A995FF;
+  --color-accent-strong: #785AF5;
+  --layout-header-height: 56px;
+  --layout-sidebar-width: 230px;
+  --radius-card: 9px;
+  --radius-pill: 22px;
+}

@@ -1,26 +1,21 @@
-import { Boxes, FileBox, Printer, Sparkles } from "lucide-react";
+import { Headset, ShieldCheck, Truck } from "lucide-react";
 import { HeroBenefitItem } from "./HeroBenefitItem";
 
 const features = [
   {
-    title: "پرینتر و تجهیزات",
-    description: "ابزارهای ساخت و قطعات جانبی",
-    Icon: Printer,
+    title: "کیفیت تضمین‌شده",
+    description: "انتخاب دقیق محصولات و سازندگان",
+    Icon: ShieldCheck,
   },
   {
-    title: "مواد مصرفی",
-    description: "فیلامنت و ملزومات چاپ",
-    Icon: Boxes,
+    title: "پشتیبانی واقعی",
+    description: "همراهی برای انتخاب بهتر",
+    Icon: Headset,
   },
   {
-    title: "فایل‌های سه‌بعدی",
-    description: "مدل‌های آماده برای چاپ",
-    Icon: FileBox,
-  },
-  {
-    title: "ساخت سفارشی",
-    description: "تبدیل ایده به قطعه",
-    Icon: Sparkles,
+    title: "ارسال سریع",
+    description: "پیگیری سفارش تا رسیدن به دستت",
+    Icon: Truck,
   },
 ];
 

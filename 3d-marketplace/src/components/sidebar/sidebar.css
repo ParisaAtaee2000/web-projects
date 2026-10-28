@@ -1,15 +1,13 @@
 .reference-sidebar {
   position: sticky;
-  top: var(--layout-header-height);
+  top: 88px;
   align-self: start;
-  height: calc(100vh - var(--layout-header-height));
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #34305f transparent;
+  height: calc(100vh - 88px);
+  overflow: visible;
   display: flex;
   flex-direction: column;
-  gap: 26px;
-  padding: 14px 15px 20px;
+  gap: 12px;
+  padding: 12px 13px 14px;
   border-left: 0;
   border-right: 1px solid #172035;
   background: #050914;
@@ -19,20 +17,34 @@
 .sidebar-menu {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+.sidebar-menu__primary,
+.sidebar-menu__group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.sidebar-menu__heading {
+  margin: 0 9px 3px;
+  color: #78839f;
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1.6;
 }
 .sidebar-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  min-height: 36px;
-  padding: 5px 10px;
+  gap: 6px;
+  min-height: 31px;
+  padding: 4px 9px;
   border: 1px solid transparent;
   border-radius: 8px;
   color: #c5cad8;
-  font-size: 12px;
-  line-height: 1.65;
+  font-size: 11px;
+  line-height: 1.55;
   white-space: normal;
 }
 .sidebar-item.is-active {
@@ -46,37 +58,120 @@
   color: #fff;
 }
 .seller-card {
-  margin-top: 5px;
-  padding: 14px 12px 13px;
-  border: 1px solid #1b2941;
-  border-radius: 10px;
-  background: linear-gradient(145deg, #0c1424, #070b16);
+  flex: 0 0 auto;
+  margin-top: auto;
+  padding: 11px 10px 12px;
+  border: 1px solid #4a4172;
+  border-radius: 12px;
+  background:
+    radial-gradient(ellipse at 100% 0%, #8b78ef20, transparent 65%),
+    linear-gradient(145deg, #101629, #080d19);
   color: #dfe5f7;
 }
-.seller-card > svg { color: #b4a6ff; }
-.seller-card h2 {
-  margin: 8px 0 5px;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.7;
-}
-.seller-card p {
-  margin: 0 0 12px;
-  color: #a7b0c7;
-  font-size: 12px;
-  line-height: 1.8;
-}
-.seller-card a {
+.seller-card__eyebrow {
   display: block;
-  padding: 8px 6px;
-  border: 1px solid #46418d;
-  border-radius: 7px;
-  color: #d9d1ff;
-  text-align: center;
+  margin-bottom: 8px;
+  color: #b6a8ff;
+  font-size: 9px;
+  font-weight: 800;
+}
+.seller-card__icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid #544981;
+  border-radius: 9px;
+  background: #26203e;
+  color: #c4b7ff;
+}
+.seller-card h2 {
+  margin: 8px 0 4px;
+  color: #f6f3ff;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 800;
   line-height: 1.6;
 }
+.seller-card p {
+  margin: 0 0 10px;
+  color: #9fa8c1;
+  font-size: 10px;
+  line-height: 1.8;
+}
+.seller-card__register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 6px 8px;
+  border: 1px solid #a99aff;
+  border-radius: 8px;
+  background: #a99aff;
+  color: #17132b;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 850;
+  line-height: 1.55;
+  transition: background .16s ease, border-color .16s ease;
+}
+.seller-card__register:hover {
+  border-color: #c2b8ff;
+  background: #c2b8ff;
+}
+@media (max-width: 1050px) and (min-width: 761px) {
+  .reference-sidebar { width: 210px; }
+}
+
 @media (max-width: 760px) {
   .reference-sidebar { display: none; }
+}
+
+
+
+/* Palette 2: only navigation states and the seller callout are lifted. */
+.sidebar-item.is-active {
+  border-color: #7665b4;
+  background: linear-gradient(105deg, #302A50, #403467);
+}
+.sidebar-item:hover:not(.is-active) {
+  background: #302A50;
+}
+.seller-card {
+  border-color: #51476f;
+  background:
+    radial-gradient(ellipse at 100% 0%, #A995FF24, transparent 65%),
+    linear-gradient(145deg, #302A50, #211F3A);
+}
+.seller-card__icon {
+  border-color: #51476f;
+  background: #302A50;
+  color: #d2c8ff;
+}
+.seller-card__register {
+  border-color: #A995FF;
+  background: #A995FF;
+}
+.seller-card__register:hover {
+  border-color: #c0b3ff;
+  background: #c0b3ff;
+}
+
+
+/* Match the desktop sidebar height to the single-row header and keep its menu readable. */
+@media (min-width: 761px) {
+  .reference-sidebar {
+    top: var(--layout-header-height);
+    height: calc(100vh - var(--layout-header-height));
+  }
+
+  .sidebar-menu {
+    gap: 5px;
+  }
+
+  .sidebar-item {
+    min-height: 38px;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
 }

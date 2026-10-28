@@ -1,20 +1,50 @@
-import { Box, Boxes, FileBox, ShoppingBag, UserRound } from "lucide-react";
+import { Box, Boxes, FileBox, House, ShoppingBag, UserRound } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { ROUTES } from "../../app/router/routeNames";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 
-const items = [
-  { label: "محصولات", href: "/products", Icon: Box },
-  { label: "تجهیزات و لوازم جانبی", href: "/accessories", Icon: Boxes },
-  { label: "فایل سه‌بعدی", href: "/3d-files", Icon: FileBox },
-  { label: "سفارش اختصاصی", href: "/custom-orders", Icon: ShoppingBag },
-  { label: "فروشندگی", href: "/seller", Icon: UserRound },
+const homeItem = { label: "صفحه اصلی", href: ROUTES.home, Icon: House };
+
+const items: { label: string; href: string; Icon: LucideIcon }[] = [
+  { label: "محصولات", href: ROUTES.products, Icon: Box },
+  { label: "تجهیزات و لوازم جانبی", href: ROUTES.accessories, Icon: Boxes },
+  { label: "فایل سه‌بعدی", href: ROUTES.files3d, Icon: FileBox },
+  { label: "سفارش اختصاصی", href: ROUTES.customOrders, Icon: ShoppingBag },
+  { label: "فروشندگی", href: ROUTES.sellerRegister, Icon: UserRound },
 ];
 
-export function SidebarMenu() {
+function normalizePath(pathname: string) {
+  return pathname.length > 1 ? pathname.replace(/\/+$/, "") : "/";
+}
+
+function renderItem(
+  item: { label: string; href: string; Icon: LucideIcon },
+  pathname: string,
+) {
+  const active =
+    pathname === item.href ||
+    (item.href !== ROUTES.home && pathname.startsWith(item.href + "/"));
+
+  return <SidebarMenuItem key={item.href} {...item} active={active} />;
+}
+
+interface SidebarMenuProps {
+  includeHome?: boolean;
+}
+
+export function SidebarMenu({ includeHome = false }: SidebarMenuProps) {
+  const pathname = normalizePath(window.location.pathname);
+
   return (
     <nav className="sidebar-menu" aria-label="منوی کناری">
-      {items.map((item) => (
-        <SidebarMenuItem key={item.href} {...item} />
-      ))}
+      {includeHome && (
+        <div className="sidebar-menu__primary">
+          {renderItem(homeItem, pathname)}
+        </div>
+      )}
+      <div className="sidebar-menu__group">
+        {items.map((item) => renderItem(item, pathname))}
+      </div>
     </nav>
   );
 }

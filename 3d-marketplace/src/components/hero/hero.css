@@ -70,10 +70,11 @@
 }
 
 .hero-content {
-  width: min(100%, 540px);
-  max-width: 540px;
+  width: min(100%, 500px);
+  max-width: 500px;
   margin: 0;
-  text-align: right;
+  direction: rtl;
+  text-align: left;
 }
 
 .hero-content__eyebrow {
@@ -95,7 +96,7 @@
   max-width: 650px;
   margin: 0 0 16px;
   color: #fbfaff;
-  font-size: var(--font-size-display);
+  font-size: clamp(26px, 2.3vw, 32px);
   font-weight: 800;
   line-height: 1.5;
   letter-spacing: normal;
@@ -121,6 +122,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
+  direction: ltr;
 }
 
 .hero-button {
@@ -243,7 +245,7 @@
   }
 
   .hero-title {
-    font-size: clamp(29px, 3.7vw, 38px);
+    font-size: clamp(25px, 2.7vw, 30px);
   }
 }
 
@@ -310,7 +312,7 @@
 
   .hero-title {
     margin-bottom: 13px;
-    font-size: clamp(28px, 8.4vw, 35px);
+    font-size: clamp(24px, 6.2vw, 28px);
     letter-spacing: normal;
     line-height: 1.5;
   }
