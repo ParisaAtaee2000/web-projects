@@ -378,3 +378,58 @@
 @media (prefers-reduced-motion: reduce) {
   .products-page__card,.products-page__sidebar { transition: none; }
 }
+
+
+/* Catalog interaction polish and keyboard-visible states. */
+.products-page__filter-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 2px 0 12px;
+  padding: 9px 11px;
+  border: 1px solid #e4defe;
+  border-radius: 8px;
+  background: #f8f6ff;
+  color: #5f43ca;
+  font-size: 9px;
+}
+.products-page__filter-summary button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: transparent;
+  color: #6941e8;
+  font: inherit;
+  cursor: pointer;
+}
+.products-page__check:hover { color: #3e2b9a; }
+.products-page__check:has(input:checked) { color: #5032c7; }
+.products-page__card:focus-within { outline: 2px solid #a995ff; outline-offset: 2px; }
+.products-page__media img { display: block; transition: transform .28s ease; }
+.products-page__card:hover .products-page__media img { transform: scale(1.035); }
+.products-page__favorite { transition: background .18s ease, color .18s ease, transform .18s ease; }
+.products-page__favorite:hover { transform: scale(1.08); background: #071326e8; }
+.products-page__add-cart { transition: background .18s ease, color .18s ease, transform .18s ease; }
+.products-page__add-cart:hover { background: #7046f6; color: #fff; transform: translateY(-1px); }
+.products-page__pagination button:not(:disabled):hover {
+  border-color: #b6a6ff;
+  color: #5e36df;
+}
+.products-page__pagination button:focus-visible,
+.products-page__filter:focus-visible,
+.products-page__add-cart:focus-visible,
+.products-page__favorite:focus-visible,
+.products-page__mobile-filter:focus-visible,
+.products-page__filter-heading button:focus-visible,
+.products-page__filter-summary button:focus-visible {
+  outline: 2px solid #a995ff;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .products-page__media img,
+  .products-page__favorite,
+  .products-page__add-cart { transition: none; }
+  .products-page__card:hover .products-page__media img { transform: none; }
+}
