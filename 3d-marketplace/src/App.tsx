@@ -21,6 +21,7 @@ import { SupportPage } from "./pages/info/SupportPage";
 import { AboutPage } from "./pages/info/AboutPage";
 import { ContactPage } from "./pages/info/ContactPage";
 import { SellerDashboardPage } from "./pages/seller/SellerDashboardPage";
+import { MessagesPage } from "./pages/messages/MessagesPage";
 import "./components/catalog/extra-pages.css";
 
 function normalizePath(pathname: string) {
@@ -43,6 +44,7 @@ function resolvePage(pathname: string): ReactNode {
   if (path === ROUTES.accessories) return <AccessoriesPage />;
   if (path === ROUTES.cart) return <CartPage />;
   if (path === ROUTES.checkout) return <CheckoutPage />;
+  if (path === ROUTES.accountMessages) return <MessagesPage />;
   if (path === ROUTES.account || path.startsWith(ROUTES.account + "/")) return <AccountPage />;
   if (path === ROUTES.login) return <LoginPage />;
   if (path === ROUTES.sellerDashboard) return <SellerDashboardPage />;
