@@ -1,7 +1,7 @@
 .app-shell {
   min-height: 100vh;
-  background: #030610;
-  color: #f7f7ff;
+  background: #f5f7fc;
+  color: #101827;
   overflow-x: clip;
   direction: ltr;
 }
@@ -13,7 +13,7 @@
 }
 
 .app-shell__body--with-sidebar {
-  grid-template-columns: 230px minmax(0, 1fr);
+  grid-template-columns: 165px minmax(0, 1fr);
 }
 
 .app-shell__body--with-sidebar > .reference-sidebar {
@@ -26,7 +26,7 @@
   grid-row: 1;
   min-width: 0;
   min-height: calc(100vh - var(--layout-header-height));
-  background: #030610;
+  background: #f5f7fc;
   direction: rtl;
 }
 
@@ -36,7 +36,7 @@
 
 @media (max-width: 1050px) and (min-width: 761px) {
   .app-shell__body--with-sidebar {
-    grid-template-columns: 210px minmax(0, 1fr);
+    grid-template-columns: 155px minmax(0, 1fr);
   }
 }
 
