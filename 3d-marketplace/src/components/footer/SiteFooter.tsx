@@ -1,4 +1,4 @@
-import { Box, FileBox, Instagram, Send, Youtube } from "lucide-react";
+import { Box, Instagram, Send, Youtube } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 import "./site-footer.css";
 
