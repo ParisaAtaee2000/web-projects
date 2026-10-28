@@ -58,7 +58,7 @@ function resolvePage(pathname: string): ReactNode {
   return (
     <main className="page page--not-found">
       <h1>صفحه پیدا نشد</h1>
-      <p>این نشانی در نسخهٔ فعلی Makerā تعریف نشده است.</p>
+      <p>این نشانی در نسخهٔ فعلی Maker تعریف نشده است.</p>
       <a href={ROUTES.home}>بازگشت به صفحهٔ اصلی</a>
     </main>
   );
