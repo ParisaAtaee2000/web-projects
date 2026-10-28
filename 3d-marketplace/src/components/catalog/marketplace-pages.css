@@ -92,3 +92,131 @@
 .cart-empty a { display:inline-flex; margin-top:16px; padding:10px 14px; border-radius:9px; background:#A995FF; color:#17132b; font-size:12px; font-weight:850; }
 @media(max-width:1050px) { .market-product-grid,.makers-page__grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .market-product-card__media { height:190px; } .form-page__layout,.cart-page__layout { grid-template-columns:minmax(0,1fr); } .cart-summary { position:static; } }
 @media(max-width:680px) { .marketplace-catalog__heading { align-items:start; flex-direction:column; } .marketplace-catalog__count { flex-direction:row; align-items:center; gap:8px; } .marketplace-catalog__toolbar { align-items:stretch; flex-direction:column; } .marketplace-catalog__toolbar select { min-height:43px; } .market-product-grid,.makers-page__grid { grid-template-columns:minmax(0,1fr); } .market-product-card__media { height:230px; } .form-page__layout { gap:12px; } .form-panel { padding:16px; } .form-grid { grid-template-columns:minmax(0,1fr); } .form-field--wide { grid-column:1; } .cart-line { grid-template-columns:68px minmax(0,1fr); gap:10px; } .cart-line__image { width:68px; height:68px; } .cart-line__remove { grid-column:2; justify-self:start; } .maker-profile__header { align-items:start; flex-direction:column; padding:19px; } .maker-profile__avatar { flex-basis:62px; width:62px; height:62px; } }
+
+
+
+/* Light commerce UI: product catalog, checkout and cart reflect the approved boards. */
+.marketplace-catalog__eyebrow { color: #6844e8; }
+.marketplace-catalog__count {
+  border-color: #e3e7ef;
+  background: #fff;
+  color: #667085;
+  box-shadow: 0 3px 12px #10182805;
+}
+.marketplace-catalog__count strong { color: #101827; }
+.marketplace-catalog__filters a {
+  border-color: #e1e6ef;
+  background: #fff;
+  color: #475467;
+}
+.marketplace-catalog__filters a:hover,
+.marketplace-catalog__filters a.is-active {
+  border-color: #a99aff;
+  background: #f2efff;
+  color: #5c38d9;
+}
+.marketplace-catalog__search {
+  border-color: #e1e6ef;
+  background: #fff;
+  color: #7050e9;
+}
+.marketplace-catalog__search input { color: #101827; }
+.marketplace-catalog__search input::placeholder { color: #98a2b3; }
+.marketplace-catalog__toolbar select {
+  border-color: #e1e6ef;
+  background: #fff;
+  color: #344054;
+}
+.market-product-card {
+  border-color: #e1e6ef;
+  background: #fff;
+  box-shadow: 0 5px 20px #10182807;
+}
+.market-product-card__media { background: #eef1f7; }
+.market-product-card__category,
+.market-product-card__rating {
+  border-color: #ffffffb0;
+  background: #ffffffec;
+  color: #6941e8;
+}
+.market-product-card__body h2 { color: #101827; }
+.market-product-card__body h2 a:hover { color: #6941e8; }
+.market-product-card__body p { color: #667085; }
+.market-product-card__maker { color: #6941e8; }
+.market-product-card__bottom { border-top-color: #eef0f5; }
+.market-product-card__price { color: #101827; }
+.market-product-card__price small { color: #667085; }
+.market-product-card__add { color: #fff; background: #7046f6; border-color: #7046f6; }
+.market-product-card__add:hover { background: #5e36df; }
+.marketplace-catalog__empty {
+  border-color: #e1e6ef;
+  background: #fff;
+}
+.marketplace-catalog__empty h2 { color: #101827; }
+.marketplace-catalog__notice { border-top-color: #e1e6ef; color: #667085; }
+.maker-profile-card {
+  border-color: #e1e6ef;
+  background: #fff;
+  box-shadow: 0 5px 20px #10182807;
+}
+.maker-profile-card__avatar { border-color: #ddd5ff; background: #f5f2ff; color: #6740e8; }
+.maker-profile-card h2 { color: #101827; }
+.maker-profile-card__specialty { color: #6941e8; }
+.maker-profile-card p { color: #667085; }
+.maker-profile-card__metrics { color: #475467; }
+.maker-profile-card__link { border-color: #d8cffd; color: #6844e8; }
+.maker-profile__header {
+  border-color: #e1e6ef;
+  background: radial-gradient(ellipse at 0% 0%, #A995FF16, transparent 55%), #fff;
+  box-shadow: 0 5px 20px #10182807;
+}
+.maker-profile__avatar { border-color: #ddd5ff; background: #f5f2ff; color: #6740e8; }
+.maker-profile__header p { color: #667085; }
+.maker-profile__stats { color: #475467; }
+.maker-profile__stats span { border-color: #e1e6ef; background: #f8f9fc; }
+.form-panel {
+  border-color: #e1e6ef;
+  background: #fff;
+  box-shadow: 0 7px 22px #10182808;
+}
+.form-panel h2 { color: #172033; }
+.form-field { color: #344054; }
+.form-field input,.form-field textarea,.form-field select {
+  border-color: #d7dde7;
+  background: #fff;
+  color: #101827;
+}
+.form-field input::placeholder,.form-field textarea::placeholder { color: #98a2b3; }
+.form-primary-button { border-color: #7046f6; background: #7046f6; color: #fff; }
+.form-primary-button:hover { background: #5e36df; }
+.form-secondary-link { color: #6740e8; }
+.form-note { border-color: #e1e6ef; background: #f8f9fc; color: #667085; }
+.form-status { border-color: #b7e4ca; background: #f0fdf4; color: #166534; }
+.form-side-card { border-color: #e1e6ef; background: #fff; }
+.form-side-card h2 { color: #172033; }
+.form-side-card p,.form-side-card li { color: #667085; }
+.cart-line { border-bottom-color: #edf0f5; }
+.cart-line__copy h3 { color: #101827; }
+.cart-line__copy p { color: #667085; }
+.cart-line__price { color: #101827; }
+.cart-line__controls button { border-color: #ded8fd; background: #f5f2ff; color: #6740e8; }
+.cart-line__controls span { color: #344054; }
+.cart-line__remove { border-color: #f0c7d3; background: #fff1f4; color: #b4234d; }
+.cart-summary__row { color: #475467; }
+.cart-summary__total { border-top-color: #e1e6ef; color: #101827; }
+.cart-empty {
+  border-color: #e1e6ef;
+  background: #fff;
+}
+.cart-empty h2 { color: #101827; }
+.cart-empty p { color: #667085; }
+.cart-empty a { background: #7046f6; color: #fff; }
+.file-library-card {
+  border-color: #e1e6ef;
+  background: #fff;
+}
+.file-library-card__body h2 { color: #101827; }
+.file-library-card__body > p { color: #667085; }
+.file-library-card__details { border-color: #e1e6ef; background: #f8f9fc; color: #475467; }
+.file-library-card__actions button { border-color: #ded8fd; background: #f5f2ff; color: #6740e8; }
+.file-library-card__actions a { border-color: #7046f6; background: #7046f6; color: #fff; }
