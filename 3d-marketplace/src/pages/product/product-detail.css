@@ -238,3 +238,82 @@
 @media (prefers-reduced-motion: reduce) {
   .product-detail__cart { transition: none; }
 }
+
+
+/* Product detail controls that work in the client-only prototype. */
+.product-detail__title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.product-detail__title-row .product-detail__title { min-width: 0; flex: 1; }
+.product-detail__favorite-toggle {
+  display: grid;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid #e1e6ef;
+  border-radius: 12px;
+  background: #fff;
+  color: #667085;
+  cursor: pointer;
+  transition: color .18s ease, border-color .18s ease, background .18s ease, transform .18s ease;
+}
+.product-detail__favorite-toggle:hover,
+.product-detail__favorite-toggle.is-favorite {
+  border-color: #f1b8c6;
+  background: #fff1f4;
+  color: #d33f69;
+}
+.product-detail__favorite-toggle:hover { transform: translateY(-1px); }
+.product-detail__quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 15px 0 11px;
+  padding: 10px 12px;
+  border: 1px solid #e1e6ef;
+  border-radius: 10px;
+  background: #fff;
+  color: #475467;
+  font-size: 12px;
+}
+.product-detail__quantity > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.product-detail__quantity button {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid #d8cffd;
+  border-radius: 8px;
+  background: #f5f2ff;
+  color: #6740e8;
+  cursor: pointer;
+}
+.product-detail__quantity button:disabled { opacity: .4; cursor: not-allowed; }
+.product-detail__quantity output {
+  min-width: 22px;
+  color: #101827;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+}
+.product-detail__favorite-toggle:focus-visible,
+.product-detail__quantity button:focus-visible {
+  outline: 2px solid #a995ff;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .product-detail__title-row { gap: 8px; }
+  .product-detail__favorite-toggle { flex-basis: 36px; width: 36px; height: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .product-detail__favorite-toggle { transition: none; }
+}
