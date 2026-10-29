@@ -583,3 +583,35 @@
       linear-gradient(0deg, rgba(3, 7, 17, .88) 0%, transparent 50%);
   }
 }
+
+
+/* Persian RTL homepage: place the benefits column on the left side of the hero. */
+@media (min-width: 761px) {
+  .home-hero-layout .hero__inner {
+    grid-template-columns: minmax(158px, 190px) minmax(0, 1fr);
+  }
+
+  .home-hero-layout .hero__features {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0 14px 0 0;
+    border-right: 1px solid rgba(211, 216, 241, .14);
+    border-left: 0;
+  }
+
+  .home-hero-layout .hero__main {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 761px) {
+  .home-hero-layout .hero__inner {
+    grid-template-columns: minmax(145px, 175px) minmax(0, 1fr);
+  }
+
+  .home-hero-layout .hero__features {
+    padding-right: 8px;
+    padding-left: 0;
+  }
+}
