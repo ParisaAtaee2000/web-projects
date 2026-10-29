@@ -387,3 +387,12 @@
       linear-gradient(90deg, rgba(3, 7, 17, .78), rgba(3, 7, 17, .35));
   }
 }
+
+
+/* Slightly shorten the first hero section while keeping the sidebar and hero aligned. */
+@media (min-width: 761px) {
+  .home-hero-layout {
+    height: calc(100vh - var(--layout-header-height, 56px) - 48px);
+    min-height: calc(100vh - var(--layout-header-height, 56px) - 48px);
+  }
+}
