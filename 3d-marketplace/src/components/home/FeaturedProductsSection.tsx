@@ -12,7 +12,8 @@ const products = [
     categoryLabel: "محصول چاپ سه‌بعدی",
     price: "۱٬۴۸۰٬۰۰۰",
     image: "/images/maker-category-printed.webp",
-    alt: "محصول تزئینی ساخته‌شده با چاپ سه‌بعدی",
+    imagePosition: "0% 0%",
+    alt: "مدل سه‌بعدی فضانورد",
     rating: "۴٫۸",
     reviews: "۹۶",
   },
@@ -22,8 +23,9 @@ const products = [
     maker: "Creality Official",
     categoryLabel: "تجهیزات چاپ سه‌بعدی",
     price: "۱۹٬۹۰۰٬۰۰۰",
-    image: "/images/maker-home-hero.webp",
-    alt: "پرینتر سه‌بعدی در کارگاه ساخت",
+    image: "/images/maker-category-equipment.webp",
+    imagePosition: "50% 0%",
+    alt: "پرینتر سه‌بعدی رومیزی",
     rating: "۴٫۸",
     reviews: "۲۱۰",
   },
@@ -34,7 +36,8 @@ const products = [
     categoryLabel: "مواد مصرفی",
     price: "۱٬۲۹۰٬۰۰۰",
     image: "/images/maker-category-equipment.webp",
-    alt: "تجهیزات و مواد مصرفی چاپ سه‌بعدی",
+    imagePosition: "100% 0%",
+    alt: "قرقره‌های فیلامنت رنگی",
     rating: "۴٫۹",
     reviews: "۱۵۶",
   },
@@ -45,7 +48,8 @@ const products = [
     categoryLabel: "محصول چاپ سه‌بعدی",
     price: "۵۸۰٬۰۰۰",
     image: "/images/maker-category-custom.webp",
-    alt: "قطعه سفارشی ساخته‌شده با چاپ سه‌بعدی",
+    imagePosition: "0% 100%",
+    alt: "پایه رومیزی موبایل چاپ سه‌بعدی",
     rating: "۴٫۷",
     reviews: "۷۲",
   },
@@ -56,7 +60,8 @@ const products = [
     categoryLabel: "محصول چاپ سه‌بعدی",
     price: "۳٬۲۵۰٬۰۰۰",
     image: "/images/maker-category-files.webp",
-    alt: "مدل سه‌بعدی قابل چاپ",
+    imagePosition: "50% 100%",
+    alt: "مدل اژدهای مفصلی سه‌بعدی",
     rating: "۴٫۹",
     reviews: "۹۸",
   },
@@ -67,7 +72,8 @@ const products = [
     categoryLabel: "محصول چاپ سه‌بعدی",
     price: "۱٬۸۹۰٬۰۰۰",
     image: "/images/maker-category-printed.webp",
-    alt: "محصول دکوراتیو ساخته‌شده با چاپ سه‌بعدی",
+    imagePosition: "100% 100%",
+    alt: "آباژور دکوراتیو چاپ سه‌بعدی",
     rating: "۴٫۸",
     reviews: "۱۲۴",
   },
@@ -107,22 +113,15 @@ export function FeaturedProductsSection() {
               <a
                 className="home-product-card__media"
                 href={ROUTES.products + "/" + product.id}
-                aria-label={"مشاهده " + product.title}
-              >
-                <img
-                  src={product.image}
-                  alt={product.alt}
-                  loading="lazy"
-                  decoding="async"
-                  onError={(event) => {
-                    const image = event.currentTarget;
-                    if (image.dataset.fallback !== "true") {
-                      image.dataset.fallback = "true";
-                      image.src = "/images/maker-category-printed.webp";
-                    }
-                  }}
-                />
-              </a>
+                aria-label={"مشاهده " + product.title + "؛ " + product.alt}
+                style={{
+                  backgroundImage: "url('/images/maker-products-sprite.webp')",
+                  backgroundSize: "300% 200%",
+                  backgroundPosition: product.imagePosition,
+                  backgroundRepeat: "no-repeat",
+                  backgroundColor: "#071326",
+                }}
+              />
               <button
                 className={"home-product-card__favorite" + (isFavorite ? " is-favorite" : "")}
                 type="button"
