@@ -7,6 +7,7 @@ import { WhyMakerSection } from "../../components/home/WhyMakerSection";
 import { Sidebar } from "../../components/sidebar/Sidebar";
 import "../../components/home/home-sections.css";
 import "./home.css";
+import "../../components/hero/hero-image-polish.css";
 
 export function HomePage() {
   return (
