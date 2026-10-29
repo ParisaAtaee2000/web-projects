@@ -2,7 +2,7 @@ interface HeroVisualProps {
   imageUrl?: string;
 }
 
-const referenceHeroImage = "/images/maker-home-hero.webp";
+const referenceHeroImage = "/images/maker-home-hero-hd.webp";
 
 export function HeroVisual({ imageUrl = referenceHeroImage }: HeroVisualProps) {
   return (
