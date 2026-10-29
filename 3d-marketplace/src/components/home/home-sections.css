@@ -1336,3 +1336,339 @@
   .why-maker-benefit strong { font-size: 9px; }
   .why-maker-benefit small { font-size: 7px; }
 }
+
+
+/* Readability pass: larger text, breathing room, and responsive product-card density. */
+.featured-products .home-section__header {
+  margin-bottom: 18px;
+}
+
+.featured-products .home-section__title {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.featured-products .home-text-link {
+  font-size: 12px;
+}
+
+.featured-products .home-product-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.featured-products .home-product-card {
+  border-radius: 10px;
+}
+
+.featured-products .home-product-card__media {
+  height: clamp(140px, 13vw, 180px);
+}
+
+.featured-products .home-product-card__favorite {
+  top: 9px;
+  left: 9px;
+  width: 29px;
+  height: 29px;
+}
+
+.featured-products .home-product-card__body {
+  padding: 11px 12px 12px;
+}
+
+.featured-products .home-product-card__body h3 {
+  min-height: 42px;
+  margin: 0 0 7px;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.featured-products .home-product-card__rating {
+  gap: 4px;
+  font-size: 11px;
+}
+
+.featured-products .home-product-card__rating-label {
+  font-size: 10px;
+}
+
+.featured-products .home-product-card__footer {
+  margin-top: 9px;
+  padding-top: 9px;
+  gap: 8px;
+}
+
+.featured-products .home-product-card__footer strong {
+  font-size: 13px;
+}
+
+.featured-products .home-product-card__footer small {
+  font-size: 10px;
+}
+
+.featured-products .home-product-card__add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: auto;
+  min-width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  padding: 0 9px;
+  border-radius: 8px;
+}
+
+.featured-products .home-product-card__add span {
+  display: inline;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* The compact full-width home layout needs fewer, wider cards around laptop widths. */
+@media (max-width: 1599px) and (min-width: 1300px) {
+  .featured-products .home-product-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 13px;
+  }
+}
+
+@media (max-width: 1299px) and (min-width: 951px) {
+  .featured-products .home-product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .featured-products .home-product-card__media {
+    height: clamp(150px, 16vw, 190px);
+  }
+}
+
+@media (max-width: 950px) and (min-width: 761px) {
+  .featured-products .home-product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .featured-products .home-product-card__media {
+    height: clamp(150px, 19vw, 185px);
+  }
+}
+
+@media (max-width: 760px) {
+  .featured-products {
+    padding: 24px 14px 28px;
+  }
+
+  .featured-products .home-section__title {
+    font-size: 19px;
+  }
+
+  .featured-products .home-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .featured-products .home-product-card__media {
+    height: clamp(135px, 39vw, 200px);
+  }
+
+  .featured-products .home-product-card__body {
+    padding: 10px;
+  }
+
+  .featured-products .home-product-card__body h3 {
+    min-height: 0;
+    margin-bottom: 7px;
+    font-size: 11px;
+  }
+
+  .featured-products .home-product-card__rating {
+    font-size: 10px;
+  }
+
+  .featured-products .home-product-card__rating-label {
+    font-size: 9px;
+  }
+
+  .featured-products .home-product-card__footer strong {
+    font-size: 11px;
+  }
+
+  .featured-products .home-product-card__footer small {
+    font-size: 9px;
+  }
+
+  .featured-products .home-product-card__add {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+  }
+
+  .featured-products .home-product-card__add span {
+    display: none;
+  }
+}
+
+/* Category cards: keep the photo-led style while making the labels readable. */
+.category-section {
+  padding-top: 25px;
+  padding-bottom: 29px;
+}
+
+.category-section__heading {
+  margin-bottom: 15px;
+}
+
+.category-section h2 {
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.category-section__heading p {
+  font-size: 11px;
+}
+
+.category-section__all {
+  font-size: 11px;
+}
+
+.category-section__grid {
+  gap: 12px;
+}
+
+.category-tile {
+  height: 190px;
+  min-height: 190px;
+}
+
+.category-tile__copy strong {
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.category-tile__copy small {
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+@media (max-width: 760px) {
+  .category-section {
+    padding: 22px 14px 25px;
+  }
+
+  .category-section h2 {
+    font-size: 18px;
+  }
+
+  .category-section__heading p {
+    font-size: 10px;
+  }
+
+  .category-tile {
+    height: 150px;
+    min-height: 150px;
+  }
+
+  .category-tile__copy strong {
+    font-size: 11px;
+  }
+
+  .category-tile__copy small {
+    font-size: 9px;
+  }
+}
+
+/* Improve lower homepage sections without changing their existing layout. */
+.maker-community__feature h2,
+.maker-community__list-head h2 {
+  font-size: 15px;
+}
+
+.maker-community__feature p {
+  font-size: 11px;
+}
+
+.maker-community__feature a,
+.maker-community__list-head a {
+  font-size: 10px;
+}
+
+.maker-community__person strong {
+  font-size: 10px;
+}
+
+.maker-community__person small {
+  font-size: 9px;
+}
+
+.custom-order__banner h2 {
+  font-size: 18px;
+}
+
+.custom-order__banner p {
+  font-size: 11px;
+}
+
+.custom-order__banner a {
+  min-height: 34px;
+  padding-inline: 14px;
+  font-size: 11px;
+}
+
+.custom-order__banner-benefits {
+  gap: 15px;
+}
+
+.custom-order__banner-benefits span {
+  font-size: 9px;
+}
+
+.why-maker-band {
+  min-height: 108px;
+}
+
+.why-maker-intro p {
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.why-maker-intro a {
+  font-size: 10px;
+}
+
+.why-maker-benefit strong {
+  font-size: 10px;
+}
+
+.why-maker-benefit small {
+  font-size: 8px;
+}
+
+@media (max-width: 1000px) and (min-width: 761px) {
+  .maker-community__person strong {
+    font-size: 9px;
+  }
+
+  .maker-community__person small {
+    font-size: 8px;
+  }
+
+  .custom-order__banner-benefits span {
+    font-size: 8px;
+  }
+
+  .why-maker-intro p,
+  .why-maker-intro a {
+    font-size: 9px;
+  }
+
+  .why-maker-benefit strong {
+    font-size: 9px;
+  }
+
+  .why-maker-benefit small {
+    font-size: 7px;
+  }
+}
