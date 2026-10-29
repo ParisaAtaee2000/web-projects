@@ -11,8 +11,8 @@ const products = [
     maker: "Maker Studio",
     categoryLabel: "محصول چاپ سه‌بعدی",
     price: "۱٬۴۸۰٬۰۰۰",
-    image: "https://images.pexels.com/photos/24859620/pexels-photo-24859620.jpeg?auto=compress&cs=tinysrgb&w=900",
-    alt: "مدل سه‌بعدی تزئینی",
+    image: "/images/maker-category-printed.webp",
+    alt: "محصول تزئینی ساخته‌شده با چاپ سه‌بعدی",
     rating: "۴٫۸",
     reviews: "۹۶",
   },
@@ -22,8 +22,8 @@ const products = [
     maker: "Creality Official",
     categoryLabel: "تجهیزات چاپ سه‌بعدی",
     price: "۱۹٬۹۰۰٬۰۰۰",
-    image: "https://images.pexels.com/photos/19588197/pexels-photo-19588197.jpeg?auto=compress&cs=tinysrgb&w=900",
-    alt: "چاپگر سه‌بعدی",
+    image: "/images/maker-home-hero.webp",
+    alt: "پرینتر سه‌بعدی در کارگاه ساخت",
     rating: "۴٫۸",
     reviews: "۲۱۰",
   },
@@ -33,8 +33,8 @@ const products = [
     maker: "Print Lab",
     categoryLabel: "مواد مصرفی",
     price: "۱٬۲۹۰٬۰۰۰",
-    image: "https://proprintforge.com/cdn/shop/articles/2wota.jpg?v=1710019529&width=1200",
-    alt: "قرقره‌های فیلامنت رنگی",
+    image: "/images/maker-category-equipment.webp",
+    alt: "تجهیزات و مواد مصرفی چاپ سه‌بعدی",
     rating: "۴٫۹",
     reviews: "۱۵۶",
   },
@@ -44,8 +44,8 @@ const products = [
     maker: "Maker Studio",
     categoryLabel: "محصول چاپ سه‌بعدی",
     price: "۵۸۰٬۰۰۰",
-    image: "https://images.pexels.com/photos/31336922/pexels-photo-31336922.jpeg?auto=compress&cs=tinysrgb&w=900",
-    alt: "قطعه و ابزار چاپ سه‌بعدی",
+    image: "/images/maker-category-custom.webp",
+    alt: "قطعه سفارشی ساخته‌شده با چاپ سه‌بعدی",
     rating: "۴٫۷",
     reviews: "۷۲",
   },
@@ -55,8 +55,8 @@ const products = [
     maker: "Artemis3D",
     categoryLabel: "محصول چاپ سه‌بعدی",
     price: "۳٬۲۵۰٬۰۰۰",
-    image: "https://images.pexels.com/photos/30658380/pexels-photo-30658380.jpeg?auto=compress&cs=tinysrgb&w=900",
-    alt: "مدل تزئینی سه‌بعدی",
+    image: "/images/maker-category-files.webp",
+    alt: "مدل سه‌بعدی قابل چاپ",
     rating: "۴٫۹",
     reviews: "۹۸",
   },
@@ -66,7 +66,7 @@ const products = [
     maker: "PixelCraft",
     categoryLabel: "محصول چاپ سه‌بعدی",
     price: "۱٬۸۹۰٬۰۰۰",
-    image: "https://images.pexels.com/photos/19588204/pexels-photo-19588204.jpeg?auto=compress&cs=tinysrgb&w=900",
+    image: "/images/maker-category-printed.webp",
     alt: "محصول دکوراتیو ساخته‌شده با چاپ سه‌بعدی",
     rating: "۴٫۸",
     reviews: "۱۲۴",
@@ -109,7 +109,19 @@ export function FeaturedProductsSection() {
                 href={ROUTES.products + "/" + product.id}
                 aria-label={"مشاهده " + product.title}
               >
-                <img src={product.image} alt={product.alt} loading="lazy" />
+                <img
+                  src={product.image}
+                  alt={product.alt}
+                  loading="lazy"
+                  decoding="async"
+                  onError={(event) => {
+                    const image = event.currentTarget;
+                    if (image.dataset.fallback !== "true") {
+                      image.dataset.fallback = "true";
+                      image.src = "/images/maker-category-printed.webp";
+                    }
+                  }}
+                />
               </a>
               <button
                 className={"home-product-card__favorite" + (isFavorite ? " is-favorite" : "")}
