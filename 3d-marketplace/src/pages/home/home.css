@@ -128,3 +128,29 @@
     grid-template-columns: minmax(0, 1fr) 230px;
   }
 }
+
+
+/* Refine the desktop sidebar width while keeping the RTL two-column hero layout. */
+@media (min-width: 761px) {
+  .home-hero-layout {
+    grid-template-columns: minmax(0, 1fr) clamp(190px, 16vw, 220px);
+  }
+
+  .home-hero-layout > .reference-sidebar {
+    grid-column: 2;
+    width: 100%;
+    border-left: 1px solid #172035;
+    border-right: 0;
+  }
+
+  .home-hero-layout > .hero {
+    grid-column: 1;
+    border: 0;
+  }
+}
+
+@media (max-width: 1050px) and (min-width: 761px) {
+  .home-hero-layout {
+    grid-template-columns: minmax(0, 1fr) 185px;
+  }
+}
