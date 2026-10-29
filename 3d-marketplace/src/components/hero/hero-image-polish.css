@@ -396,3 +396,74 @@
     min-height: calc(100vh - var(--layout-header-height, 56px) - 48px);
   }
 }
+
+
+/* Readability pass for the homepage hero and its narrow right-hand sidebar. */
+@media (min-width: 761px) {
+  .home-hero-layout .hero-title {
+    font-size: clamp(23px, 2.25vw, 30px);
+    line-height: 1.6;
+  }
+
+  .home-hero-layout .hero-content__description {
+    max-width: 450px;
+    font-size: clamp(11px, 1vw, 13px);
+    line-height: 1.9;
+  }
+
+  .home-hero-layout .hero-button {
+    min-height: 37px;
+    padding-inline: 13px;
+    font-size: 11px;
+  }
+
+  .home-hero-layout .hero-benefit__copy strong {
+    font-size: 10px;
+    line-height: 1.7;
+  }
+
+  .home-hero-layout .hero-benefit__copy small {
+    font-size: 9px;
+    line-height: 1.65;
+  }
+
+  .home-hero-layout .sidebar-item {
+    min-height: 34px;
+    padding-inline: 8px;
+    font-size: 11px;
+    line-height: 1.65;
+  }
+
+  .home-hero-layout .seller-card__eyebrow {
+    font-size: 10px;
+  }
+
+  .home-hero-layout .seller-card h2 {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .home-hero-layout .seller-card p {
+    font-size: 10px;
+    line-height: 1.8;
+  }
+
+  .home-hero-layout .seller-card__register {
+    min-height: 31px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 761px) {
+  .home-hero-layout .hero-content__description {
+    font-size: 10px;
+  }
+
+  .home-hero-layout .hero-benefit__copy strong {
+    font-size: 9px;
+  }
+
+  .home-hero-layout .hero-benefit__copy small {
+    font-size: 8px;
+  }
+}
