@@ -2,7 +2,9 @@ interface HeroVisualProps {
   imageUrl?: string;
 }
 
-export function HeroVisual({ imageUrl = "/images/hero-3d-printer.svg" }: HeroVisualProps) {
+const referenceHeroImage = "/images/maker-home-hero-hd.webp";
+
+export function HeroVisual({ imageUrl = referenceHeroImage }: HeroVisualProps) {
   return (
     <div className="hero-visual" aria-hidden="true">
       <img
@@ -12,7 +14,11 @@ export function HeroVisual({ imageUrl = "/images/hero-3d-printer.svg" }: HeroVis
         fetchPriority="high"
         decoding="async"
         onError={(event) => {
-          event.currentTarget.style.display = "none";
+          const image = event.currentTarget;
+          if (image.dataset.fallback !== "true") {
+            image.dataset.fallback = "true";
+            image.src = "/images/hero-3d-printer.svg";
+          }
         }}
       />
       <div className="hero-visual__shade" />

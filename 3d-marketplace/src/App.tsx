@@ -21,6 +21,7 @@ import { SupportPage } from "./pages/info/SupportPage";
 import { AboutPage } from "./pages/info/AboutPage";
 import { ContactPage } from "./pages/info/ContactPage";
 import { SellerDashboardPage } from "./pages/seller/SellerDashboardPage";
+import { MessagesPage } from "./pages/messages/MessagesPage";
 import "./components/catalog/extra-pages.css";
 
 function normalizePath(pathname: string) {
@@ -43,6 +44,7 @@ function resolvePage(pathname: string): ReactNode {
   if (path === ROUTES.accessories) return <AccessoriesPage />;
   if (path === ROUTES.cart) return <CartPage />;
   if (path === ROUTES.checkout) return <CheckoutPage />;
+  if (path === ROUTES.accountMessages) return <MessagesPage />;
   if (path === ROUTES.account || path.startsWith(ROUTES.account + "/")) return <AccountPage />;
   if (path === ROUTES.login) return <LoginPage />;
   if (path === ROUTES.sellerDashboard) return <SellerDashboardPage />;
@@ -56,7 +58,7 @@ function resolvePage(pathname: string): ReactNode {
   return (
     <main className="page page--not-found">
       <h1>صفحه پیدا نشد</h1>
-      <p>این نشانی در نسخهٔ فعلی Makerā تعریف نشده است.</p>
+      <p>این نشانی در نسخهٔ فعلی Maker تعریف نشده است.</p>
       <a href={ROUTES.home}>بازگشت به صفحهٔ اصلی</a>
     </main>
   );
@@ -121,9 +123,5 @@ export default function App() {
     };
   }, []);
 
-  return (
-    <AppShell showSidebar={normalizePath(pathname) === ROUTES.home}>
-      {resolvePage(pathname)}
-    </AppShell>
-  );
+  return <AppShell>{resolvePage(pathname)}</AppShell>;
 }

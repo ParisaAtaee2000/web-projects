@@ -1,42 +1,47 @@
-import { ArrowLeft, BadgeCheck, Box, Star } from "lucide-react";
+import { ArrowLeft, BadgeCheck } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 
 const makers = [
-  { id: "formino", initials: "فـ", name: "استودیو فرمینو", specialty: "دکور و محصولات کاربردی", description: "از ایده‌های ساده، فرم‌هایی دقیق و قابل استفاده می‌سازیم.", products: "۲۴", rating: "۴٫۹", tone: "violet" },
-  { id: "nova", initials: "نـ", name: "کارگاه نوا", specialty: "پرینتر و تجهیزات ساخت", description: "تجهیزات و قطعاتی برای آماده نگه‌داشتن میز کار.", products: "۱۸", rating: "۴٫۸", tone: "blue" },
-  { id: "techmaker", initials: "تـ", name: "تک‌میکر", specialty: "قطعات فنی و نمونه‌سازی", description: "راه‌حل‌هایی برای پروژه‌های فنی و نمونه‌سازی سریع.", products: "۳۱", rating: "۴٫۷", tone: "orange" },
+  { name: "PixelCraft", description: "خالق مدل", initials: "P", tone: "violet" },
+  { name: "VoidStudio", description: "طراح سه‌بعدی", initials: "V", tone: "blue" },
+  { name: "RoboMaker", description: "سازنده قطعات", initials: "R", tone: "pink" },
+  { name: "TechPrint", description: "فروشنده حرفه‌ای", initials: "T", tone: "orange" },
+  { name: "Artemis3D", description: "طراح و سازنده", initials: "A", tone: "green" },
 ];
 
 export function MakerSpotlightSection() {
   return (
-    <section className="home-section makers-spotlight" id="makers" dir="rtl" aria-labelledby="makers-spotlight-title">
-      <div className="home-section__header">
-        <div>
-          <span className="home-eyebrow">آدم‌های پشتِ ساخت</span>
-          <h2 className="home-section__title" id="makers-spotlight-title">با <span>سازندگان</span> آشنا شو</h2>
-          <p className="home-section__lead">نمونه‌ای از سازندگان و تخصص‌هایی که در Makerā کنار هم قرار می‌گیرند.</p>
+    <section className="home-section makers-spotlight" id="makers" dir="rtl" aria-label="جامعه سازندگان Maker">
+      <div className="maker-community">
+        <div className="maker-community__feature">
+          <div className="maker-community__feature-copy">
+            <h2>به جامعه سازندگان بپیوندید</h2>
+            <p>محصولات خود را به نمایش بگذارید و سفارش اختصاصی بگیرید.</p>
+            <a href={ROUTES.sellerRegister}>
+              شروع کنید <ArrowLeft size={14} aria-hidden="true" />
+            </a>
+          </div>
         </div>
-        <a className="home-text-link" href={ROUTES.makers}>همه سازندگان <ArrowLeft size={16} aria-hidden="true" /></a>
+
+        <div className="maker-community__list">
+          <div className="maker-community__list-head">
+            <h2>سازندگان برتر</h2>
+            <a href={ROUTES.makers}>مشاهده همه <ArrowLeft size={13} aria-hidden="true" /></a>
+          </div>
+          <div className="maker-community__avatars">
+            {makers.map((maker) => (
+              <a className="maker-community__person" href={ROUTES.makers} key={maker.name}>
+                <span className={"maker-community__avatar maker-community__avatar--" + maker.tone}>
+                  {maker.initials}
+                  <i><BadgeCheck size={11} aria-hidden="true" /></i>
+                </span>
+                <strong>{maker.name}</strong>
+                <small>{maker.description}</small>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="home-maker-grid">
-        {makers.map((maker) => (
-          <article className="home-maker-card" key={maker.id}>
-            <div className="home-maker-card__top">
-              <div className={`home-maker-card__avatar home-maker-card__avatar--${maker.tone}`} aria-hidden="true">
-                <span>{maker.initials}</span><i><BadgeCheck size={16} aria-hidden="true" /></i>
-              </div>
-              <div className="home-maker-card__identity"><h3>{maker.name}</h3><span>{maker.specialty}</span></div>
-              <div className="home-maker-card__rating"><Star size={13} fill="currentColor" aria-hidden="true" />{maker.rating}</div>
-            </div>
-            <p className="home-maker-card__description">{maker.description}</p>
-            <div className="home-maker-card__bottom">
-              <span><Box size={15} aria-hidden="true" /> {maker.products} محصول نمونه</span>
-              <a href={`${ROUTES.makers}/${maker.id}`} aria-label={`مشاهده پروفایل ${maker.name}`}><ArrowLeft size={17} aria-hidden="true" /></a>
-            </div>
-          </article>
-        ))}
-      </div>
-      <p className="home-section__footnote">پروفایل‌ها و آمار این بخش نمایشی هستند و به حساب فروشندگان واقعی متصل نیستند.</p>
     </section>
   );
 }

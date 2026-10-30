@@ -1,0 +1,469 @@
+/* Focused polish for the homepage hero image: clearer focal area with the text and benefits still readable. */
+.home-hero-layout .hero-visual {
+  background: #050d1b;
+}
+
+.home-hero-layout .hero-visual__image {
+  top: 0;
+  bottom: 0;
+  left: 24%;
+  right: auto;
+  width: 55%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+  opacity: 1;
+  filter: saturate(1.06) contrast(1.08) brightness(1.03);
+}
+
+.home-hero-layout .hero-visual__shade {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 12, 26, 0.98) 0%,
+      rgba(4, 12, 26, 0.87) 16%,
+      rgba(4, 12, 26, 0.52) 32%,
+      rgba(4, 12, 26, 0.08) 51%,
+      rgba(4, 12, 26, 0.34) 72%,
+      rgba(4, 12, 26, 0.94) 100%
+    ),
+    linear-gradient(0deg, rgba(4, 12, 26, 0.5) 0%, transparent 45%, rgba(4, 12, 26, 0.16) 100%);
+}
+
+@media (max-width: 760px) {
+  .home-hero-layout .hero-visual__image {
+    left: 0;
+    right: 0;
+    width: 100%;
+    object-position: 57% 42%;
+    opacity: 0.82;
+    filter: saturate(1.05) contrast(1.05);
+  }
+
+  .home-hero-layout .hero-visual__shade {
+    background:
+      linear-gradient(270deg, rgba(4, 12, 26, 0.91) 0%, rgba(4, 12, 26, 0.5) 55%, rgba(4, 12, 26, 0.77) 100%),
+      linear-gradient(0deg, rgba(4, 12, 26, 0.8) 0%, transparent 55%);
+  }
+}
+
+
+/* Hero is one continuous canvas: the benefits float on top of its gradient, not in a separate panel. */
+@media (min-width: 761px) {
+  .home-hero-layout > .hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    height: 420px;
+    min-height: 420px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: inset 0 0 72px rgba(0, 0, 0, .34), 0 14px 34px rgba(0, 0, 0, .2);
+  }
+
+  .home-hero-layout .hero-visual {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .home-hero-layout .hero-visual__image {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 48%;
+    opacity: .96;
+    filter: saturate(.96) contrast(1.06) brightness(.92);
+  }
+
+  .home-hero-layout .hero-visual__shade {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 7, 17, .88) 0%,
+        rgba(3, 7, 17, .56) 18%,
+        rgba(3, 7, 17, .14) 46%,
+        rgba(3, 7, 17, .28) 67%,
+        rgba(3, 7, 17, .78) 100%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(3, 7, 17, .68) 0%,
+        rgba(3, 7, 17, .04) 42%,
+        rgba(3, 7, 17, .22) 100%
+      );
+  }
+
+  .home-hero-layout .hero__inner {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: 22px 30px;
+    direction: rtl;
+  }
+
+  .home-hero-layout .hero__main {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    padding-left: clamp(174px, 20vw, 208px);
+    padding-right: clamp(12px, 2.2vw, 32px);
+    direction: rtl;
+  }
+
+  .home-hero-layout .hero-content {
+    width: min(100%, 430px);
+    max-width: 430px;
+    margin: 0;
+    text-align: right;
+  }
+
+  .home-hero-layout .hero__features {
+    position: absolute;
+    top: 50%;
+    left: clamp(16px, 2vw, 28px);
+    z-index: 2;
+    width: clamp(150px, 17vw, 184px);
+    max-width: 184px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    transform: translateY(-50%);
+  }
+
+  .home-hero-layout .hero-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+  }
+
+  .home-hero-layout .hero-benefit {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+    direction: rtl;
+    background: transparent;
+  }
+
+  .home-hero-layout .hero-benefit__icon {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(190, 174, 255, .54);
+    border-radius: 50%;
+    background: transparent;
+    color: #c6b7ff;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .home-hero-layout .hero-benefit__copy {
+    gap: 2px;
+    text-align: right;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .7);
+  }
+
+  .home-hero-layout .hero-benefit__copy strong {
+    color: #fff;
+    font-size: 9px;
+    line-height: 1.65;
+  }
+
+  .home-hero-layout .hero-benefit__copy small {
+    color: rgba(231, 235, 248, .85);
+    font-size: 8px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 761px) {
+  .home-hero-layout .hero__inner {
+    padding-inline: 18px;
+  }
+
+  .home-hero-layout .hero__main {
+    padding-left: 164px;
+    padding-right: 10px;
+  }
+
+  .home-hero-layout .hero__features {
+    left: 12px;
+    width: 145px;
+  }
+
+  .home-hero-layout .hero-benefits {
+    gap: 12px;
+  }
+
+  .home-hero-layout .hero-benefit__icon {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-hero-layout > .hero {
+    height: auto;
+    min-height: 0;
+    box-shadow: inset 0 0 48px rgba(0, 0, 0, .25);
+  }
+
+  .home-hero-layout .hero-visual__image {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-position: 58% center;
+    opacity: .82;
+    filter: saturate(1.02) contrast(1.04) brightness(.82);
+  }
+
+  .home-hero-layout .hero-visual__shade {
+    background:
+      linear-gradient(90deg, rgba(3, 7, 17, .83) 0%, rgba(3, 7, 17, .58) 60%, rgba(3, 7, 17, .62) 100%),
+      linear-gradient(0deg, rgba(3, 7, 17, .86) 0%, rgba(3, 7, 17, .12) 60%, rgba(3, 7, 17, .34) 100%);
+  }
+
+  .home-hero-layout .hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    width: 100%;
+    height: auto;
+    padding: 34px 20px 24px;
+    direction: rtl;
+  }
+
+  .home-hero-layout .hero__main {
+    width: 100%;
+    height: auto;
+    min-height: 190px;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .home-hero-layout .hero__features {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: none;
+    padding: 15px 0 0;
+    border: 0;
+    border-top: 1px solid rgba(211, 216, 241, .22);
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .home-hero-layout .hero-benefits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px 12px;
+    background: transparent;
+  }
+
+  .home-hero-layout .hero-benefit {
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+  }
+
+  .home-hero-layout .hero-benefit__icon {
+    flex-basis: 30px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .home-hero-layout .hero-benefit__copy strong {
+    font-size: 10px;
+  }
+
+  .home-hero-layout .hero-benefit__copy small {
+    font-size: 8px;
+  }
+}
+
+
+/* Desktop first section fills the viewport below the global header. */
+@media (min-width: 761px) {
+  .home-hero-layout {
+    height: calc(100vh - var(--layout-header-height, 56px));
+    min-height: calc(100vh - var(--layout-header-height, 56px));
+    max-height: none;
+  }
+
+  .home-hero-layout > .reference-sidebar,
+  .home-hero-layout > .hero {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .home-hero-layout .hero__inner {
+    height: 100%;
+    min-height: 0;
+  }
+}
+
+
+/* Deeper hero vignette and a bottom fade that blends seamlessly into the next section. */
+.home-hero-layout > .hero {
+  border: 0 !important;
+  border-bottom: 0 !important;
+  background: #030610;
+  box-shadow:
+    inset 0 0 100px rgba(0, 0, 0, .58),
+    inset 0 0 42px rgba(0, 0, 0, .32);
+}
+
+.home-hero-layout .hero-visual__shade {
+  background:
+    linear-gradient(
+      0deg,
+      #030610 0%,
+      rgba(3, 6, 16, .97) 5%,
+      rgba(3, 6, 16, .78) 15%,
+      rgba(3, 6, 16, .34) 31%,
+      rgba(3, 6, 16, .04) 50%,
+      rgba(3, 6, 16, .18) 78%,
+      rgba(3, 6, 16, .46) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(3, 7, 17, .78) 0%,
+      rgba(3, 7, 17, .52) 18%,
+      rgba(3, 7, 17, .10) 44%,
+      rgba(3, 7, 17, .28) 67%,
+      rgba(3, 7, 17, .88) 100%
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 16%,
+      rgba(0, 0, 0, .18) 68%,
+      rgba(0, 0, 0, .46) 100%
+    );
+}
+
+.home-page > .category-section {
+  border-top: 0;
+  background: #030610;
+}
+
+@media (max-width: 760px) {
+  .home-hero-layout > .hero {
+    border: 0 !important;
+    box-shadow: inset 0 0 76px rgba(0, 0, 0, .42);
+  }
+
+  .home-hero-layout .hero-visual__shade {
+    background:
+      linear-gradient(
+        0deg,
+        #030610 0%,
+        rgba(3, 6, 16, .94) 8%,
+        rgba(3, 6, 16, .58) 23%,
+        rgba(3, 6, 16, .12) 48%,
+        rgba(3, 6, 16, .52) 100%
+      ),
+      linear-gradient(90deg, rgba(3, 7, 17, .78), rgba(3, 7, 17, .35));
+  }
+}
+
+
+/* Slightly shorten the first hero section while keeping the sidebar and hero aligned. */
+@media (min-width: 761px) {
+  .home-hero-layout {
+    height: calc(100vh - var(--layout-header-height, 56px) - 48px);
+    min-height: calc(100vh - var(--layout-header-height, 56px) - 48px);
+  }
+}
+
+
+/* Readability pass for the homepage hero and its narrow right-hand sidebar. */
+@media (min-width: 761px) {
+  .home-hero-layout .hero-title {
+    font-size: clamp(23px, 2.25vw, 30px);
+    line-height: 1.6;
+  }
+
+  .home-hero-layout .hero-content__description {
+    max-width: 450px;
+    font-size: clamp(11px, 1vw, 13px);
+    line-height: 1.9;
+  }
+
+  .home-hero-layout .hero-button {
+    min-height: 37px;
+    padding-inline: 13px;
+    font-size: 11px;
+  }
+
+  .home-hero-layout .hero-benefit__copy strong {
+    font-size: 10px;
+    line-height: 1.7;
+  }
+
+  .home-hero-layout .hero-benefit__copy small {
+    font-size: 9px;
+    line-height: 1.65;
+  }
+
+  .home-hero-layout .sidebar-item {
+    min-height: 34px;
+    padding-inline: 8px;
+    font-size: 11px;
+    line-height: 1.65;
+  }
+
+  .home-hero-layout .seller-card__eyebrow {
+    font-size: 10px;
+  }
+
+  .home-hero-layout .seller-card h2 {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .home-hero-layout .seller-card p {
+    font-size: 10px;
+    line-height: 1.8;
+  }
+
+  .home-hero-layout .seller-card__register {
+    min-height: 31px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 761px) {
+  .home-hero-layout .hero-content__description {
+    font-size: 10px;
+  }
+
+  .home-hero-layout .hero-benefit__copy strong {
+    font-size: 9px;
+  }
+
+  .home-hero-layout .hero-benefit__copy small {
+    font-size: 8px;
+  }
+}
