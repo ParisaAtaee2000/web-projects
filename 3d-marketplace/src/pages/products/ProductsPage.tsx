@@ -186,7 +186,7 @@ export function ProductsPage() {
                         <span className="products-page__maker">{product.maker}</span>
                         <h3 className="products-page__title"><a href={`${ROUTES.products}/${product.id}`}>{product.title}</a></h3>
                         <div className="products-page__meta"><span className="products-page__rating"><Star size={12} fill="currentColor" aria-hidden="true" /> {product.rating.toLocaleString("fa-IR")} <span>({product.reviews.toLocaleString("fa-IR")})</span></span><span>{product.categoryLabel}</span></div>
-                        <div className="products-page__price-row"><span className="products-page__price">{product.priceLabel}<small>تومان</small></span><button className="products-page__add-cart" type="button" aria-label={`افزودن ${product.title} به سبد`} onClick={() => addToCart({ id: product.id, title: product.title, maker: product.maker, price: product.price, image: product.image, alt: product.alt, categoryLabel: product.categoryLabel })}><ShoppingCart size={13} aria-hidden="true" /></button></div>
+                        <div className="products-page__price-row"><span className="products-page__price">{product.priceLabel}<small>تومان</small></span><button className="products-page__add-cart" type="button" aria-label={`افزودن ${product.title} به سبد`} onClick={() => addToCart({ id: product.id, title: product.title, maker: product.maker, price: product.price, image: product.image, alt: product.alt, categoryLabel: product.categoryLabel })}><ShoppingCart size={14} aria-hidden="true" /><span>افزودن به سبد</span></button></div>
                       </div>
                     </article>
                   );
