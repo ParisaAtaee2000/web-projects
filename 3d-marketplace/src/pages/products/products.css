@@ -934,3 +934,22 @@
     transition: none;
   }
 }
+
+
+/* Keep the compact mobile cart action inside the horizontal product card. */
+@media (max-width: 760px) {
+  .products-page__add-cart span {
+    display: none;
+  }
+
+  .products-page__price-row {
+    margin-top: auto;
+  }
+}
+
+/* Equal-height product information: keep prices and cart actions aligned at the bottom. */
+@media (min-width: 761px) {
+  .products-page__price-row {
+    margin-top: auto;
+  }
+}
