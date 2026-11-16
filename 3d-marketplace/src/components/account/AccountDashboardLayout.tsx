@@ -31,6 +31,18 @@ const navigation = [
   { id: "settings", label: "تنظیمات", href: ROUTES.account, Icon: Settings },
 ] as const;
 
+export function AccountDashboardProfile() {
+  return (
+    <a className="account-dashboard-profile" href={ROUTES.account} aria-label="پروفایل پریسا عطائی">
+      <span className="account-dashboard-profile__avatar" aria-hidden="true">پ</span>
+      <span className="account-dashboard-profile__details">
+        <strong>پریسا عطائی</strong>
+        <small>حساب شخصی</small>
+      </span>
+    </a>
+  );
+}
+
 export function AccountDashboardSidebar({
   active,
 }: {
@@ -38,9 +50,7 @@ export function AccountDashboardSidebar({
 }) {
   return (
     <aside className="account-dashboard-sidebar">
-      <a className="account-dashboard-sidebar__brand" href={ROUTES.home} aria-label="Maker، صفحه اصلی">
-        <span>Maker</span><b>M</b>
-      </a>
+      <AccountDashboardProfile />
 
       <nav aria-label="منوی حساب کاربری">
         {navigation.map(({ id, label, href, Icon }) => (
