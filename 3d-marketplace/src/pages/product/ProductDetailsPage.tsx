@@ -76,9 +76,9 @@ export function ProductDetailsPage() {
           <div className="product-detail__rating"><Star size={15} fill="currentColor" aria-hidden="true" /> {product.rating} <span>({product.reviews} نظر نمونه)</span></div>
           <p className="product-detail__description">{product.description}</p>
           <div className="product-detail__key-specs">
-            <div><span>◇</span><strong>کیفیت ساخت</strong><small>کنترل‌شده</small></div>
+            <div><span>◇</span><strong>جزئیات ساخت</strong><small>طبق اطلاعات فروشنده</small></div>
             <div><span>♧</span><strong>نوع محصول</strong><small>{product.category}</small></div>
-            <div><span>✓</span><strong>سفارش‌سازی</strong><small>بر اساس موجودی</small></div>
+            <div><span>✓</span><strong>ثبت سفارش</strong><small>با هماهنگی فروشنده</small></div>
           </div>
           <div className="product-detail__options">
             <strong>رنگ / گزینه‌ها</strong>
@@ -87,7 +87,7 @@ export function ProductDetailsPage() {
           <div className="product-detail__price-box">
             <span className="product-detail__price-label">قیمت</span>
             <strong className="product-detail__price">{product.price}<small>تومان</small></strong>
-            <span className="product-detail__status"><CheckCircle2 size={15} aria-hidden="true" /> اطلاعات محصول</span>
+            <span className="product-detail__status"><CheckCircle2 size={15} aria-hidden="true" /> اطلاعات نمونه</span>
           </div>
           <div className="product-detail__quantity" aria-label="تعداد محصول">
             <span>تعداد</span>
