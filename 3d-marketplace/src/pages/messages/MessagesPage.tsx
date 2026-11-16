@@ -107,28 +107,35 @@ export function MessagesPage() {
   const [threadOpen, setThreadOpen] = useState(false);
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<Record<string, ChatMessage[]>>(starterMessages);
-  const selected = conversations.find((conversation) => conversation.id === selectedId) ?? conversations[0];
+  const [conversationsState, setConversationsState] = useState(conversations);
+  const selected = conversationsState.find((conversation) => conversation.id === selectedId) ?? conversationsState[0];
+  const unreadTotal = conversationsState.reduce((total, conversation) => total + conversation.unread, 0);
   const visible = useMemo(() => {
     const term = search.trim().toLocaleLowerCase("fa");
-    return conversations.filter((conversation) => {
+    return conversationsState.filter((conversation) => {
       const matchesFilter = filter === "all" || conversation.unread > 0;
       const matchesSearch = !term || (conversation.name + " " + conversation.preview + " " + conversation.product).toLocaleLowerCase("fa").includes(term);
       return matchesFilter && matchesSearch;
     });
-  }, [search, filter]);
+  }, [search, filter, conversationsState]);
   const currentMessages = messages[selectedId] ?? [];
 
   function sendMessage(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const text = draft.trim();
     if (!text) return;
+    const sentAt = new Date();
+    const sentTime = sentAt.toLocaleTimeString("fa-IR", { hour: "2-digit", minute: "2-digit" });
     setMessages((previous) => ({
       ...previous,
       [selectedId]: [
         ...(previous[selectedId] ?? []),
-        { id: Date.now(), text, time: new Date().toLocaleTimeString("fa-IR", { hour: "2-digit", minute: "2-digit" }), own: true },
+        { id: sentAt.getTime(), text, time: sentTime, own: true },
       ],
     }));
+    setConversationsState((previous) => previous.map((conversation) => conversation.id === selectedId
+      ? { ...conversation, preview: text, time: sentTime, unread: 0 }
+      : conversation));
     setDraft("");
   }
 
@@ -141,7 +148,7 @@ export function MessagesPage() {
             <a href={ROUTES.account}><Home size={16} /> داشبورد</a>
             <a href={ROUTES.products}><Boxes size={16} /> محصولات من</a>
             <a href={ROUTES.cart}><ShoppingBag size={16} /> سفارش‌ها</a>
-            <a className="is-active" href={ROUTES.accountMessages}><MessageSquare size={16} /> پیام‌ها <b>۳</b></a>
+            <a className="is-active" href={ROUTES.accountMessages}><MessageSquare size={16} /> پیام‌ها {unreadTotal > 0 && <b>{unreadTotal.toLocaleString("fa-IR")}</b>}</a>
             <a href={ROUTES.accountFavorites}><Heart size={16} /> علاقه‌مندی‌ها</a>
             <a href={ROUTES.account}><Settings size={16} /> تنظیمات</a>
           </nav>
@@ -164,7 +171,11 @@ export function MessagesPage() {
                 className={"conversation-item" + (selectedId === conversation.id ? " is-active" : "")}
                 type="button"
                 key={conversation.id}
-                onClick={() => { setSelectedId(conversation.id); setThreadOpen(true); }}
+                onClick={() => {
+                  setSelectedId(conversation.id);
+                  setConversationsState((previous) => previous.map((item) => item.id === conversation.id ? { ...item, unread: 0 } : item));
+                  setThreadOpen(true);
+                }}
               >
                 <span className={"conversation-item__avatar conversation-item__avatar--" + conversation.id}>{conversation.initials}</span>
                 <span className="conversation-item__copy"><strong>{conversation.name}</strong><small>{conversation.preview}</small></span>
@@ -188,7 +199,7 @@ export function MessagesPage() {
             <ArrowRight size={15} />
           </a>
           <div className="messages-thread__status"><span /> گفتگو در Maker</div>
-          <div className="messages-thread__body">
+          <div className="messages-thread__body" role="log" aria-live="polite" aria-relevant="additions">
             {currentMessages.map((message) => (
               <div className={"chat-message" + (message.own ? " is-own" : "")} key={message.id}>
                 {message.attachment && <div className="chat-message__attachment"><Paperclip size={15} /><span><strong>{message.attachment}</strong><small>۲٫۴ MB · فایل نمونه</small></span></div>}
