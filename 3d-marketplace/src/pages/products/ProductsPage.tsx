@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Check, ChevronLeft, ChevronRight, Heart, Search, ShoppingCart, SlidersHorizontal, Star, X } from "lucide-react";
+import { Box, Check, ChevronLeft, ChevronRight, Heart, Layers, Printer, Search, ShoppingCart, SlidersHorizontal, Star, Wrench, X } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 import { addToCart } from "../../lib/demoCart";
 import { readFavoriteIds, subscribeToFavorites, toggleFavoriteId } from "../../lib/demoFavorites";
@@ -43,6 +43,13 @@ const categories: { id: "all" | ProductCategory; label: string }[] = [
   { id: "accessory", label: "لوازم جانبی" },
   { id: "material", label: "مواد مصرفی" },
 ];
+const mainCategoryCards = [
+  { id: "printed", title: "محصولات چاپی", description: "محصولات آماده و دست‌ساز", Icon: Box },
+  { id: "printer", title: "پرینترهای سه‌بعدی", description: "انواع چاپگر برای ساخت", Icon: Printer },
+  { id: "accessory", title: "تجهیزات و لوازم جانبی", description: "قطعات، ابزار و ارتقا", Icon: Wrench },
+  { id: "material", title: "مواد مصرفی و فیلامنت", description: "مواد اولیه متنوع چاپ", Icon: Layers },
+] satisfies { id: ProductCategory; title: string; description: string; Icon: typeof Box }[];
+
 const sortOptions: { value: SortOption; label: string }[] = [
   { value: "featured", label: "مرتب‌سازی: پیشنهاد Maker" },
   { value: "price-low", label: "ارزان‌ترین" },
@@ -109,6 +116,42 @@ export function ProductsPage() {
         </div>
       </div>
 
+      <section className="products-page__categories" aria-labelledby="products-category-title">
+        <div className="products-page__categories-heading">
+          <div>
+            <h2 id="products-category-title">دسته‌بندی‌های اصلی</h2>
+            <p>از میان دسته‌های مختلف، سریع‌تر به محصول موردنظرت برس</p>
+          </div>
+          <span>۴ دسته اصلی</span>
+        </div>
+
+        <div className="products-page__categories-grid">
+          {mainCategoryCards.map(({ id, title, description, Icon }) => {
+            const count = products.filter((product) => product.category === id).length;
+            return (
+              <button
+                className={"products-page__category-card" + (category === id ? " is-active" : "")}
+                type="button"
+                key={id}
+                aria-pressed={category === id}
+                onClick={() => {
+                  setCategory(id);
+                  document.getElementById("products-catalog")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+              >
+                <span className="products-page__category-icon"><Icon size={22} strokeWidth={1.8} aria-hidden="true" /></span>
+                <span className="products-page__category-copy">
+                  <strong>{title}</strong>
+                  <small>{description}</small>
+                  <em>{count.toLocaleString("fa-IR")} محصول</em>
+                </span>
+                <ChevronLeft className="products-page__category-arrow" size={18} aria-hidden="true" />
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
       <div className="products-page__layout">
         {filterOpen && <button className="products-page__scrim" aria-label="بستن فیلترها" onClick={() => setFilterOpen(false)} />}
         <aside className={"products-page__sidebar" + (filterOpen ? " is-open" : "")} aria-label="فیلتر محصولات">
@@ -148,7 +191,7 @@ export function ProductsPage() {
           <button className="products-page__apply-filter" type="button" onClick={() => setFilterOpen(false)}>نمایش {visibleProducts.length.toLocaleString("fa-IR")} محصول</button>
         </aside>
 
-        <section className="products-page__results">
+        <section className="products-page__results" id="products-catalog">
           <div className="products-page__heading">
             <div className="products-page__heading-copy">
               <h2>محصولات چاپ سه‌بعدی</h2>
@@ -162,9 +205,6 @@ export function ProductsPage() {
             <select className="products-page__sort" value={sort} onChange={(event) => setSort(event.target.value as SortOption)} aria-label="مرتب‌سازی محصولات">
               {sortOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
             </select>
-          </div>
-          <div className="products-page__active-filters" role="group" aria-label="فیلتر سریع دسته‌بندی">
-            {categories.map((item) => <button key={item.id} type="button" className={"products-page__filter" + (category === item.id ? " is-active" : "")} aria-pressed={category === item.id} onClick={() => setCategory(item.id)}>{item.label}</button>)}
           </div>
           {hasActiveFilters && <div className="products-page__filter-summary">
             <span>{visibleProducts.length.toLocaleString("fa-IR")} نتیجه</span>
