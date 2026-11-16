@@ -528,3 +528,91 @@
     transition: none;
   }
 }
+
+
+/* Account identity replaces the marketplace logo in the dashboard navigation. */
+.account-dashboard-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  margin: 0 0 27px;
+  padding: 7px 5px 15px;
+  border-bottom: 1px solid rgba(205, 216, 236, .12);
+  color: #fff;
+}
+
+.account-dashboard-profile__avatar {
+  display: grid;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 2px solid rgba(196, 180, 255, .7);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #9b7aff, #5a3bc2);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 850;
+  box-shadow: 0 4px 14px rgba(112, 70, 246, .25);
+}
+
+.account-dashboard-profile__details {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.account-dashboard-profile__details strong {
+  overflow: hidden;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-dashboard-profile__details small {
+  color: #aebbd0;
+  font-size: 9px;
+}
+
+.account-dashboard-profile:hover .account-dashboard-profile__avatar {
+  border-color: #d9ceff;
+}
+
+@media (max-width: 760px) {
+  .account-dashboard-profile {
+    flex: 0 0 auto;
+    gap: 6px;
+    margin: 0;
+    padding: 0 5px;
+    border: 0;
+  }
+
+  .account-dashboard-profile__avatar {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .account-dashboard-profile__details strong {
+    max-width: 76px;
+    font-size: 9px;
+  }
+
+  .account-dashboard-profile__details small {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 390px) {
+  .account-dashboard-profile__details {
+    display: none;
+  }
+
+  .account-dashboard-profile {
+    padding-inline: 2px;
+  }
+}
