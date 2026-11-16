@@ -5,6 +5,7 @@ import {
   ShoppingBag, Boxes, MessageSquare,
 } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
+import { AccountDashboardProfile } from "../../components/account/AccountDashboardLayout";
 import "./messages.css";
 
 type ChatMessage = { id: number; text: string; time: string; own: boolean; attachment?: string };
@@ -143,7 +144,7 @@ export function MessagesPage() {
     <main className="page messages-page" dir="rtl">
       <div className="messages-layout">
         <aside className="messages-sidebar">
-          <a className="messages-brand" href={ROUTES.home}><span>M</span>Maker</a>
+          <AccountDashboardProfile />
           <nav aria-label="منوی حساب کاربری">
             <a href={ROUTES.account}><Home size={16} /> داشبورد</a>
             <a href={ROUTES.products}><Boxes size={16} /> محصولات من</a>
