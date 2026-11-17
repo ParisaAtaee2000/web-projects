@@ -1,6 +1,6 @@
 import type { ReactNode, SVGProps } from 'react'
 
-type IconName = 'user' | 'heart' | 'cart' | 'search' | 'chevron' | 'arrow' | 'play' | 'game' | 'movie' | 'learn' | 'ai' | 'cloud' | 'shield' | 'headphones' | 'grid' | 'check' | 'support' | 'clock' | 'mail' | 'telegram' | 'instagram' | 'youtube' | 'x' | 'info' | 'package'
+type IconName = 'user' | 'heart' | 'cart' | 'search' | 'chevron' | 'arrow' | 'play' | 'game' | 'movie' | 'learn' | 'ai' | 'cloud' | 'shield' | 'headphones' | 'grid' | 'briefcase' | 'check' | 'support' | 'clock' | 'mail' | 'telegram' | 'instagram' | 'youtube' | 'x'
 
 const paths: Record<IconName, ReactNode> = {
   user: <><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></>,
@@ -18,12 +18,11 @@ const paths: Record<IconName, ReactNode> = {
   shield: <><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></>,
   headphones: <><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><rect x="2" y="13" width="5" height="8" rx="2"/><rect x="17" y="13" width="5" height="8" rx="2"/></>,
   grid: <><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></>,
+  briefcase: <><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18m-11 0v2h4v-2"/></>,
   check: <path d="m5 12 4 4L19 6"/>,
   support: <><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="12" width="4" height="7" rx="2"/><rect x="17" y="12" width="4" height="7" rx="2"/><path d="M17 19a5 5 0 0 1-5 3h-1"/></>,
   clock: <><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></>,
   mail: <><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></>,
-  info: <><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></>,
-  package: <><path d="m12 3 9 5v8l-9 5-9-5V8l9-5Z"/><path d="m3 8 9 5 9-5M12 13v8m-4-16 9 5"/></>,
   telegram: <><path d="m22 3-7 18-4-8-8-4 19-6Z"/><path d="m11 13 5-5"/></>,
   instagram: <><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></>,
   youtube: <><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></>,

@@ -2,43 +2,39 @@ const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL as string | undefine
 const API_BASE_URL = (configuredBaseUrl ?? '').replace(/\/+$/, '')
 
 export class ApiError extends Error {
-  status: number
-  payload: unknown
-
-  constructor(message: string, status: number, payload: unknown) {
+  constructor(message: string, readonly status: number, readonly payload: unknown) {
     super(message)
     this.name = 'ApiError'
-    this.status = status
-    this.payload = payload
   }
 }
 
-export function isApiConfigured() {
+export function isApiConfigured(): boolean {
   return API_BASE_URL.length > 0
 }
 
-/**
- * Shared fetch wrapper for the Django REST API.
- * The current storefront intentionally uses local demo data until the backend
- * team provides and confirms the endpoint contract.
- */
+/** Shared JSON transport for the eventual Django API integration. */
 export async function apiRequest<T>(path: string, init: RequestInit = {}): Promise<T> {
-  if (!API_BASE_URL) {
-    throw new Error('آدرس API تنظیم نشده است. رابط فعلی در حالت داده نمایشی اجرا می‌شود.')
+  if (!isApiConfigured()) {
+    throw new Error('VITE_API_BASE_URL تنظیم نشده است؛ رابط در حالت دادهٔ نمایشی اجرا می‌شود.')
   }
 
-  const normalizedPath = path.startsWith('/') ? path : '/' + path
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
   const headers = new Headers(init.headers)
   headers.set('Accept', 'application/json')
   if (init.body && !(init.body instanceof FormData) && !headers.has('Content-Type')) {
     headers.set('Content-Type', 'application/json')
   }
 
-  const response = await fetch(API_BASE_URL + normalizedPath, {
-    ...init,
-    headers,
-    credentials: init.credentials ?? 'include',
-  })
+  let response: Response
+  try {
+    response = await fetch(`${API_BASE_URL}${normalizedPath}`, {
+      ...init,
+      headers,
+      credentials: init.credentials ?? 'include',
+    })
+  } catch (error) {
+    throw new ApiError(error instanceof Error ? error.message : 'ارتباط با سرور برقرار نشد.', 0, null)
+  }
 
   const contentType = response.headers.get('content-type') ?? ''
   const payload: unknown = contentType.includes('application/json')
@@ -46,10 +42,10 @@ export async function apiRequest<T>(path: string, init: RequestInit = {}): Promi
     : await response.text().catch(() => '')
 
   if (!response.ok) {
-    const message = payload && typeof payload === 'object' && 'detail' in payload
+    const detail = payload && typeof payload === 'object' && 'detail' in payload
       ? String((payload as { detail: unknown }).detail)
-      : 'در ارتباط با سرور مشکلی پیش آمده است.'
-    throw new ApiError(message, response.status, payload)
+      : `درخواست با کد ${response.status} ناموفق بود.`
+    throw new ApiError(detail, response.status, payload)
   }
 
   return payload as T
