@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 112" role="img" aria-labelledby="title">
+  <title id="title">NEXORA</title>
+  <g transform="translate(4 5)">
+    <path d="M8 67 38 27l17 20-27 37H8Z" fill="#ffffff"/>
+    <path d="m38 27 20 23 24-31H62L56 28 48 18Z" fill="#27d1c5"/>
+    <path d="m29 84 27-37 9 11-19 26Z" fill="#ffffff" opacity=".92"/>
+  </g>
+  <text x="102" y="82" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="77" font-weight="700" letter-spacing="3">NEXORA</text>
+</svg>
