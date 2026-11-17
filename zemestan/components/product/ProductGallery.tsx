@@ -1,0 +1,1 @@
+export function ProductGallery(){return <div><div className="gallery-main"><div className="gallery-product"/></div><div className="gallery-thumbs"><div className="thumb">01</div><div className="thumb">02</div><div className="thumb">03</div><div className="thumb">04</div></div></div>}

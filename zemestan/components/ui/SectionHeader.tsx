@@ -1,0 +1,1 @@
+export function SectionHeader({kicker,title,href,link="مشاهده همه محصولات →"}:{kicker:string;title:string;href?:string;link?:string}){return <div className="section-head"><div><div className="section-kicker">{kicker}</div><h2 className="section-title">{title}</h2></div>{href&&<a className="section-link" href={href}>{link}</a>}</div>}
