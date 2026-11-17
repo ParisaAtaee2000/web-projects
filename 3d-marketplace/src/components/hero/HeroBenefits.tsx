@@ -1,21 +1,26 @@
-import { Headset, ShieldCheck, Truck } from "lucide-react";
+import { BadgeCheck, Boxes, Headset, Sparkles } from "lucide-react";
 import { HeroBenefitItem } from "./HeroBenefitItem";
 
 const features = [
   {
-    title: "کیفیت تضمین‌شده",
-    description: "انتخاب دقیق محصولات و سازندگان",
-    Icon: ShieldCheck,
+    title: "تنوع بی‌نظیر محصولات",
+    description: "از پرینتر تا قطعات جانبی",
+    Icon: Boxes,
   },
   {
-    title: "پشتیبانی واقعی",
-    description: "همراهی برای انتخاب بهتر",
+    title: "تضمین اصالت کالا",
+    description: "کیفیت و انتخاب مطمئن",
+    Icon: BadgeCheck,
+  },
+  {
+    title: "سفارش اختصاصی",
+    description: "ساخت بر اساس ایده شما",
+    Icon: Sparkles,
+  },
+  {
+    title: "پشتیبانی و مشاوره",
+    description: "همراه شما در تمام مراحل",
     Icon: Headset,
-  },
-  {
-    title: "ارسال سریع",
-    description: "پیگیری سفارش تا رسیدن به دستت",
-    Icon: Truck,
   },
 ];
 

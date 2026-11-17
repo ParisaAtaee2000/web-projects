@@ -1,22 +1,51 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
+import { ArrowLeft, CreditCard, Minus, PackageCheck, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 import { formatToman } from "../../data/marketplace";
 import { readCart, removeFromCart, setCartQuantity, subscribeToCart, type CartItem } from "../../lib/demoCart";
 import "../../components/catalog/marketplace-pages.css";
+import { AccountDashboardLayout } from "../../components/account/AccountDashboardLayout";
 
 export function CartPage() {
   const [items, setItems] = useState<CartItem[]>(() => readCart());
   useEffect(() => subscribeToCart(() => setItems(readCart())), []);
   const total = useMemo(() => items.reduce((sum, item) => sum + item.price * item.quantity, 0), [items]);
+  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+  const uniqueCount = items.length;
+
   return (
-    <div className="page" dir="rtl">
-      <header className="form-page__header"><span className="marketplace-catalog__eyebrow"><ShoppingBag size={15} aria-hidden="true" /> سبد خرید</span><h1>چیزهایی که انتخاب کردی</h1><p>تعداد اقلام را تغییر بده یا قبل از ادامه، فهرست را بررسی کن.</p></header>
+    <AccountDashboardLayout
+      active="cart"
+      title="سبد خرید"
+      description="کالاهای انتخاب‌شده را بررسی کن و خلاصه سفارش را ببین."
+      icon={<ShoppingBag size={22} />}
+    >
+      <div className="account-dashboard-stats">
+        <div className="account-dashboard-stat">
+          <span className="account-dashboard-stat__icon"><ShoppingBag size={18} aria-hidden="true" /></span>
+          <span className="account-dashboard-stat__copy"><span>تعداد کل اقلام</span><strong>{itemCount.toLocaleString("fa-IR")} قلم</strong></span>
+        </div>
+        <div className="account-dashboard-stat">
+          <span className="account-dashboard-stat__icon"><PackageCheck size={18} aria-hidden="true" /></span>
+          <span className="account-dashboard-stat__copy"><span>محصولات انتخاب‌شده</span><strong>{uniqueCount.toLocaleString("fa-IR")} محصول</strong></span>
+        </div>
+        <div className="account-dashboard-stat">
+          <span className="account-dashboard-stat__icon"><CreditCard size={18} aria-hidden="true" /></span>
+          <span className="account-dashboard-stat__copy"><span>مبلغ سبد</span><strong>{formatToman(total)} تومان</strong></span>
+        </div>
+      </div>
+
       {items.length === 0 ? (
-        <div className="cart-empty"><h2>سبد خرید هنوز خالی است</h2><p>از میان محصولات نمونه شروع کن و کالاهای موردنظرت را به سبد اضافه کن.</p><a href={ROUTES.products}>مشاهده محصولات <ArrowLeft size={15} aria-hidden="true" /></a></div>
+        <div className="account-dashboard-empty">
+          <span className="account-dashboard-empty__icon"><ShoppingBag size={25} aria-hidden="true" /></span>
+          <h2>سبد خرید هنوز خالی است</h2>
+          <p>از میان محصولات Maker کالاهای موردنظرت را انتخاب کن؛ پس از افزودن، اینجا می‌توانی تعداد و مبلغ آن‌ها را مدیریت کنی.</p>
+          <a href={ROUTES.products}>مشاهده محصولات <ArrowLeft size={15} aria-hidden="true" /></a>
+        </div>
       ) : (
         <div className="cart-page__layout">
           <section className="form-panel" aria-label="اقلام سبد خرید">
+            <h2>اقلام انتخاب‌شده</h2>
             {items.map((item) => <article className="cart-line" key={item.id}>
               <img className="cart-line__image" src={item.image} alt={item.alt} />
               <div className="cart-line__copy"><h3><a href={`${ROUTES.products}/${item.id}`}>{item.title}</a></h3><p>{item.maker} · {item.categoryLabel}</p><div className="cart-line__price">{formatToman(item.price)} تومان</div>
@@ -26,7 +55,7 @@ export function CartPage() {
             </article>)}
           </section>
           <aside className="form-panel cart-summary">
-            <h2>خلاصهٔ سبد</h2><div className="cart-summary__row"><span>تعداد اقلام</span><strong>{items.reduce((sum,item)=>sum+item.quantity,0).toLocaleString("fa-IR")}</strong></div>
+            <h2>خلاصهٔ سبد</h2><div className="cart-summary__row"><span>تعداد اقلام</span><strong>{itemCount.toLocaleString("fa-IR")}</strong></div>
             <div className="cart-summary__row"><span>جمع کالاها</span><strong>{formatToman(total)} تومان</strong></div>
             <div className="cart-summary__row"><span>هزینه ارسال</span><strong>محاسبه نشده</strong></div>
             <div className="cart-summary__row cart-summary__total"><span>جمع نمونه</span><strong>{formatToman(total)} تومان</strong></div>
@@ -35,6 +64,6 @@ export function CartPage() {
           </aside>
         </div>
       )}
-    </div>
+    </AccountDashboardLayout>
   );
 }

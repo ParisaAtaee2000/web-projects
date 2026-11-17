@@ -1,8 +1,9 @@
 import { ROUTES } from "../../app/router/routeNames";
 
 const links = [
-  { label: "صفحه اصلی", href: ROUTES.home },
-  { label: "تجهیزات و لوازم جانبی", href: ROUTES.accessories },
+  { label: "خانه", href: ROUTES.home },
+  { label: "محصولات", href: ROUTES.products },
+  { label: "تجهیزات چاپ سه‌بعدی", href: ROUTES.categories },
   { label: "سفارش اختصاصی", href: ROUTES.customOrders },
   { label: "فروشندگان", href: ROUTES.makers },
 ];

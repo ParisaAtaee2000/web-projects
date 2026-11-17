@@ -537,3 +537,112 @@
   .header-navigation { gap: clamp(5px, .75vw, 12px); }
   .header-navigation__link { font-size: 11px; }
 }
+
+
+
+/* Approved reference desktop order: Maker logo at left, utilities at the right. */
+@media (min-width: 761px) {
+  .reference-header {
+    grid-template-columns: auto minmax(200px, min(28vw, 360px)) minmax(0, 1fr) auto;
+    grid-template-areas: "brand search nav actions";
+    padding-inline: clamp(18px, 2.4vw, 30px);
+    column-gap: clamp(10px, 1.4vw, 20px);
+    background: #061226;
+    border-bottom-color: #162744;
+  }
+  .reference-header .brand {
+    grid-area: brand;
+    justify-self: start;
+    right: auto;
+    left: auto;
+    margin: 0;
+  }
+  .reference-header .brand__mark {
+    font-size: 34px;
+  }
+  .reference-header .brand__name {
+    font-size: 20px;
+    color: #fff;
+  }
+  .reference-header .header-search {
+    grid-area: search;
+    width: 100%;
+    max-width: none;
+    background: #102440;
+    border-color: #203859;
+  }
+  .reference-header .header-navigation {
+    grid-area: nav;
+    justify-content: space-between;
+    gap: clamp(7px, 1.1vw, 17px);
+  }
+  .reference-header .header-navigation__link {
+    font-size: clamp(9px, .84vw, 11px);
+  }
+  .reference-header .header-actions {
+    grid-area: actions;
+    justify-self: end;
+    gap: clamp(4px, .7vw, 10px);
+  }
+  .reference-header .header-actions a {
+    width: 28px;
+    height: 30px;
+  }
+}
+@media (max-width: 1050px) and (min-width: 761px) {
+  .reference-header {
+    grid-template-columns: auto minmax(150px, 230px) minmax(0, 1fr) auto;
+    column-gap: 9px;
+    padding-inline: 12px;
+  }
+  .reference-header .brand__mark { font-size: 29px; }
+  .reference-header .brand__name { font-size: 17px; }
+  .reference-header .header-navigation { gap: 6px; }
+  .reference-header .header-navigation__link { font-size: 9px; }
+  .reference-header .header-actions { gap: 3px; }
+}
+
+
+.header-search__clear {
+  display: grid;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #354666;
+  border-radius: 6px;
+  background: #172b49;
+  color: #d8def0;
+  font: inherit;
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .16s ease, border-color .16s ease, color .16s ease;
+}
+.header-search__clear:hover {
+  border-color: #A995FF;
+  background: #302A50;
+  color: #fff;
+}
+.header-search__clear:focus-visible {
+  outline: 2px solid #A995FF;
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .header-search__clear { transition: none; }
+}
+
+
+/* Put the Maker logo on the right side of the desktop header. */
+@media (min-width: 761px) {
+  .reference-header {
+    grid-template-areas: "actions search nav brand";
+  }
+  .reference-header .brand {
+    justify-self: end;
+  }
+  .reference-header .header-actions {
+    justify-self: start;
+  }
+}

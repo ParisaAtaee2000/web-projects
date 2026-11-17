@@ -1,4 +1,4 @@
-import { Box, Boxes, FileBox, House, ShoppingBag, UserRound } from "lucide-react";
+import { Box, Boxes, FileBox, House, ShoppingBag, UsersRound } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { ROUTES } from "../../app/router/routeNames";
 import { SidebarMenuItem } from "./SidebarMenuItem";
@@ -8,9 +8,9 @@ const homeItem = { label: "صفحه اصلی", href: ROUTES.home, Icon: House };
 const items: { label: string; href: string; Icon: LucideIcon }[] = [
   { label: "محصولات", href: ROUTES.products, Icon: Box },
   { label: "تجهیزات و لوازم جانبی", href: ROUTES.accessories, Icon: Boxes },
-  { label: "فایل سه‌بعدی", href: ROUTES.files3d, Icon: FileBox },
+  { label: "فایل‌های سه‌بعدی", href: ROUTES.files3d, Icon: FileBox },
   { label: "سفارش اختصاصی", href: ROUTES.customOrders, Icon: ShoppingBag },
-  { label: "فروشندگی", href: ROUTES.sellerRegister, Icon: UserRound },
+  { label: "فروشندگان", href: ROUTES.makers, Icon: UsersRound },
 ];
 
 function normalizePath(pathname: string) {

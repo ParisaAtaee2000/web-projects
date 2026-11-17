@@ -4,18 +4,78 @@ import { ROUTES } from "../../app/router/routeNames";
 import { marketplaceProducts, formatToman } from "../../data/marketplace";
 import { readCart, subscribeToCart, type CartItem } from "../../lib/demoCart";
 import "../../components/catalog/marketplace-pages.css";
+import { AccountDashboardLayout } from "../../components/account/AccountDashboardLayout";
+import { readFavoriteIds, subscribeToFavorites, toggleFavoriteId } from "../../lib/demoFavorites";
 
 export function AccountPage() {
   const path = window.location.pathname;
   const isFavorites = path.endsWith("/favorites");
   const isMessages = path.endsWith("/messages");
   const [cart, setCart] = useState<CartItem[]>(() => readCart());
-  const [favorites] = useState<string[]>(() => {
-    try { const raw = window.localStorage.getItem("makera-demo-favorites"); const value: unknown = JSON.parse(raw ?? "[]"); return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : []; } catch { return []; }
-  });
+  const [favorites, setFavorites] = useState<string[]>(() => readFavoriteIds());
   useEffect(() => subscribeToCart(() => setCart(readCart())), []);
+  useEffect(() => subscribeToFavorites(() => setFavorites(readFavoriteIds())), []);
   const favoriteProducts = marketplaceProducts.filter((product) => favorites.includes(product.id));
-  if (isFavorites) return <div className="page" dir="rtl"><header className="form-page__header"><span className="marketplace-catalog__eyebrow"><Heart size={15} aria-hidden="true" /> علاقه‌مندی‌ها</span><h1>چیزهایی که نشان کرده‌ای</h1><p>موارد منتخب در همین مرورگر نگهداری می‌شوند.</p></header>{favoriteProducts.length ? <div className="market-product-grid">{favoriteProducts.map((product) => <article key={product.id} className="market-product-card"><a className="market-product-card__media" href={`${ROUTES.products}/${product.id}`}><img src={product.image} alt={product.alt} /><span className="market-product-card__category">{product.categoryLabel}</span></a><div className="market-product-card__body"><h2>{product.title}</h2><p>{product.description}</p><div className="market-product-card__price"><strong>{formatToman(product.price)}</strong><small>تومان</small></div></div></article>)}</div> : <div className="cart-empty"><h2>هنوز محصولی نشان نکرده‌ای</h2><p>از صفحه محصولات روی قلب کنار کالاها بزن تا اینجا نمایش داده شوند.</p><a href={ROUTES.products}>مشاهده محصولات <ArrowLeft size={15} aria-hidden="true" /></a></div>}</div>;
+  const favoriteValue = favoriteProducts.reduce((sum, product) => sum + product.price, 0);
+  const favoriteMakers = new Set(favoriteProducts.map((product) => product.makerId)).size;
+
+  if (isFavorites) return (
+    <AccountDashboardLayout
+      active="favorites"
+      title="علاقه‌مندی‌ها"
+      description="محصولاتی که برای بررسی یا خرید بعدی ذخیره کرده‌ای."
+      icon={<Heart size={22} />}
+    >
+      <div className="account-dashboard-stats">
+        <div className="account-dashboard-stat">
+          <span className="account-dashboard-stat__icon"><Heart size={18} aria-hidden="true" /></span>
+          <span className="account-dashboard-stat__copy"><span>محصولات ذخیره‌شده</span><strong>{favoriteProducts.length.toLocaleString("fa-IR")} محصول</strong></span>
+        </div>
+        <div className="account-dashboard-stat">
+          <span className="account-dashboard-stat__icon"><UserRound size={18} aria-hidden="true" /></span>
+          <span className="account-dashboard-stat__copy"><span>سازندگان</span><strong>{favoriteMakers.toLocaleString("fa-IR")} سازنده</strong></span>
+        </div>
+        <div className="account-dashboard-stat">
+          <span className="account-dashboard-stat__icon"><ShoppingBag size={18} aria-hidden="true" /></span>
+          <span className="account-dashboard-stat__copy"><span>ارزش تقریبی فهرست</span><strong>{formatToman(favoriteValue)} تومان</strong></span>
+        </div>
+      </div>
+
+      {favoriteProducts.length ? (
+        <div className="market-product-grid">
+          {favoriteProducts.map((product) => (
+            <article key={product.id} className="market-product-card">
+              <a className="market-product-card__media" href={`${ROUTES.products}/${product.id}`}>
+                <img src={product.image} alt={product.alt} />
+                <span className="market-product-card__category">{product.categoryLabel}</span>
+              </a>
+              <button
+                className="account-dashboard-favorite-remove"
+                type="button"
+                aria-label={`حذف ${product.title} از علاقه‌مندی‌ها`}
+                title="حذف از علاقه‌مندی‌ها"
+                onClick={() => toggleFavoriteId(product.id)}
+              >
+                <Heart size={17} fill="currentColor" aria-hidden="true" />
+              </button>
+              <div className="market-product-card__body">
+                <h2>{product.title}</h2>
+                <p>{product.description}</p>
+                <div className="market-product-card__price"><strong>{formatToman(product.price)}</strong><small>تومان</small></div>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div className="account-dashboard-empty">
+          <span className="account-dashboard-empty__icon"><Heart size={25} aria-hidden="true" /></span>
+          <h2>هنوز محصولی نشان نکرده‌ای</h2>
+          <p>در صفحه محصولات روی قلب کنار هر کالا بزن تا آن را به این فهرست اضافه کنی.</p>
+          <a href={ROUTES.products}>مشاهده محصولات <ArrowLeft size={15} aria-hidden="true" /></a>
+        </div>
+      )}
+    </AccountDashboardLayout>
+  );
   if (isMessages) return <div className="page" dir="rtl"><header className="form-page__header"><span className="marketplace-catalog__eyebrow"><MessageSquare size={15} aria-hidden="true" /> پیام‌ها</span><h1>گفتگوهای Makerā</h1><p>فضای پیام‌رسانی با سازندگان در نسخهٔ فعلی به سرور متصل نیست.</p></header><div className="form-panel"><h2>هنوز گفتگویی وجود ندارد</h2><p>بعد از اتصال حساب‌ها و سیستم پیام‌رسانی، گفتگوهای مربوط به سفارش‌های اختصاصی و محصولات اینجا نمایش داده می‌شوند.</p><a className="form-secondary-link" href={ROUTES.makers}>پیدا کردن سازندگان <ArrowLeft size={14} aria-hidden="true" /></a></div></div>;
   return (
     <div className="page" dir="rtl">

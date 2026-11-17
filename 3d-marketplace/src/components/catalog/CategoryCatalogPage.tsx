@@ -56,7 +56,7 @@ export function CategoryCatalogPage({
       <div className="marketplace-catalog__toolbar">
         <label className="marketplace-catalog__search"><Search size={18} aria-hidden="true" /><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="جست‌وجوی محصول یا سازنده..." aria-label="جست‌وجو" /></label>
         <select value={sort} onChange={(event) => setSort(event.target.value as SortMode)} aria-label="مرتب‌سازی">
-          <option value="featured">پیشنهاد Makerā</option><option value="price-low">ارزان‌ترین</option><option value="price-high">گران‌ترین</option><option value="rating">بالاترین امتیاز</option>
+          <option value="featured">پیشنهاد Maker</option><option value="price-low">ارزان‌ترین</option><option value="price-high">گران‌ترین</option><option value="rating">بالاترین امتیاز</option>
         </select>
       </div>
       {visibleProducts.length > 0 ? (

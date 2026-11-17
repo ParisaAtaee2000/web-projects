@@ -175,3 +175,20 @@
     font-size: 12px;
   }
 }
+
+
+/* The approved reference uses a slim left navigation rail. */
+@media (max-width: 1050px) and (min-width: 761px) {
+  .reference-sidebar {
+    width: 155px;
+    padding-inline: 9px;
+  }
+  .sidebar-item {
+    gap: 4px;
+    padding-inline: 7px;
+    font-size: 10px;
+  }
+  .seller-card {
+    padding: 9px 7px;
+  }
+}
