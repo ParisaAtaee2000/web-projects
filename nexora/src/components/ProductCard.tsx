@@ -28,14 +28,14 @@ export default function ProductCard({ product }: { product: Product }) {
   return <article className="product-card">
     <button
       type="button"
-      className={\`favorite\${isFavorite ? ' is-favorite' : ''}\`}
-      aria-label={isFavorite ? \`حذف \${product.name} از علاقه‌مندی‌ها\` : \`افزودن \${product.name} به علاقه‌مندی‌ها\`}
+      className={`favorite${isFavorite ? ' is-favorite' : ''}`}
+      aria-label={isFavorite ? `حذف ${product.name} از علاقه‌مندی‌ها` : `افزودن ${product.name} به علاقه‌مندی‌ها`}
       aria-pressed={isFavorite}
       onClick={() => toggle(product.slug)}
     ><Icon name="heart" size={20}/></button>
-    {product.badge && <span className={\`product-badge \${product.brand === 'netflix' ? 'dark-badge' : ''}\`}>{product.badge}</span>}
-    <a href={\`/product/\${product.slug}\`} className="product-card-link"><BrandLogo brand={product.brand}/><h3>{product.name}</h3><p className="product-description">{product.description}</p><strong className="price">{product.price} <small>تومان</small></strong></a>
-    <button type="button" className={\`add-cart\${added ? ' is-added' : ''}\`} onClick={addToCart} aria-label={\`افزودن \${product.name} به سبد خرید\`}><Icon name={added ? 'check' : 'cart'} size={21}/><span>{added ? 'اضافه شد' : 'افزودن به سبد'}</span></button>
+    {product.badge && <span className={`product-badge ${product.brand === 'netflix' ? 'dark-badge' : ''}`}>{product.badge}</span>}
+    <a href={`/product/${product.slug}`} className="product-card-link"><BrandLogo brand={product.brand}/><h3>{product.name}</h3><p className="product-description">{product.description}</p><strong className="price">{product.price} <small>تومان</small></strong></a>
+    <button type="button" className={`add-cart${added ? ' is-added' : ''}`} onClick={addToCart} aria-label={`افزودن ${product.name} به سبد خرید`}><Icon name={added ? 'check' : 'cart'} size={21}/><span>{added ? 'اضافه شد' : 'افزودن به سبد'}</span></button>
   </article>
 }
 

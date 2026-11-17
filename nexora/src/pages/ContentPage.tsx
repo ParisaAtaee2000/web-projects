@@ -21,7 +21,7 @@ const money = (value: number) => new Intl.NumberFormat('fa-IR').format(value)
 export default function ContentPage({ kind }: { kind: ContentKind }) {
   const page = content[kind]
 
-  if (kind === 'journal') return <div className="page-shell wrap"><div className="breadcrumbs"><a href="/">خانه</a><span>/</span><b>مجله</b></div><div className="page-heading-row"><div><span className="page-kicker">{page.kicker}</span><h1>{page.title}</h1><p>{page.intro}</p></div></div><div className="article-list">{articles.map((article, index) => <a className="article-list-card" href={\`/journal/\${index + 1}\`} key={article.title}><img src={article.image} alt=""/><span><small>{article.category}</small><h2>{article.title}</h2><p>نکته‌های کاربردی برای انتخاب سرویس مناسب و استفادهٔ بهتر از دنیای دیجیتال.</p><b>مطالعه مقاله <Icon name="arrow" size={16}/></b></span></a>)}</div></div>
+  if (kind === 'journal') return <div className="page-shell wrap"><div className="breadcrumbs"><a href="/">خانه</a><span>/</span><b>مجله</b></div><div className="page-heading-row"><div><span className="page-kicker">{page.kicker}</span><h1>{page.title}</h1><p>{page.intro}</p></div></div><div className="article-list">{articles.map((article, index) => <a className="article-list-card" href={`/journal/${index + 1}`} key={article.title}><img src={article.image} alt=""/><span><small>{article.category}</small><h2>{article.title}</h2><p>نکته‌های کاربردی برای انتخاب سرویس مناسب و استفادهٔ بهتر از دنیای دیجیتال.</p><b>مطالعه مقاله <Icon name="arrow" size={16}/></b></span></a>)}</div></div>
 
   if (kind === 'contact') return <div className="page-shell wrap"><div className="breadcrumbs"><a href="/">خانه</a><span>/</span><b>تماس با ما</b></div><PageHeader {...page}/><ContactForm/></div>
 

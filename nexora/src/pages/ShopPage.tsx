@@ -15,7 +15,7 @@ export default function ShopPage() {
     const result = products.filter(product =>
       (category === 'همه' || product.category === category)
       && (!isSpecialOffer || product.badge === 'پیشنهاد ویژه')
-      && \`\${product.name} \${product.category} \${product.description}\`.toLocaleLowerCase('fa').includes(normalizedQuery),
+      && `${product.name} ${product.category} ${product.description}`.toLocaleLowerCase('fa').includes(normalizedQuery),
     )
     return sort === 'price-low' ? [...result].sort((a, b) => a.priceValue - b.priceValue)
       : sort === 'price-high' ? [...result].sort((a, b) => b.priceValue - a.priceValue) : result
