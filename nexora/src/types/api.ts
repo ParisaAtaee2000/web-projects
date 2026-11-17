@@ -1,12 +1,26 @@
 /**
- * Frontend-facing contract sketches for the Django REST API.
- * Final field names and endpoint paths must be agreed with the backend developer.
+ * Frontend-facing Django REST contract proposal. Confirm field names, auth and
+ * pagination with the backend owner before treating this as an API guarantee.
  */
+export type ApiCurrency = 'IRR'
+export type ApiBrand = 'microsoft' | 'netflix' | 'chatgpt' | 'youtube' | 'spotify' | 'google'
+
 export type ApiCategory = {
   id: number
-  title: string
   slug: string
+  title: string
   product_count: number
+}
+
+export type ApiProductVariant = {
+  id: number
+  sku: string
+  title: string
+  duration_months: number
+  duration_label: string
+  price_amount: number
+  currency: ApiCurrency
+  is_available: boolean
 }
 
 export type ApiProduct = {
@@ -15,22 +29,19 @@ export type ApiProduct = {
   name: string
   description: string
   category: ApiCategory
-  image: string | null
-  is_available: boolean
+  brand: ApiBrand
+  badge: string | null
+  features: string[]
   variants: ApiProductVariant[]
 }
 
-export type ApiProductVariant = {
-  id: number
-  title: string
-  duration_label: string
-  price: number
-  currency: 'IRR'
-  is_available: boolean
+export type ApiOrderItemRequest = {
+  variant_id: number
+  quantity: number
 }
 
 export type ApiOrderRequest = {
-  items: Array<{ variant_id: number; quantity: number }>
+  items: ApiOrderItemRequest[]
   customer: { full_name: string; email: string; phone: string }
   notes?: string
   idempotency_key: string
@@ -39,8 +50,8 @@ export type ApiOrderRequest = {
 export type ApiOrder = {
   id: string
   status: 'pending_payment' | 'paid' | 'processing' | 'delivered' | 'cancelled' | 'refunded'
-  total: number
-  currency: 'IRR'
+  total_amount: number
+  currency: ApiCurrency
   created_at: string
 }
 
