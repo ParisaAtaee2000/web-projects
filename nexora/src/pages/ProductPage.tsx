@@ -5,6 +5,7 @@ import { useCart } from '../contexts/CartContext'
 import { useFavorites } from '../contexts/FavoritesContext'
 import { Icon } from '../components/ui/Icon'
 import Breadcrumbs from '../components/ui/Breadcrumbs'
+import DemoNotice from '../components/ui/DemoNotice'
 
 export default function ProductPage({ slug }: { slug: string }) {
   const product = products.find(item => item.slug === slug)
@@ -17,6 +18,7 @@ export default function ProductPage({ slug }: { slug: string }) {
   if (!product) return <div className="page-shell wrap empty-state"><h1>این محصول پیدا نشد</h1><a className="button button-primary" href="/shop">بازگشت به فروشگاه</a></div>
 
   function addItem() {
+    if (!product) return
     const variant = product.variants.find(item => item.id === selectedVariantId)
     if (!variant?.isAvailable) return
     add(product.slug, variant.id)
@@ -26,6 +28,7 @@ export default function ProductPage({ slug }: { slug: string }) {
 
   return <div className="page-shell wrap product-detail-page">
     <Breadcrumbs items={[{ label: 'خانه', href: '/' }, { label: 'فروشگاه', href: '/shop' }, { label: product.name }]} />
+    <DemoNotice>قیمت و شرایط این اشتراک نمونه‌اند؛ پیش از خرید واقعی باید از API تأیید شوند.</DemoNotice>
     <div className="product-detail-layout">
       <section className="product-visual">
         <span className="detail-badge">{product.badge || 'اشتراک دیجیتال'}</span>

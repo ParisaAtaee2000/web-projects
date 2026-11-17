@@ -3,6 +3,7 @@ import { categories, defaultVariant, products } from '../data/store'
 import ProductCard from '../components/product/ProductCard'
 import { Icon } from '../components/ui/Icon'
 import Breadcrumbs from '../components/ui/Breadcrumbs'
+import DemoNotice from '../components/ui/DemoNotice'
 
 export default function ShopPage() {
   const params = new URLSearchParams(window.location.search)
@@ -30,6 +31,7 @@ export default function ShopPage() {
       <div><span className="page-kicker">NEXORA STORE</span><h1>{isSpecialOffer ? 'پیشنهادهای ویژه' : 'فروشگاه اشتراک‌های دیجیتال'}</h1><p>سرویس موردنظرت را پیدا کن و هوشمندانه انتخاب کن.</p></div>
       <span className="catalog-count">{filtered.length} محصول</span>
     </div>
+    <DemoNotice>محصول‌ها، قیمت‌ها و موجودی‌های این فروشگاه نمونه هستند و هنوز از سرور دریافت نمی‌شوند.</DemoNotice>
     <div className="catalog-layout">
       <aside className="catalog-sidebar">
         <h2>دسته‌بندی‌ها</h2>

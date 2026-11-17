@@ -80,7 +80,7 @@ npm run build
 | POST | `/api/v1/auth/register/` | ثبت‌نام؛ روش احراز هویت باید توافق شود |
 | POST | `/api/v1/auth/login/` | ورود |
 | POST | `/api/v1/auth/logout/` | خروج |
-| GET/POST | `/api/v1/cart/` | دریافت و همگام‌سازی سبد کاربر |
+| GET/PUT | `/api/v1/cart/` | دریافت سبد و جایگزینی snapshot کامل اقلام بر اساس `variant_id` |
 | GET/POST/DELETE | `/api/v1/favorites/` | فهرست و تغییر علاقه‌مندی‌ها |
 | POST | `/api/v1/orders/` | اعتبارسنجی قیمت/موجودی و ایجاد سفارش |
 | GET | `/api/v1/orders/` | تاریخچه سفارش کاربر |

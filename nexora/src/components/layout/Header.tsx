@@ -4,6 +4,7 @@ import HeaderActions from './HeaderActions'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
   const activePath = window.location.pathname
 
   return <header className="site-header wrap">
@@ -11,6 +12,12 @@ export default function Header() {
       <img className="brand-logo-image" src="/assets/nexora-logo-horizontal.png" alt="NEXORA" />
     </a>
     <HeaderNavigation activePath={activePath} isOpen={menuOpen} onNavigate={() => setMenuOpen(false)} />
-    <HeaderActions menuOpen={menuOpen} onToggleMenu={() => setMenuOpen(open => !open)} />
+    <HeaderActions
+      menuOpen={menuOpen}
+      searchOpen={searchOpen}
+      onToggleMenu={() => { setSearchOpen(false); setMenuOpen(open => !open) }}
+      onToggleSearch={() => { setMenuOpen(false); setSearchOpen(open => !open) }}
+      onSearchSubmit={() => setSearchOpen(false)}
+    />
   </header>
 }
