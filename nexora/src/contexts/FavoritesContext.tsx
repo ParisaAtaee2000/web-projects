@@ -24,12 +24,9 @@ function readFavorites(): string[] {
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<string[]>(readFavorites)
-
   useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
-    } catch {
-      // Favorites remain available for the current session when storage is unavailable.
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)) } catch {
+      // Keep favorites available for this session if browser storage is unavailable.
     }
   }, [items])
 
@@ -37,9 +34,7 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
     items,
     count: items.length,
     has: slug => items.includes(slug),
-    toggle: slug => setItems(current => current.includes(slug)
-      ? current.filter(item => item !== slug)
-      : [...current, slug]),
+    toggle: slug => setItems(current => current.includes(slug) ? current.filter(item => item !== slug) : [...current, slug]),
     remove: slug => setItems(current => current.filter(item => item !== slug)),
   }), [items])
 
