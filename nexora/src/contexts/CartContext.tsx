@@ -2,7 +2,6 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 import { defaultVariant, products } from '../data/store'
 
 export type CartItem = { slug: string; variantId: number; quantity: number }
-
 type CartValue = {
   items: CartItem[]
   count: number
@@ -19,11 +18,10 @@ function readCart(): CartItem[] {
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
     if (!stored) return []
-
     const parsed: unknown = JSON.parse(stored)
     if (!Array.isArray(parsed)) return []
-
     const quantities = new Map<string, CartItem>()
+
     for (const candidate of parsed) {
       if (!candidate || typeof candidate !== 'object') continue
       const item = candidate as { slug?: unknown; variantId?: unknown; quantity?: unknown }
@@ -33,9 +31,8 @@ function readCart(): CartItem[] {
       if (!product) continue
       const variant = product.variants.find(entry => entry.id === item.variantId) ?? defaultVariant(product)
       if (!variant) continue
-
       const quantity = Math.max(1, Math.min(MAX_QUANTITY, Math.floor(item.quantity)))
-      const key = `${product.slug}:${variant.id}`
+      const key = product.slug + ':' + variant.id
       const existing = quantities.get(key)
       quantities.set(key, { slug: product.slug, variantId: variant.id, quantity: Math.min(MAX_QUANTITY, (existing?.quantity ?? 0) + quantity) })
     }
@@ -47,12 +44,9 @@ function readCart(): CartItem[] {
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>(readCart)
-
   useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
-    } catch {
-      // The cart remains usable for this session when storage is unavailable.
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)) } catch {
+      // Keep the cart usable for this session if browser storage is unavailable.
     }
   }, [items])
 
@@ -73,7 +67,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }),
     setQuantity: (slug, variantId, quantity) => setItems(current => !Number.isFinite(quantity) || quantity < 1
       ? current.filter(item => item.slug !== slug || item.variantId !== variantId)
-      : current.map(item => item.slug === slug && item.variantId === variantId ? { ...item, quantity: Math.max(1, Math.min(MAX_QUANTITY, Math.floor(quantity))) } : item)),
+      : current.map(item => item.slug === slug && item.variantId === variantId
+        ? { ...item, quantity: Math.max(1, Math.min(MAX_QUANTITY, Math.floor(quantity))) }
+        : item)),
     remove: (slug, variantId) => setItems(current => current.filter(item => item.slug !== slug || item.variantId !== variantId)),
   }), [items])
 
