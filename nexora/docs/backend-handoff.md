@@ -1,51 +1,93 @@
-# NEXORA frontend handoff for Django
+# NEXORA — Frontend / Django handoff
 
-This document describes the frontend's proposed API contract. The frontend can read the product catalog and published articles when `VITE_API_BASE_URL` is configured. Cart synchronization is optional behind `VITE_ENABLE_REMOTE_CART=true`. Checkout, account and contact/newsletter forms now call their typed service methods when an API base URL is configured; they fall back to explicit demo messaging when it is not. Confirm the contract with the backend owner before implementation.
+## 1. Delivery status and scope
 
-## Frontend status
+This repository contains the customer-facing React + TypeScript + Vite storefront. It does **not** contain the Django backend, database, production catalog, authentication implementation, payment gateway, or production deployment.
 
-- React Router owns client-side routes; the current route set is documented in the frontend README.
-- Component styles are split under `src/styles/components/`, with dedicated mobile overrides per component.
-- Product list/detail and article list/detail pages call the typed API when `VITE_API_BASE_URL` is configured, with sample-data fallbacks on unavailable endpoints.
-- Checkout submits an order with an idempotency key when configured; payment initialization is not automatic.
-- Account login/register/profile/order history call the proposed session endpoints. The auth contract and CSRF/CORS configuration must be agreed before production.
-- Contact and newsletter forms submit when configured; newsletter submission requires explicit consent.
-- Cart remains local by default. Remote sync is opt-in with `VITE_ENABLE_REMOTE_CART=true` and requires an authenticated session. Favorites remain local until their server sync is enabled.
-- React + TypeScript + Vite; this directory is the customer-facing SPA root.
-- Hosting must return `index.html` as the fallback for frontend routes such as `/shop`, `/cart`, and `/product/{slug}`.
-- Catalog sample data and demo subscription variants live in `src/data/store.ts`.
-- `src/types/api.ts` describes the proposed wire types.
-- `src/adapters/productAdapter.ts` maps product responses to the UI model.
-- `src/services/apiClient.ts` is the shared JSON transport. Configure it with `VITE_API_BASE_URL`.
-- Cart persists in `localStorage` by default. Authenticated server synchronization is opt-in with `VITE_ENABLE_REMOTE_CART=true`; favorites remain local until the user session and endpoint contract are enabled.
-- Account login/register/profile/order-history calls are wired to the proposed session endpoints. Confirm cookie/session auth and CSRF behavior with Django before enabling them. Contact and newsletter forms submit only when the API base URL is configured and explicit newsletter consent is checked.
-- Checkout posts the selected variant IDs and quantities to the order endpoint with an idempotency key when the API is configured. It does not initiate payment automatically; payment-provider selection and redirect handling remain a backend/product decision.
-- The UI has live-API loading/error/fallback states for catalog and articles. Product details, checkout and account are not production-ready until the Django endpoints, real product data, auth/CSRF and payment provider are implemented and verified.
+The frontend is ready for backend integration against the proposed contract below. Endpoint names and wire fields are a proposal, not an existing backend guarantee. The frontend and Django owner must agree on the contract before enabling production flows.
 
-## Proposed endpoints
+### Implemented on the frontend
 
-| Method | Endpoint | Notes |
-| --- | --- | --- |
-| GET | `/api/v1/categories/` | Return only public categories and their product counts. |
-| GET | `/api/v1/products/` | Support `category` (slug), `search`, `ordering`, and documented pagination. |
-| GET | `/api/v1/products/{slug}/` | Include purchasable variants and availability. |
-| GET | `/api/v1/articles/` | Return published articles with stable numeric IDs, slug, title, category, excerpt, image URL, body, reading time and publication date. |
-| GET | `/api/v1/articles/{id}/` | Return one published article by its stable numeric ID. |
-| POST | `/api/v1/auth/register/` | Auth method and verification flow remain to be decided. |
-| POST | `/api/v1/auth/login/` | Agree cookie/session vs token auth and CSRF behavior. |
-| POST | `/api/v1/auth/logout/` | Clear server session/token. |
-| GET | `/api/v1/auth/me/` | Return the authenticated customer profile. |
-| GET/PUT | `/api/v1/cart/` | Read the authenticated user's cart; response lines should include `product_slug`, `variant_id`, `quantity` and a product snapshot for rendering. `PUT` replaces the complete cart using `product_slug`, `variant_id` and quantity. |
-| GET/POST/DELETE | `/api/v1/favorites/` | Read and update favorites for an authenticated user. |
-| POST | `/api/v1/orders/` | Revalidate price and availability; create an order idempotently. |
-| GET | `/api/v1/orders/` | Return current user's order history. |
-| POST | `/api/v1/payments/initialize/` | Start the selected payment-provider flow. |
-| POST | `/api/v1/contact-messages/` | Optional proposed endpoint for the contact form; validate and rate-limit server-side. |
-| POST | `/api/v1/newsletter/subscriptions/` | Optional proposed endpoint for newsletter opt-in; confirm consent and unsubscribe requirements. |
+- React Router routes and shared site layout.
+- Component-level CSS under `src/styles/components/`.
+- Product/category and article list/detail requests when `VITE_API_BASE_URL` is set, with demo fallback and loading/error UI.
+- Typed API service and wire types in `src/services/storefrontApi.ts` and `src/types/api.ts`.
+- Local cart and favorites persistence; optional authenticated cart GET/PUT sync behind `VITE_ENABLE_REMOTE_CART=true`.
+- Checkout order-creation request with a client idempotency key. It does not start payment.
+- Account login/register/current-user/order-history requests.
+- Contact and newsletter submission requests; newsletter requires explicit consent.
 
-## Product and variant response
+### Not implemented / must not be represented as production-ready
 
-The frontend needs stable IDs and slugs. A product can have multiple purchasable variants; the selected variant, not only the product, is added to the cart. Cart synchronization is proposed as `PUT` with the complete desired item list so repeated requests are idempotent. Confirm this contract with the Django owner before implementing it.
+- Django endpoints, database models, admin, inventory and catalog data.
+- Server-side session/CSRF contract. The current transport sends cookies with `credentials: include`, but does not fetch or attach a Django CSRF token. Agree and implement this before enabling cookie-authenticated unsafe methods.
+- Payment provider selection, redirect, callback/webhook verification, refunds and reconciliation.
+- Server synchronization for favorites. Favorite API methods exist in the service layer but the current UI uses localStorage only.
+- Production product copy, approved prices, availability, images, delivery/refund/support policies.
+- Manual visual QA on physical devices and across browser engines.
+
+## 2. Routes to preserve
+
+All routes are client-side routes. Production hosting must serve `index.html` as the fallback for direct navigation and refresh on these paths.
+
+| Route | Page |
+| --- | --- |
+| `/` | Home |
+| `/shop` | Catalog, category, search and sort |
+| `/product/:slug` | Product detail |
+| `/cart` | Cart |
+| `/checkout` | Checkout / order creation |
+| `/journal` | Article list |
+| `/journal/:id` | Article detail; current API identifier is numeric |
+| `/help` | Help / FAQ |
+| `/about` | About |
+| `/contact` | Contact form |
+| `/account` | Login, registration, profile and order history |
+| `/favorites` | Locally stored favorites |
+
+Unknown paths render the not-found page. Preserve query parameters used by catalog search/filter links, including `q`, `category`, and `offer`.
+
+## 3. Environment and local validation
+
+Copy `.env.example` to `.env.local`:
+
+```dotenv
+VITE_API_BASE_URL=
+VITE_ENABLE_REMOTE_CART=false
+```
+
+- `VITE_API_BASE_URL` is the public API origin/prefix; it must not contain secrets.
+- Keep remote cart disabled until the authenticated cart endpoint and CSRF/session behavior are verified.
+- Frontend build: `npm ci && npm run build`.
+- Required Node.js: `20.19+`.
+
+## 4. API contract proposal
+
+Base prefix: `/api/v1`. JSON request/response bodies are assumed unless specified otherwise. Confirm trailing-slash behavior, pagination, error shape and status codes with Django.
+
+| Method | Endpoint | Used by frontend | Contract notes |
+| --- | --- | --- | --- |
+| GET | `/categories/` | Yes | Array or DRF page envelope; each item: `id, slug, title, product_count`. |
+| GET | `/products/` | Yes | Array or DRF page envelope; query: `category, search, ordering, page, page_size`. Supported ordering values currently sent: `popular`, `price`, `-price`. |
+| GET | `/products/{slug}/` | Yes | One product including purchasable variants. |
+| GET | `/articles/` | Yes | Array or DRF page envelope; article fields below. |
+| GET | `/articles/{id}/` | Yes | One article by numeric ID. |
+| POST | `/auth/register/` | Yes | Request: `full_name, email, phone, password`; response: `{ user }`. |
+| POST | `/auth/login/` | Yes | Request: `email, password`; response: `{ user }`. |
+| POST | `/auth/logout/` | Yes | Clears the server session. |
+| GET | `/auth/me/` | Yes | Current authenticated user. |
+| GET | `/cart/` | Optional | Authenticated user's cart; only read when remote cart feature flag is enabled. |
+| PUT | `/cart/` | Optional | Replaces the complete cart with `{ items: [{ product_slug, variant_id, quantity }] }`; only written when remote cart feature flag is enabled. |
+| POST | `/orders/` | Yes, when API configured | Creates order after server-side price and inventory revalidation. |
+| GET | `/orders/` | Yes, after authentication | Current user's order history; array or DRF page envelope. |
+| POST | `/contact-messages/` | Yes, when API configured | Contact form submission. |
+| POST | `/newsletter/subscriptions/` | Yes, when API configured | Requires `{ email, consent: true }`. |
+| POST | `/payments/initialize/` | Not called by current UI | Service method exists; define only after provider and payment lifecycle are agreed. |
+| GET/POST/DELETE | `/favorites/` | Not called by current UI | Service methods are placeholders; current favorites remain local. Define exact DELETE URL and response before implementing sync. |
+
+The client currently expects DRF page-number envelopes as `{ count, next, previous, results }` or plain arrays. The catalog page currently consumes the first returned page only; either return a sufficiently sized page for the initial integration or agree a follow-up pagination UI/API change.
+
+### Product and category response
 
 ```json
 {
@@ -55,7 +97,12 @@ The frontend needs stable IDs and slugs. A product can have multiple purchasable
   "description": "اشتراک هوش مصنوعی",
   "brand": "chatgpt",
   "badge": null,
-  "category": { "id": 5, "slug": "ai", "title": "هوش مصنوعی", "product_count": 12 },
+  "category": {
+    "id": 5,
+    "slug": "ai",
+    "title": "هوش مصنوعی",
+    "product_count": 12
+  },
   "features": ["دسترسی به پلن انتخاب‌شده"],
   "variants": [
     {
@@ -72,9 +119,27 @@ The frontend needs stable IDs and slugs. A product can have multiple purchasable
 }
 ```
 
-All API amounts must be non-negative integer Rial (`IRR`). The UI displays Toman by dividing Rial by 10. Return `currency` explicitly and do not use decimal/float money values. The backend is authoritative for price, discount, and availability.
+Product fields consumed by the adapter are `id, slug, name, description, brand, badge, category.slug, category.title, features` and `variants[]`. Variant fields are `id, sku, title, duration_months, duration_label, price_amount, currency, is_available`. Brand must match one of the frontend union values in `src/types/api.ts`; coordinate any expansion.
 
-## Order proposal
+### Article response
+
+```json
+{
+  "id": 1,
+  "slug": "sample-article",
+  "title": "عنوان مقاله",
+  "category": "راهنما",
+  "excerpt": "خلاصه مقاله",
+  "image_url": "https://example.com/article.jpg",
+  "body": "متن مقاله",
+  "reading_minutes": 4,
+  "published_at": "2026-11-18T09:00:00Z"
+}
+```
+
+Current detail route and API lookup use numeric `id`, not slug.
+
+### Order creation request
 
 ```json
 {
@@ -84,41 +149,82 @@ All API amounts must be non-negative integer Rial (`IRR`). The UI displays Toman
     "email": "customer@example.com",
     "phone": "09120000000"
   },
-  "notes": "",
   "idempotency_key": "client-generated-unique-key"
 }
 ```
 
-The server should recalculate totals, validate inventory, reject unavailable variants, and return an order ID, status, integer total amount and currency. Use the idempotency key to prevent duplicate orders on retries. Never accept the client-submitted total as authoritative.
+The client expects the created order to include `id, status, total_amount, currency, created_at`. The server must calculate totals independently, validate variant availability and quantity, apply discounts/taxes, and make retries with the same idempotency key safe. Never trust client totals or price snapshots.
 
-## Decisions needed before wiring the API
+### Cart response
 
-1. Confirm endpoint names, pagination, sorting, filter syntax and exact response fields. The cart proposal is `GET` plus idempotent `PUT` of the complete desired item snapshot; keep this method consistent in API implementation and client code.
-2. Select auth/session strategy. If using cookies across origins, configure Django CORS credentials, allowed origin, secure cookie behavior and CSRF handling together with the frontend deployment origin.
-3. Confirm Rial as the API unit and agree how discounts/taxes are represented.
-4. Define order status transitions, payment callback/webhook ownership, error payloads and idempotency retention.
-5. Provide approved product copy, plans, prices, availability, images, delivery windows and refund/support policies. Current catalog content and prices are demo values.
-6. Decide whether contact and newsletter submissions are in scope and confirm their endpoint, consent, privacy, validation and rate-limit rules.
-7. Provide production backend URL and deployment origin. Do not put Django secrets or payment credentials in `VITE_*` variables; Vite values are public in the built client.
+```json
+{
+  "items": [
+    {
+      "product_slug": "chatgpt-plus",
+      "variant_id": 231,
+      "quantity": 1,
+      "product": { "...": "complete product object matching the product response above" }
+    }
+  ],
+  "updated_at": "2026-11-18T09:00:00Z"
+}
+```
 
-## Local setup
+The product snapshot is required for rendering API-sourced products not present in the local demo catalog. Validate ownership and variant/product consistency on the server.
 
-Copy `.env.example` to `.env.local` and set `VITE_API_BASE_URL`. This only configures the request client. The catalog remains on demo data until catalog queries and loading/error/empty states are connected to the confirmed endpoints.
+### User and auth response
 
+```json
+{
+  "user": {
+    "id": 7,
+    "full_name": "نام مشتری",
+    "email": "customer@example.com",
+    "phone": "09120000000"
+  }
+}
+```
 
-## Typed frontend service layer
+The `/auth/me/` endpoint returns the user object directly. The current client is cookie/session-oriented (`credentials: include`). Before enabling auth, agree same-site cookie policy, HTTPS, CORS allowed origins/credentials, CSRF cookie/token delivery and the `X-CSRFToken` header for POST/PUT/DELETE. The current frontend transport does not yet implement CSRF token acquisition/header injection.
 
-The branch `codex/nexora-backend-handoff-ready` adds `src/services/storefrontApi.ts`. It exposes typed methods:
+### Money and order state
 
-- `storefrontApi.getCategories(signal?)`
-- `storefrontApi.getProducts({ category, search, ordering, page, page_size }, signal?)`
-- `storefrontApi.getProduct(slug, signal?)`
-- `storefrontApi.createOrder(payload, signal?)`
-- `storefrontApi.submitContactMessage(payload, signal?)`
-- `storefrontApi.subscribeNewsletter(payload, signal?)`
+- API money values are non-negative integer Rial (`IRR`); UI display converts Rial to Toman (10 Rial = 1 Toman).
+- Keep currency explicit and avoid float/decimal JSON amounts.
+- Backend is the source of truth for price, discount, taxes, availability and order status.
+- Define allowed status transitions, expiry of pending orders, payment callback/webhook verification and refund behavior before real checkout.
 
-The service supports either a plain array or the standard DRF page-number envelope for catalog lists. `src/types/api.ts` now declares that envelope and the proposed contact/newsletter request types.
+## 5. Responsive and route QA checklist
 
-The typed service also defines the proposed article, cart, favorites, session-authentication, order-history and payment-initialization calls. Product and article pages use live data when the API is configured and retain sample fallbacks when it is unavailable. The cart sync feature is opt-in and expects an authenticated session. The checkout creates an order but deliberately does not pretend a payment has been made. The cart proposal is an authenticated GET plus idempotent PUT of the full item list; favorites and account endpoints require an authenticated session. The authentication contract currently assumes cookie/session credentials and must be confirmed with the Django owner, including CSRF handling.
+Code/CSS review has covered 1000px, 760px, 430px and 360px breakpoints, with the global layout retaining a 320px minimum viewport. This is not a substitute for manual visual testing.
 
-These methods are a typed integration boundary, not a claim that every UI feature is already connected. Existing pages continue to run on demo data until the Django contract is confirmed and page-level loading, error and empty states are deliberately wired. Do not enable live checkout until server-side order validation and payment initialization are implemented and tested.
+Before production release, manually verify the following at 1440px desktop, 1024px tablet, 768px, 430px, 390px, 360px and 320px mobile widths, in at least Chromium and one additional browser:
+
+- Directly open and refresh every route in section 2; verify no 404 from hosting.
+- Header, mobile menu, search open/close, account/favorites/cart actions and focus states.
+- Catalog category scrolling, search, sort, empty state, product cards and no horizontal overflow.
+- Product detail variant selection, unavailable variants, add-to-cart and favorite action.
+- Cart quantity changes, removal, empty cart, long product names and summary layout.
+- Checkout form validation, disabled/submitting state, API failure and successful order response.
+- Account login/register, unauthenticated state, authenticated order list and logout.
+- Article list/detail, long title/body, images and aside stacking.
+- Contact/newsletter validation and explicit newsletter consent.
+- Keyboard navigation, visible focus, reduced-motion preference and RTL alignment.
+
+No manual physical-device/browser-engine visual QA is claimed as completed by this handoff.
+
+## 6. Backend implementation order and ownership boundary
+
+1. **Backend owner:** confirm endpoint names, serializers, pagination, errors and auth/CSRF strategy with the frontend owner.
+2. **Backend owner:** implement catalog/categories/articles and provide approved production data.
+3. **Backend owner:** implement session auth, user profile and order history; verify CORS, cookies and CSRF end-to-end.
+4. **Backend owner:** implement cart persistence and agree whether/when favorites synchronization is in scope.
+5. **Backend owner:** implement order creation with server-side pricing/inventory validation and idempotency.
+6. **Backend owner + product owner:** select payment provider and implement initialize, callback/webhook verification and order state transitions.
+7. **Frontend owner:** wire any contract changes, add CSRF support if cookie/session auth is chosen, add catalog pagination if needed, and run end-to-end/manual responsive QA.
+8. **Both:** test success, validation errors, expired sessions, duplicate submissions, unavailable variants, payment failures and mobile layouts in staging before enabling production sales.
+
+## 7. Production release gate
+
+Do not enable real sales or set production API flags until the backend and frontend jointly verify catalog data, auth/CSRF, cart, server-side pricing, order creation, payment callbacks, error handling, HTTPS/CORS and the manual QA checklist above.
