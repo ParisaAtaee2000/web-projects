@@ -1,0 +1,27 @@
+/* NEXORA catalog component stylesheet. */
+.catalog-count{color:#75818e;font-size:11px;border:1px solid var(--line);padding:7px 13px;border-radius:18px;background:white}
+.catalog-layout{display:grid;grid-template-columns:225px minmax(0,1fr);gap:22px;align-items:start}
+.catalog-sidebar{border:1px solid var(--line);background:white;border-radius:17px;padding:16px;box-shadow:var(--shadow)}
+.catalog-sidebar h2{font-size:15px;margin:0 0 12px}
+.catalog-sidebar button{width:100%;display:flex;justify-content:space-between;align-items:center;border:0;background:transparent;border-radius:10px;padding:10px 9px;text-align:right;color:#4c5a69;font-size:12px;cursor:pointer}
+.catalog-sidebar button span{font-size:10px;color:#98a2ad}
+.catalog-sidebar button.selected,.catalog-sidebar button:hover{background:#eaf8f6;color:#098e89}
+.catalog-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:15px}
+.catalog-search{display:flex;align-items:center;gap:9px;border:1px solid var(--line);background:white;border-radius:13px;padding:0 12px;height:42px;width:min(360px,60%);color:#768390}
+.catalog-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:11px;color:var(--ink)}
+.catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.catalog-sidebar button:disabled{cursor:not-allowed;opacity:.58}
+.catalog-sidebar button:disabled:hover{background:transparent;color:#4c5a69}
+@media(max-width:760px){.catalog-layout{grid-template-columns:1fr;gap:12px}
+.catalog-sidebar{padding:11px;display:flex;align-items:center;gap:6px;overflow-x:auto;white-space:nowrap}
+.catalog-sidebar h2{display:none}
+.catalog-sidebar button{width:auto;flex:0 0 auto;padding:8px 10px;font-size:10px;background:#f5f7fa}
+.catalog-sidebar button span{margin-right:6px}
+.catalog-toolbar{gap:7px}
+.catalog-search{height:39px;width:55%;padding-inline:9px}
+.catalog-search input{font-size:10px}
+.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}}
+@media(max-width:430px){.catalog-count{font-size:9px;padding:6px 9px}}
+
+@media(max-width:760px){.catalog-toolbar{display:grid;grid-template-columns:minmax(0,1fr)}.catalog-search{width:100%;min-width:0}.sort-label{justify-content:space-between;width:100%}.sort-label select{max-width:65%}.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.catalog-grid{gap:8px}}

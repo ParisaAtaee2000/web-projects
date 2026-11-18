@@ -1,3 +1,4 @@
+import { Route, Routes, useParams } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
 import ShopPage from '../pages/ShopPage'
 import ProductPage from '../pages/ProductPage'
@@ -12,20 +13,30 @@ import AccountPage from '../pages/AccountPage'
 import FavoritesPage from '../pages/FavoritesPage'
 import NotFoundPage from '../pages/NotFoundPage'
 
-export default function AppRouter() {
-  const path = decodeURIComponent(window.location.pathname).replace(/\/$/, '') || '/'
+function ProductRoute() {
+  const { slug = '' } = useParams()
+  return <ProductPage slug={slug} />
+}
 
-  if (path === '/') return <HomePage />
-  if (path === '/shop') return <ShopPage />
-  if (path === '/cart') return <CartPage />
-  if (path === '/checkout') return <CheckoutPage />
-  if (path.startsWith('/product/')) return <ProductPage slug={path.slice('/product/'.length)} />
-  if (path.startsWith('/journal/')) return <ArticlePage id={path.slice('/journal/'.length)} />
-  if (path === '/journal') return <JournalPage />
-  if (path === '/help') return <HelpPage />
-  if (path === '/about') return <AboutPage />
-  if (path === '/contact') return <ContactPage />
-  if (path === '/account') return <AccountPage />
-  if (path === '/favorites') return <FavoritesPage />
-  return <NotFoundPage />
+function ArticleRoute() {
+  const { id = '' } = useParams()
+  return <ArticlePage id={id} />
+}
+
+export default function AppRouter() {
+  return <Routes>
+    <Route path="/" element={<HomePage />} />
+    <Route path="/shop" element={<ShopPage />} />
+    <Route path="/product/:slug" element={<ProductRoute />} />
+    <Route path="/cart" element={<CartPage />} />
+    <Route path="/checkout" element={<CheckoutPage />} />
+    <Route path="/journal" element={<JournalPage />} />
+    <Route path="/journal/:id" element={<ArticleRoute />} />
+    <Route path="/help" element={<HelpPage />} />
+    <Route path="/about" element={<AboutPage />} />
+    <Route path="/contact" element={<ContactPage />} />
+    <Route path="/account" element={<AccountPage />} />
+    <Route path="/favorites" element={<FavoritesPage />} />
+    <Route path="*" element={<NotFoundPage />} />
+  </Routes>
 }

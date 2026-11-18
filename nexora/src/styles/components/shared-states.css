@@ -1,0 +1,8 @@
+/* NEXORA shared state and interaction styles. */
+.demo-pill{display:inline-flex;align-items:center;border-radius:30px;padding:5px 10px;background:#fff4df;color:#95640a;font-size:10px;font-weight:700;white-space:nowrap}
+.demo-notice{display:flex;align-items:flex-start;gap:10px;border:1px solid #f0dfb9;background:#fff9ec;color:#74571d;border-radius:12px;padding:12px 14px;margin:2px 0 8px}
+.demo-notice svg{flex:0 0 auto;margin-top:2px}
+.demo-notice p{font-size:10px;line-height:1.9;margin:0}
+.preview-icon{width:42px;height:42px;display:grid;place-items:center;background:#d9f4ed;color:#087f79;border-radius:14px;flex:0 0 auto}
+.form-feedback{font-size:10px;line-height:1.8;color:#087f79;background:#eaf8f5;border-radius:9px;padding:9px 11px;margin:0}
+@media(max-width:430px){.demo-notice{padding:10px}}

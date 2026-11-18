@@ -1,0 +1,4 @@
+/* NEXORA product-card state and interaction styles. */
+.product-card .add-cart{min-height:38px}
+.product-card .add-cart span{display:inline}
+.product-card .add-cart.is-added{background:#e8f8f5;color:#087f79}

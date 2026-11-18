@@ -1,0 +1,67 @@
+/* NEXORA product-card component stylesheet. */
+.product-layout{display:grid;grid-template-columns:.86fr 1.14fr;gap:24px;align-items:stretch}
+.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.product-card{min-height:244px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:21px 10px 0;border:1px solid #edf1f5;border-radius:20px;background:rgba(255,255,255,.75);box-shadow:0 8px 24px rgba(28,48,72,.045);overflow:hidden}
+.favorite{position:absolute;left:12px;top:12px;color:#8793a1;border:0;background:transparent;padding:0;cursor:pointer}
+.favorite:hover{color:#e45c66}
+.product-badge{position:absolute;right:12px;top:9px;border-radius:18px;padding:3px 9px;background:var(--teal);color:#fff;font-size:9px;font-weight:700}
+.product-badge.dark-badge{background:#153c47}
+.ms-logo{height:54px;width:54px;display:grid;grid-template-columns:repeat(2,1fr);gap:3px;padding:2px;margin:3px 0 8px;transform:rotate(1deg)}
+.ms-logo i:nth-child(1){background:#f35325}
+.ms-logo i:nth-child(2){background:#81bc06}
+.ms-logo i:nth-child(3){background:#05a6f0}
+.ms-logo i:nth-child(4){background:#ffba08}
+.netflix-logo{height:58px;margin:0 0 7px;color:#e50914;font-family:Arial,sans-serif;font-size:58px;line-height:1;font-weight:900;text-shadow:1px 0 #8d0611;transform:scaleX(.82)}
+.chat-logo{width:58px;height:58px;margin:1px 0 6px;border-radius:18px;background:linear-gradient(135deg,#f9fbfd,#edf1f6);display:grid;place-items:center;box-shadow:inset 0 1px white,0 5px 14px rgba(23,44,64,.08);color:#111a25}
+.chat-logo svg{width:37px;height:37px;fill:currentColor}
+.product-card h3{font-size:13px;margin:0;font-weight:800;direction:ltr}
+.product-description{font-size:11px;color:#778391;margin:5px 0}
+.price{font-size:13px;margin-top:1px}
+.price small{font-size:10px;font-weight:600}
+.add-cart{height:43px;width:calc(100% + 20px);margin-top:auto;border:0;border-top:1px solid #edf0f4;background:linear-gradient(white,#f7f9fc);display:grid;place-items:center;cursor:pointer}
+.add-cart:hover{color:var(--teal-dark);background:#effbf9}
+@media (max-width:1000px){.product-layout{gap:14px}
+.product-card{min-height:225px}}
+@media (max-width:760px){.product-layout{display:flex;flex-direction:column-reverse;gap:13px}
+.product-grid{gap:8px}
+.product-card{min-height:204px;border-radius:16px;padding:18px 6px 0}
+.ms-logo{width:44px;height:44px}
+.netflix-logo{font-size:50px;height:48px}
+.chat-logo{width:48px;height:48px}
+.product-card h3{font-size:10px}
+.product-description{font-size:9px}
+.price{font-size:10px}
+.price small{font-size:8px}
+.favorite{left:8px;top:8px}
+.favorite svg{width:16px;height:16px}
+.product-badge{font-size:8px;right:7px;top:7px;padding:2px 6px}
+.add-cart{height:38px}}
+@media (max-width:390px){.product-card{min-height:188px}
+.product-card h3{font-size:9px}}
+.product-card-link{width:100%;display:flex;flex:1;flex-direction:column;align-items:center;justify-content:flex-start;color:inherit}
+.product-card .add-cart{display:flex;align-items:center;justify-content:center;gap:6px}
+.product-card .add-cart span{font-size:10px;color:var(--teal-dark)}
+.product-card .add-cart.is-added{background:#e9f8f6}
+.youtube-logo,.spotify-logo,.google-logo{height:54px;width:54px;border-radius:17px;margin:3px 0 8px;display:grid;place-items:center;font-family:Arial,sans-serif;font-weight:900;font-size:33px;box-shadow:0 5px 14px rgba(23,44,64,.08)}
+.youtube-logo{background:#fff;color:#f00;font-size:26px}
+.spotify-logo{background:#1ed760;color:#061d13;font-size:43px}
+.google-logo{background:white;color:#4285f4;font-size:40px}
+@media(max-width:430px){.product-card .favorite svg{width:15px;height:15px}}
+.product-card{border-radius:var(--radius-card)}
+.product-card-link .ms-logo,.product-card-link .netflix-logo,.product-card-link .chat-logo,.product-card-link .youtube-logo,.product-card-link .spotify-logo,.product-card-link .google-logo{height:54px;width:54px;min-height:54px;display:grid;place-items:center;margin:3px 0 8px;transform:none}
+.product-card-link .ms-logo{display:grid;padding:3px;grid-template-columns:repeat(2,1fr)}
+.product-card-link .netflix-logo{display:flex;font-size:54px;line-height:1;align-items:center;justify-content:center;transform:scaleX(.78)}
+.product-card-link .chat-logo{border-radius:16px}
+.product-card h3{font-size:13px}
+.product-description{font-size:11px}
+.price{color:var(--ink);font-size:13px}
+.favorite{color:#8795A4}
+.favorite.is-favorite{color:#E25264}
+.add-cart{border-top-color:var(--line);background:linear-gradient(#fff,#F6F9FB)}
+@media(max-width:760px){.product-card-link .netflix-logo{font-size:48px;height:48px;min-height:48px}
+.product-card-link .ms-logo,.product-card-link .chat-logo,.product-card-link .youtube-logo,.product-card-link .spotify-logo,.product-card-link .google-logo{width:46px;height:46px;min-height:46px}}
+.product-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(23,47,67,.11);border-color:#d9eeec}
+.product-card-link .ms-logo,.product-card-link .netflix-logo,.product-card-link .chat-logo,.product-card-link .youtube-logo,.product-card-link .spotify-logo,.product-card-link .google-logo{transition:transform .28s ease}
+.product-card:hover .ms-logo,.product-card:hover .netflix-logo,.product-card:hover .chat-logo,.product-card:hover .youtube-logo,.product-card:hover .spotify-logo,.product-card:hover .google-logo{transform:translateY(-3px) scale(1.06)}
+ 
+@media(max-width:430px){.catalog-grid .product-card{min-width:0;min-height:190px;padding-inline:7px}.product-card h3{font-size:10px}.product-description{overflow-wrap:anywhere}}

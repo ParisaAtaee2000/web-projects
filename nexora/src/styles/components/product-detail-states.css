@@ -1,0 +1,4 @@
+/* NEXORA product-detail state and interaction styles. */
+.favorite.is-favorite,.detail-favorite.is-favorite{color:#e05b78;background:#fff0f3}
+.favorite.is-favorite svg,.detail-favorite.is-favorite svg{fill:currentColor}
+.detail-favorite{position:absolute;left:17px;top:17px;z-index:2;width:39px;height:39px;border:1px solid var(--line);border-radius:13px;background:#fff;color:#71808d;display:grid;place-items:center;cursor:pointer}

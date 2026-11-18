@@ -1,0 +1,52 @@
+/* NEXORA account state and interaction styles. */
+.favorite:focus-visible,.add-cart:focus-visible,.button:focus-visible,.outline-button:focus-visible,.account-tabs button:focus-visible{outline:3px solid rgba(15,157,150,.28);outline-offset:3px}
+.account-auth-card,.account-dashboard{max-width:850px;border:1px solid var(--line);border-radius:18px;background:#fff;padding:20px;box-shadow:var(--shadow)}
+.account-auth-card{max-width:520px;margin-inline:auto}
+.account-tabs{display:flex;gap:7px;padding:4px;background:#f4f7f8;border-radius:12px;margin:15px 0}
+.account-tabs button{flex:1;border:0;background:transparent;border-radius:9px;padding:10px;color:#6d7985;font:inherit;font-size:11px;cursor:pointer}
+.account-tabs button.active{background:white;color:var(--teal-dark);box-shadow:0 2px 8px rgba(22,40,55,.08);font-weight:700}
+.account-form{display:flex;flex-direction:column;gap:12px}
+.account-form label{display:flex;flex-direction:column;gap:6px;color:#52606e;font-size:11px}
+.account-form input{width:100%;border:1px solid var(--line);border-radius:10px;background:#fbfcfd;padding:12px;outline:0;font:inherit;font-size:11px}
+.account-form input:focus{border-color:#7ed5ce}
+.account-form .button{align-self:stretch;justify-content:center;margin-top:3px}
+.account-welcome{display:flex;align-items:center;gap:13px;padding:17px 0;border-bottom:1px solid var(--line)}
+.account-avatar{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;background:#e4f7f3;color:#078b84;font-size:22px;font-weight:800}
+.account-welcome>div:nth-child(2){flex:1}
+.account-welcome small,.account-welcome p{color:#87929d;font-size:10px;margin:0}
+.account-welcome h2{font-size:16px;margin:3px 0}
+.outline-button{border:1px solid var(--line);border-radius:10px;background:white;color:#52606e;padding:8px 12px;font:inherit;font-size:10px;cursor:pointer}
+.outline-button:hover{border-color:#8acfc9;color:var(--teal-dark)}
+.account-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+.account-stats article{border:1px solid var(--line);border-radius:13px;padding:14px;background:#fbfcfd}
+.account-stats span{display:block;color:#7c8792;font-size:10px;margin-bottom:7px}
+.account-stats strong{font-size:15px;color:#263443}
+.account-section-heading{display:flex;align-items:center;justify-content:space-between;margin:18px 0 9px}
+.account-section-heading h2,.account-profile h2{font-size:14px;margin:0}
+.account-section-heading span{font-size:9px;color:#909ba5}
+.account-order-list{border:1px solid var(--line);border-radius:13px;padding:0 13px}
+.account-order{display:grid;grid-template-columns:1fr 1fr auto;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #edf0f3}
+.account-order:last-child{border-bottom:0}
+.account-order>div{display:flex;flex-direction:column;gap:4px}
+.account-order bdi{font-size:11px;font-weight:700;color:#293948}
+.account-order strong{font-size:11px}
+.account-order small{font-size:9px;color:#89949f}
+.account-order a{font-size:10px;color:var(--teal-dark)}
+.account-empty{padding:24px 12px;text-align:center;border:1px dashed #dce4ec;border-radius:13px;color:#84909c}
+.account-empty svg{color:var(--teal-dark)}
+.account-empty h3{font-size:13px;color:#2d3b48;margin:8px 0 3px}
+.account-empty p{font-size:10px;margin:0 0 8px}
+.account-empty .support-link{justify-content:center}
+.account-profile{margin-top:18px;border-top:1px solid var(--line);padding-top:15px}
+.account-profile p{display:flex;justify-content:space-between;gap:12px;font-size:10px;color:#7b8792;margin:12px 0}
+.account-profile p b{color:#334251;text-align:left;overflow-wrap:anywhere}
+.favorites-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;color:#75818e;font-size:10px}
+.favorites-content .catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:760px){.account-auth-card,.account-dashboard{padding:14px}
+.account-order{grid-template-columns:1fr 1fr;gap:8px}
+.account-order a{grid-column:1/-1}
+.favorites-content .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.account-stats{grid-template-columns:1fr}
+.account-welcome{flex-wrap:wrap}
+.account-welcome .outline-button{margin-right:auto}
+.favorites-toolbar{align-items:flex-start}}

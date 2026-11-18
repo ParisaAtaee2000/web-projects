@@ -1,0 +1,18 @@
+/* NEXORA checkout state and interaction styles. */
+.checkout-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.checkout-title-row h2{margin:0 0 8px}
+.checkout-form label .optional-label{font-size:9px;color:#98a2ac}
+.checkout-form textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:#fbfcfd;padding:11px 12px;outline:0;font:inherit;font-size:11px;resize:vertical}
+.checkout-form textarea:focus{border-color:#7ed5ce}
+.checkout-form .terms-check{display:flex;flex-direction:row;align-items:center;gap:8px;color:#687584}
+.checkout-form .terms-check input{width:16px;height:16px;accent-color:var(--teal-dark)}
+.checkout-form .button{align-self:stretch}
+.checkout-line{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #eff2f4;color:#6a7784;font-size:10px}
+.checkout-line b{color:#263443;white-space:nowrap;font-size:10px}
+.order-preview{grid-column:1/-1;display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:1px solid #bfe7df;background:#f2fbf9;border-radius:16px;padding:16px 18px}
+.order-preview>div{flex:1;min-width:220px}
+.order-preview strong{font-size:13px;color:#186b64}
+.order-preview p{font-size:10px;line-height:1.8;color:#61736f;margin:4px 0 0}
+.order-preview .support-link{white-space:nowrap}
+@media(max-width:760px){.order-preview{gap:10px;padding:13px}
+.order-preview .support-link{width:100%;justify-content:flex-start}}

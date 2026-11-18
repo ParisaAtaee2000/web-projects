@@ -1,0 +1,38 @@
+/* NEXORA footer component stylesheet. */
+.site-footer{position:relative;background:#061522;color:#f6f8fc;min-height:212px;border-radius:23px 23px 0 0;padding:30px 0 25px}
+.footer-content{display:grid;grid-template-columns:1.2fr .9fr .8fr 1fr 1fr;gap:20px;align-items:start}
+.footer-brand .brand{font-size:19px}
+.footer-brand p{font-size:10px;color:#9aa9b8;margin:8px 0}
+.copyright{font-size:9px;color:#8494a4;margin-top:43px;direction:ltr;text-align:left}
+.socials{display:flex;justify-content:center;gap:13px;padding-top:6px}
+.socials a{display:grid;place-items:center;width:23px;height:23px}
+.socials a:hover{color:#36cfc1}
+.footer-links{border-right:1px solid rgba(189,207,222,.16);padding-right:23px;min-height:104px;display:flex;flex-direction:column;gap:6px}
+.footer-links h3,.footer-about h3{font-size:12px;margin:0 0 3px;font-weight:700}
+.footer-links a{font-size:10px;color:#d1d9e1}
+.footer-links a:hover{color:#2cc7bc}
+.footer-about{padding-right:7px}
+.footer-about p{font-size:10px;line-height:1.9;color:#c3ced8}
+.payment-logos{font-family:Arial,sans-serif;font-style:italic;font-weight:900;font-size:17px;direction:ltr;display:inline-flex;align-items:center;gap:8px}
+.payment-logos b{font-size:19px;color:#ed313c;letter-spacing:-10px;text-shadow:9px 0 #f9a629}
+.back-top{position:absolute;left:max(26px,calc((100vw - 1220px)/2));bottom:22px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--teal);color:white;font-size:25px;box-shadow:0 5px 15px rgba(5,182,169,.25)}
+@media (max-width:1000px){.footer-content{grid-template-columns:1.1fr .65fr .8fr .9fr .85fr;gap:12px}}
+@media (max-width:760px){.site-footer{padding:24px 0 30px;min-height:unset;border-radius:19px 19px 0 0}
+.footer-content{grid-template-columns:1fr 1fr;gap:24px 14px}
+.footer-brand{grid-column:1}
+.socials{grid-column:2;justify-content:flex-start;padding-top:6px}
+.footer-links{padding-right:12px;min-height:unset}
+.footer-links h3,.footer-about h3{font-size:11px}
+.footer-links a,.footer-about p{font-size:9px}
+.footer-about{grid-column:1/-1;padding:0 12px 0 0}
+.copyright{margin-top:22px;font-size:8px}
+.back-top{left:16px;bottom:15px;width:39px;height:39px}}
+.footer-brand .brand-logo-image{width:128px;max-width:100%}
+.site-footer{background:var(--ink);border-radius:var(--radius-feature) var(--radius-feature) 0 0}
+.footer-links{border-color:rgba(189,207,222,.18)}
+.footer-brand .brand-logo-image{filter:brightness(0) invert(1)}
+.footer-brand p{color:#B8C6D2;font-size:11px}
+.copyright{direction:rtl;text-align:right;color:#A8B7C5;font-size:10px;line-height:1.8}
+.payment-logos{direction:rtl;font-family:inherit;font-style:normal;font-size:10px;font-weight:600;color:#D8E2EA}
+@media(max-width:760px){.copyright{font-size:9px}
+.footer-brand p{font-size:10px}}
