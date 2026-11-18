@@ -7,7 +7,7 @@ import Breadcrumbs from '../components/ui/Breadcrumbs'
 export default function CartPage() {
   const { items, setQuantity, remove } = useCart()
   const lines = items.map(item => {
-    const product = products.find(entry => entry.slug === item.slug)
+    const product = item.productSnapshot ?? products.find(entry => entry.slug === item.slug)
     const variant = product?.variants.find(entry => entry.id === item.variantId)
     return { ...item, product, variant }
   }).filter(item => item.product && item.variant)

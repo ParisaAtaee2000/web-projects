@@ -1,0 +1,8 @@
+/* NEXORA header state and interaction styles. */
+.brand-logo-image{display:block;width:clamp(128px,15vw,174px);height:auto;object-fit:contain}
+.site-header .brand{width:max-content;max-width:100%}
+.icon-button{position:relative}
+.favorite-header-button .cart-count{right:-6px}
+.favorite-header-button:hover{color:var(--teal-dark)}
+@media(max-width:760px){.brand-logo-image{width:125px}
+.header-tools>.icon-button.favorite-header-button{display:grid!important}}

@@ -15,7 +15,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
   function addToCart() {
     if (!variant) return
-    add(product.slug, variant.id)
+    add(product, variant.id)
     setAdded(true)
     window.setTimeout(() => setAdded(false), 1400)
   }
@@ -23,7 +23,7 @@ export default function ProductCard({ product }: { product: Product }) {
   return <article className="product-card">
     <button type="button" className={'favorite' + (isFavorite ? ' is-favorite' : '')}
       aria-label={isFavorite ? 'حذف ' + product.name + ' از علاقه‌مندی‌ها' : 'افزودن ' + product.name + ' به علاقه‌مندی‌ها'}
-      aria-pressed={isFavorite} onClick={() => favorites.toggle(product.slug)}>
+      aria-pressed={isFavorite} onClick={() => favorites.toggle(product)}>
       <Icon name="heart" size={20} />
     </button>
     {product.badge && <span className={'product-badge ' + (product.brand === 'netflix' ? 'dark-badge' : '')}>{product.badge}</span>}

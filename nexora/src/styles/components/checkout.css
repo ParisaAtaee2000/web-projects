@@ -1,0 +1,6 @@
+/* NEXORA checkout component stylesheet. */
+.checkout-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start}
+.checkout-form>p{color:#87929d;font-size:10px;margin:0}
+@media(max-width:760px){.checkout-form .button{width:100%;justify-content:center}}
+
+@media(max-width:760px){.checkout-layout{grid-template-columns:minmax(0,1fr)}.checkout-form{min-width:0}.checkout-form input,.checkout-form textarea{max-width:100%}}

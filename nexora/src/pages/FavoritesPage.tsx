@@ -7,7 +7,7 @@ import PageHeading from '../components/ui/PageHeading'
 
 export default function FavoritesPage() {
   const favorites = useFavorites()
-  const favoriteProducts = products.filter(product => favorites.items.includes(product.slug))
+  const favoriteProducts = favorites.items.map(item => item.productSnapshot ?? products.find(product => product.slug === item.slug)).filter((product): product is NonNullable<typeof product> => Boolean(product))
 
   return <div className="page-shell wrap">
     <Breadcrumbs items={[{ label: 'خانه', href: '/' }, { label: 'علاقه‌مندی‌ها' }]} />

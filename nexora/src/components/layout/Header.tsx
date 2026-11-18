@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import HeaderNavigation from './HeaderNavigation'
 import HeaderActions from './HeaderActions'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
-  const activePath = window.location.pathname
+  const { pathname: activePath } = useLocation()
 
   return <header className="site-header wrap">
     <a className="brand" href="/" aria-label="NEXORA - صفحهٔ اصلی">
